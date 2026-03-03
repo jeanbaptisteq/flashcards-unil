@@ -1,0 +1,12 @@
+{
+  "id": "leadership",
+  "name": "Leadership",
+  "color": "#dc2626",
+  "decks": [
+    {
+      "id": "communication",
+      "title": "Communication & Leadership",
+      "file": "communication.json"
+    }
+  ]
+}

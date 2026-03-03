@@ -1,0 +1,77 @@
+export type CardType = 'mcq_single' | 'mcq_multi' | 'image_recall' | 'dropdown'
+
+export interface CardOption {
+  id: string
+  text: string
+}
+
+interface BaseCard {
+  id: string
+  type: CardType
+  question: string
+  explanation: string
+  image_front?: string | null
+  image_back?: string | null
+}
+
+export interface MCQSingleCard extends BaseCard {
+  type: 'mcq_single'
+  options: CardOption[]
+  correct: string[]
+}
+
+export interface MCQMultiCard extends BaseCard {
+  type: 'mcq_multi'
+  options: CardOption[]
+  correct: string[]
+}
+
+export interface ImageRecallCard extends BaseCard {
+  type: 'image_recall'
+  prompt?: string
+  image: string
+  answer: string
+}
+
+export interface DropdownCard extends BaseCard {
+  type: 'dropdown'
+  prompt: string
+  choices: string[]
+  correct: string
+}
+
+export type Card = MCQSingleCard | MCQMultiCard | ImageRecallCard | DropdownCard
+
+export interface Deck {
+  id: string
+  course: string
+  lesson: string
+  cards: Card[]
+}
+
+export interface DeckMeta {
+  id: string
+  title: string
+  file: string
+}
+
+export interface CourseIndex {
+  id: string
+  name: string
+  color: string
+  decks: DeckMeta[]
+}
+
+export interface SM2State {
+  interval: number
+  easeFactor: number
+  dueDate: string
+  reps: number
+}
+
+export interface UserCardState {
+  note: string
+  sm2: SM2State
+}
+
+export type Rating = 0 | 1 | 2 | 3

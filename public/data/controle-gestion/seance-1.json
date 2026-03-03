@@ -1,0 +1,159 @@
+{
+  "id": "seance-1",
+  "course": "controle-gestion",
+  "lesson": "Séance 1 — Introduction au FCG",
+  "cards": [
+    {
+      "id": "c1",
+      "type": "mcq_single",
+      "question": "Quelle est la principale distinction entre la comptabilité financière et le contrôle de gestion ?",
+      "options": [
+        { "id": "A", "text": "La comptabilité financière est destinée aux managers internes ; le FCG aux investisseurs." },
+        { "id": "B", "text": "La comptabilité financière est destinée aux acteurs externes ; le FCG aux décideurs internes." },
+        { "id": "C", "text": "Le FCG est obligatoire par la loi ; la comptabilité financière est facultative." },
+        { "id": "D", "text": "Le FCG porte uniquement sur les coûts fixes ; la comptabilité financière sur les coûts variables." }
+      ],
+      "correct": ["B"],
+      "explanation": "La comptabilité financière (reporting légal) s'adresse aux parties prenantes externes. Le FCG produit des informations pour aider les managers à piloter l'entreprise."
+    },
+    {
+      "id": "c2",
+      "type": "mcq_multi",
+      "question": "Parmi les affirmations suivantes, lesquelles décrivent correctement le contrôle de gestion ?",
+      "options": [
+        { "id": "A", "text": "Il aide à planifier, coordonner et contrôler les activités de l'entreprise." },
+        { "id": "B", "text": "Il est régi par des normes comptables internationales (IFRS)." },
+        { "id": "C", "text": "Il fournit des informations sur les coûts, budgets et performances." },
+        { "id": "D", "text": "Ses rapports sont publiés annuellement pour les actionnaires." }
+      ],
+      "correct": ["A", "C"],
+      "explanation": "Le FCG aide à la prise de décision interne (A) et produit des données sur coûts, budgets et performance (C). Il n'est pas soumis à des normes légales (B) et n'est pas destiné aux actionnaires (D)."
+    },
+    {
+      "id": "c3",
+      "type": "mcq_single",
+      "question": "Dans le cycle de contrôle de gestion, quelle étape suit immédiatement la planification ?",
+      "options": [
+        { "id": "A", "text": "L'analyse des écarts" },
+        { "id": "B", "text": "La mise en œuvre (exécution)" },
+        { "id": "C", "text": "L'évaluation des performances" },
+        { "id": "D", "text": "La définition de la stratégie" }
+      ],
+      "correct": ["B"],
+      "explanation": "Le cycle FCG : Planification → Mise en œuvre → Contrôle (mesure des résultats) → Analyse des écarts → Actions correctives → retour à la planification."
+    },
+    {
+      "id": "c4",
+      "type": "dropdown",
+      "question": "Complète la phrase",
+      "prompt": "Le contrôle de gestion est un outil d'aide à la ____ pour les managers.",
+      "choices": ["décision", "communication", "financement", "production"],
+      "correct": "décision",
+      "explanation": "Le FCG produit l'information nécessaire à la prise de décision managériale."
+    },
+    {
+      "id": "c5",
+      "type": "mcq_single",
+      "question": "Lequel des éléments suivants est un outil typique du contrôle de gestion ?",
+      "options": [
+        { "id": "A", "text": "Le bilan comptable" },
+        { "id": "B", "text": "Le compte de résultat publié" },
+        { "id": "C", "text": "Le budget annuel et l'analyse des écarts budgétaires" },
+        { "id": "D", "text": "La déclaration fiscale" }
+      ],
+      "correct": ["C"],
+      "explanation": "Le budget et l'analyse des écarts (prévu vs réel) sont au cœur du FCG. Les autres éléments relèvent de la comptabilité financière ou fiscale."
+    },
+    {
+      "id": "c6",
+      "type": "mcq_single",
+      "question": "Laquelle des affirmations suivantes décrit correctement la phase 'Act' du processus PDCA ?",
+      "options": [
+        { "id": "A", "text": "Mesurer les résultats obtenus et les comparer aux prévisions" },
+        { "id": "B", "text": "Identifier les objectifs et définir une feuille de route" },
+        { "id": "C", "text": "Maintenir la stratégie si les résultats sont acceptables ; sinon la revoir et suivre une alternative" },
+        { "id": "D", "text": "Mettre en œuvre la feuille de route définie" }
+      ],
+      "correct": ["C"],
+      "explanation": "A = Check (contrôler). B = Plan (planifier). D = Do (faire). C = Act : on agit en maintenant ou en corrigeant la stratégie selon les résultats observés."
+    },
+    {
+      "id": "c7",
+      "type": "mcq_single",
+      "question": "Selon Simons (1999), quel type de système de contrôle est associé à la stratégie en tant que 'Schémas en action' (tester et apprendre) ?",
+      "options": [
+        { "id": "A", "text": "Systèmes de valeurs" },
+        { "id": "B", "text": "Systèmes limitatifs" },
+        { "id": "C", "text": "Systèmes de contrôle diagnostics" },
+        { "id": "D", "text": "Systèmes interactifs de contrôle" }
+      ],
+      "correct": ["D"],
+      "explanation": "Correspondances Simons (1999) : Valeurs → Perspective · Limitatifs → Position · Diagnostics → Plan · Interactifs → Schémas en action (gestion des incertitudes stratégiques, tester et apprendre)."
+    },
+    {
+      "id": "c8",
+      "type": "mcq_single",
+      "question": "Selon Kaplan & Norton, quel obstacle à la stratégie est illustré par le fait que 85 % des dirigeants passent moins d'une heure par mois à discuter de stratégie ?",
+      "options": [
+        { "id": "A", "text": "Obstacle de vision (5 % du personnel comprend la stratégie)" },
+        { "id": "B", "text": "Obstacle d'incitation (25 % ont des incitations liées à la stratégie)" },
+        { "id": "C", "text": "Obstacle de ressources (60 % ne lient pas budget à stratégie)" },
+        { "id": "D", "text": "Obstacle de management" }
+      ],
+      "correct": ["D"],
+      "explanation": "Les 4 obstacles : Vision (5 % comprend la stratégie) · Incitation (25 % d'incitations liées) · Ressources (60 % ne lient pas budget à stratégie) · Management (85 % passent < 1h/mois à discuter de stratégie)."
+    },
+    {
+      "id": "c9",
+      "type": "mcq_single",
+      "question": "Parmi les éléments suivants, lequel est un mécanisme INTERNE de gouvernance ?",
+      "options": [
+        { "id": "A", "text": "Le marché des capitaux" },
+        { "id": "B", "text": "Le marché du travail" },
+        { "id": "C", "text": "Le conseil d'administration" },
+        { "id": "D", "text": "Le marché des prises de contrôle (OPA inamicales)" }
+      ],
+      "correct": ["C"],
+      "explanation": "La chaîne interne : Propriétaires → Conseil d'administration → Direction générale → Responsables. Les marchés (capitaux, travail, produits, OPA) sont des mécanismes externes de gouvernance."
+    },
+    {
+      "id": "c10",
+      "type": "mcq_multi",
+      "question": "Lesquelles des affirmations suivantes sur les indicateurs de performance sont correctes ?",
+      "options": [
+        { "id": "A", "text": "Le bénéfice résiduel (EVA) est un indicateur financier." },
+        { "id": "B", "text": "Le taux d'absentéisme est un indicateur financier." },
+        { "id": "C", "text": "L'émission de CO₂ peut être un indicateur de performance non-financier." },
+        { "id": "D", "text": "Le ROE (Return on Equity) mesure le rendement des fonds propres." }
+      ],
+      "correct": ["A", "C", "D"],
+      "explanation": "A : Vrai — EVA (bénéfice résiduel) est financier. B : Faux — le taux d'absentéisme est non-financier. C : Vrai — CO₂ = indicateur non-financier. D : Vrai — ROE = rendement des fonds propres, indicateur financier."
+    },
+    {
+      "id": "c11",
+      "type": "mcq_multi",
+      "question": "L'information sur laquelle repose le processus de contrôle de gestion doit être (plusieurs réponses correctes) :",
+      "options": [
+        { "id": "A", "text": "Complète" },
+        { "id": "B", "text": "Uniquement financière" },
+        { "id": "C", "text": "Objective" },
+        { "id": "D", "text": "Disponible à temps" }
+      ],
+      "correct": ["A", "C", "D"],
+      "explanation": "Selon le cours : information complète, détaillée, objective et disponible à temps. Elle n'est pas uniquement financière — les systèmes de CG génèrent aussi de l'information non-financière."
+    },
+    {
+      "id": "c12",
+      "type": "mcq_single",
+      "question": "Selon le cours, la performance d'une entreprise dépend de :",
+      "options": [
+        { "id": "A", "text": "Uniquement de son positionnement stratégique au sein du secteur" },
+        { "id": "B", "text": "De l'attractivité du secteur ET du positionnement stratégique" },
+        { "id": "C", "text": "Uniquement de l'attractivité du secteur d'activité" },
+        { "id": "D", "text": "De la taille de l'entreprise et de son chiffre d'affaires" }
+      ],
+      "correct": ["B"],
+      "explanation": "La performance dépend de deux déterminants : (1) attractivité du secteur (forces concurrentielles) ET (2) positionnement stratégique au sein du secteur. Les deux comptent — ni l'un ni l'autre seul ne suffit."
+    }
+  ]
+}
