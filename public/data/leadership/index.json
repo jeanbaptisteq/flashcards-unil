@@ -7,6 +7,21 @@
       "id": "communication",
       "title": "Communication & Leadership",
       "file": "communication.json"
+    },
+    {
+      "id": "stereotypes",
+      "title": "Stéréotypes",
+      "file": "stereotypes.json"
+    },
+    {
+      "id": "charisme",
+      "title": "Charisme",
+      "file": "charisme.json"
+    },
+    {
+      "id": "persuasion",
+      "title": "Persuasion",
+      "file": "persuasion.json"
     }
   ]
 }

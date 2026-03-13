@@ -1,0 +1,304 @@
+{
+  "id": "stereotypes",
+  "course": "leadership",
+  "lesson": "Stéréotypes",
+  "cards": [
+    {
+      "id": "c1",
+      "type": "mcq_single",
+      "question": "Prendre conscience des stéréotypes de genre n’aide pas à prendre conscience des autres types de stéréotypes. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "Les mécanismes des stéréotypes et des biais implicites fonctionnent de manière similaire entre groupes sociaux. Comprendre les stéréotypes de genre aide aussi à reconnaître d’autres stéréotypes."
+    },
+    {
+      "id": "c2",
+      "type": "mcq_single",
+      "question": "Les stéréotypes sont toujours implicites. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "Les stéréotypes peuvent être implicites (automatiques) ou explicites (conscients et exprimés)."
+    },
+    {
+      "id": "c3",
+      "type": "mcq_single",
+      "question": "Un stéréotype est une évaluation négative d’une autre personne. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "Un stéréotype est une croyance/généralisation cognitive sur un groupe. L’évaluation émotionnelle négative correspond plutôt au préjugé."
+    },
+    {
+      "id": "c4",
+      "type": "mcq_single",
+      "question": "Nous devrions éviter d'utiliser des stéréotypes, car ils ne correspondent jamais à des différences réelles. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "Les stéréotypes peuvent contenir une part de vérité statistique, mais ils déforment la réalité et sont inadaptés pour évaluer un individu."
+    },
+    {
+      "id": "c5",
+      "type": "mcq_single",
+      "question": "Plus de variance perçue dans l’endogroupe que dans l’exogroupe correspond au favoritisme endogroupe. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "Cela correspond plutôt à l’effet d’homogénéité de l’exogroupe. Le favoritisme endogroupe concerne une valorisation préférentielle de son propre groupe."
+    },
+    {
+      "id": "c6",
+      "type": "mcq_single",
+      "question": "Si la majorité des chirurgien·ne·s sont des hommes, je peux conclure qu’une femme rencontrée n’est probablement pas chirurgienne. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "Une information populationnelle est probabiliste et ne permet pas de juger correctement un individu précis."
+    },
+    {
+      "id": "c7",
+      "type": "mcq_single",
+      "question": "Le cas de Sonja (questions sur ses enfants alors que les collègues masculins discutent de travail) peut devenir une prophétie auto-réalisatrice.",
+      "options": [
+        { "id": "A", "text": "Oui" },
+        { "id": "B", "text": "Non" }
+      ],
+      "correct": ["A"],
+      "explanation": "Les attentes stéréotypées orientent les interactions, réduisent la visibilité professionnelle et finissent par produire les conséquences attendues par le stéréotype."
+    },
+    {
+      "id": "c8",
+      "type": "mcq_single",
+      "question": "Contrer les stéréotypes est plus facile quand on n’est pas pressé de décider. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["A"],
+      "explanation": "Il faut du temps et de l’effort cognitif pour activer la cognition contrôlée et freiner l’automatisme stéréotypé."
+    },
+    {
+      "id": "c9",
+      "type": "mcq_single",
+      "question": "Il n’est pas possible d’affaiblir les associations cognitives stéréotypées. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "Des stratégies comme l’individuation, la prise de perspective, l’imagerie contre-stéréotypée et le contact intergroupe peuvent les réduire."
+    },
+    {
+      "id": "c10",
+      "type": "mcq_single",
+      "question": "Chercher plusieurs explications externes à un comportement négatif aide à surmonter les biais. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["A"],
+      "explanation": "L’objectif est de limiter l’attribution interne automatique et d’intégrer davantage le contexte."
+    },
+    {
+      "id": "c11",
+      "type": "mcq_single",
+      "question": "Prendre contact avec les membres de l’exogroupe peut aider à briser les associations stéréotypées. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["A"],
+      "explanation": "Augmenter les interactions avec l’exogroupe réduit l’homogénéisation perçue et nuance les jugements."
+    },
+    {
+      "id": "c12",
+      "type": "mcq_single",
+      "question": "Selon la théorie de l'identité sociale, les stéréotypes peuvent provenir de la catégorisation sociale et de l'identité sociale. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["A"],
+      "explanation": "La catégorisation sociale structure l’environnement en endogroupe/exogroupe et l’identité sociale lie l’individu à ses appartenances de groupe."
+    },
+    {
+      "id": "c13",
+      "type": "mcq_single",
+      "question": "Pour utiliser la cognition contrôlée, il faut prendre conscience, être motivé et avoir l’effort nécessaire. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["A"],
+      "explanation": "Sans ces trois conditions, l’activation automatique stéréotypée prend le dessus."
+    },
+    {
+      "id": "c14",
+      "type": "mcq_single",
+      "question": "Les stéréotypes sont une heuristique utilisée lors d’un premier entretien d’embauche. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["A"],
+      "explanation": "En pratique, ces raccourcis mentaux sont souvent activés en situation d’incertitude ou de charge cognitive."
+    },
+    {
+      "id": "c15",
+      "type": "mcq_single",
+      "question": "Les stéréotypes déforment la réalité par l’exagération, la valence et la variabilité. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "Les trois mécanismes sont l’exagération, la valence et la distribution (pas la variabilité)."
+    },
+    {
+      "id": "c16",
+      "type": "mcq_single",
+      "question": "En général, les stéréotypes sont une bonne heuristique. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["A"],
+      "explanation": "Ils peuvent être efficaces cognitivement en moyenne, mais restent problématiques pour évaluer des individus."
+    },
+    {
+      "id": "c17",
+      "type": "mcq_single",
+      "question": "Le stéréotype est cognitif, le préjugé est comportemental. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "Le stéréotype est cognitif, le préjugé est émotionnel/évaluatif, et la discrimination est comportementale."
+    },
+    {
+      "id": "c18",
+      "type": "mcq_single",
+      "question": "Toutes les cultures ont exactement les mêmes stéréotypes. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "Il existe des stéréotypes communs, mais aussi des différences culturelles importantes."
+    },
+    {
+      "id": "c19",
+      "type": "mcq_single",
+      "question": "Les biais implicites se mesurent uniquement avec des questionnaires explicites. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "Les mesures explicites sont biaisées par la désirabilité sociale. Des méthodes indirectes comme l’IAT sont plus adaptées."
+    },
+    {
+      "id": "c20",
+      "type": "mcq_single",
+      "question": "Les stéréotypes influencent uniquement la perception et le jugement des autres. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "Ils peuvent aussi affecter les personnes ciblées elles-mêmes, notamment via la menace du stéréotype."
+    },
+    {
+      "id": "c21",
+      "type": "mcq_single",
+      "question": "Une formation efficace contre les biais implicites doit combiner sensibilisation et compétences. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["A"],
+      "explanation": "Il faut à la fois prendre conscience que les biais nous concernent et acquérir des stratégies concrètes pour les surmonter."
+    },
+    {
+      "id": "c22",
+      "type": "mcq_single",
+      "question": "Connaître les stéréotypes de genre dans sa culture ne suffit pas à influencer perceptions et comportements. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "Le simple fait de connaître des stéréotypes peut déjà influencer les perceptions et les comportements, même sans y adhérer."
+    },
+    {
+      "id": "c23",
+      "type": "mcq_single",
+      "question": "Un entretien structuré (mêmes questions pour tous) réduit la probabilité de biais implicites. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["A"],
+      "explanation": "La standardisation réduit l’interprétation subjective et donc l’impact des stéréotypes implicites dans l’évaluation."
+    },
+    {
+      "id": "c24",
+      "type": "mcq_single",
+      "question": "Une perception réduite de la variabilité de l’exogroupe limite le chevauchement perçu entre les distributions endogroupe/exogroupe. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["A"],
+      "explanation": "Percevoir l’exogroupe comme homogène accentue artificiellement la séparation entre groupes."
+    },
+    {
+      "id": "c25",
+      "type": "mcq_single",
+      "question": "La valence des caractéristiques de l’endogroupe est généralement négative. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "Avec le favoritisme endogroupe, les caractéristiques de l’endogroupe sont souvent valorisées positivement."
+    },
+    {
+      "id": "c26",
+      "type": "mcq_single",
+      "question": "Un biais implicite peut faire évaluer différemment le même comportement selon la personne qui l’adopte. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["A"],
+      "explanation": "Le décodage d’un comportement peut être modifié par les attentes stéréotypées liées à la cible."
+    },
+    {
+      "id": "c27",
+      "type": "mcq_single",
+      "question": "La désindividualisation est une bonne stratégie pour briser les associations stéréotypées. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "C’est l’individuation (et non la désindividualisation) qui permet de réduire les stéréotypes en recentrant l’évaluation sur la personne."
+    }
+  ]
+}
