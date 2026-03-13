@@ -1,0 +1,17 @@
+{
+  "id": "controle-gestion",
+  "name": "Contrôle de gestion",
+  "color": "#2563eb",
+  "decks": [
+    {
+      "id": "seance-1",
+      "title": "Séance 1 — Introduction au FCG",
+      "file": "seance-1.json"
+    },
+    {
+      "id": "seance-2",
+      "title": "Séance 2 — Coûts pour décider",
+      "file": "seance-2.json"
+    }
+  ]
+}

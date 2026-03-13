@@ -1,0 +1,73 @@
+{
+  "id": "intro",
+  "course": "bia",
+  "lesson": "Introduction — Classification & ML",
+  "cards": [
+    {
+      "id": "c1",
+      "type": "image_recall",
+      "question": "Reconnaissance visuelle — Classification supervisée",
+      "prompt": "En observant la slide, quel type de problème ML est illustré ?",
+      "image": "/data/bia/assets/intro-fr-p-55.png",
+      "answer": "C'est un problème de classification supervisée (binaire) : Prêt sûr vs Prêt incertain.",
+      "explanation": "On prédit une catégorie discrète à partir de variables explicatives (score de crédit, revenu)."
+    },
+    {
+      "id": "c2",
+      "type": "mcq_single",
+      "question": "Quel est le meilleur type de tâche pour 'Accorder un prêt ou non ?' dans cette slide ?",
+      "options": [
+        { "id": "A", "text": "Régression (prédire un montant continu)" },
+        { "id": "B", "text": "Classification binaire" },
+        { "id": "C", "text": "Clustering non supervisé" },
+        { "id": "D", "text": "Réduction de dimension" }
+      ],
+      "correct": ["B"],
+      "explanation": "La cible est une étiquette discrète (Prêt sûr/Prêt incertain), pas une valeur continue."
+    },
+    {
+      "id": "c3",
+      "type": "mcq_multi",
+      "question": "Quelles affirmations sont vraies pour cette slide de prêt bancaire ?",
+      "options": [
+        { "id": "A", "text": "Les données historiques sont étiquetées (bleu/rouge)." },
+        { "id": "B", "text": "La droite verte joue le rôle de frontière de décision." },
+        { "id": "C", "text": "On est dans un apprentissage non supervisé." },
+        { "id": "D", "text": "Un nouveau client est classé selon sa position par rapport à la ligne." }
+      ],
+      "correct": ["A", "B", "D"],
+      "explanation": "Il s'agit d'un apprentissage supervisé de classification avec une règle de décision géométrique."
+    },
+    {
+      "id": "c4",
+      "type": "dropdown",
+      "question": "Complète la phrase",
+      "prompt": "Quand on prédit une catégorie discrète, on fait de la ____.",
+      "choices": ["classification", "régression", "clustering", "segmentation"],
+      "correct": "classification",
+      "explanation": "La classification prédit des classes ; la régression prédit une valeur numérique continue."
+    },
+    {
+      "id": "c5",
+      "type": "image_recall",
+      "question": "Frontière de décision",
+      "prompt": "Regarde la droite : au-dessus vs en-dessous, quelles classes ?",
+      "image": "/data/bia/assets/intro-fr-p-54.png",
+      "answer": "Au-dessus : Prêt sûr. En-dessous : Prêt incertain.",
+      "explanation": "La droite sépare l'espace des variables (revenu, score) en deux régions de classes."
+    },
+    {
+      "id": "c6",
+      "type": "mcq_single",
+      "question": "Que critique principalement le principe HiPPO dans la prise de décision en entreprise ?",
+      "options": [
+        { "id": "A", "text": "Il repose sur l'opinion de la personne la mieux payée plutôt que sur des preuves issues des données." },
+        { "id": "B", "text": "Il utilise trop de KPI et ralentit les décisions data-driven." },
+        { "id": "C", "text": "Il est un algorithme de clustering peu interprétable pour les managers." },
+        { "id": "D", "text": "Il sert à choisir automatiquement la meilleure méthode de régression." }
+      ],
+      "correct": ["A"],
+      "explanation": "La slide oppose HiPPO (décision basée sur l'autorité/opinion) à l'approche data-driven défendue par le cours BI&A."
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "id": "communication",
+  "course": "leadership",
+  "lesson": "Communication & Leadership",
+  "cards": [
+    {
+      "id": "c1",
+      "type": "mcq_single",
+      "question": "Selon le modèle de communication de Shannon-Weaver, quel élément représente les 'parasites' dans la transmission d'un message ?",
+      "options": [
+        { "id": "A", "text": "L'encodage" },
+        { "id": "B", "text": "Le bruit (noise)" },
+        { "id": "C", "text": "Le canal" },
+        { "id": "D", "text": "Le feedback" }
+      ],
+      "correct": ["B"],
+      "explanation": "Le 'bruit' correspond à tout ce qui perturbe ou déforme le message entre l'émetteur et le récepteur."
+    },
+    {
+      "id": "c2",
+      "type": "mcq_multi",
+      "question": "Quelles compétences caractérisent un leader efficace selon les approches comportementales ?",
+      "options": [
+        { "id": "A", "text": "L'orientation vers les tâches (task-oriented behavior)" },
+        { "id": "B", "text": "L'orientation vers les personnes (people-oriented behavior)" },
+        { "id": "C", "text": "La domination par le statut hiérarchique seul" },
+        { "id": "D", "text": "L'adaptabilité au contexte (situational leadership)" }
+      ],
+      "correct": ["A", "B", "D"],
+      "explanation": "Les approches comportementales et situationnelles identifient l'orientation tâche, l'orientation personnes, et l'adaptabilité comme centrales. La domination hiérarchique seule n'est pas un indicateur d'efficacité."
+    },
+    {
+      "id": "c3",
+      "type": "mcq_single",
+      "question": "Dans le modèle de leadership situationnel de Hersey & Blanchard, quel style est recommandé pour un collaborateur peu compétent mais très motivé ?",
+      "options": [
+        { "id": "A", "text": "Déléguer (S4)" },
+        { "id": "B", "text": "Participer (S3)" },
+        { "id": "C", "text": "Vendre / Entraîner (S2)" },
+        { "id": "D", "text": "Diriger (S1)" }
+      ],
+      "correct": ["D"],
+      "explanation": "S1 (Diriger) est approprié quand la compétence est faible mais la motivation est forte — le leader donne des instructions claires et supervise de près."
+    },
+    {
+      "id": "c4",
+      "type": "dropdown",
+      "question": "Complète la phrase",
+      "prompt": "La communication ____ représente les gestes, postures et expressions faciales.",
+      "choices": ["non verbale", "verbale", "écrite", "digitale"],
+      "correct": "non verbale",
+      "explanation": "La communication non verbale inclut le langage corporel, qui représente souvent la majorité du message perçu."
+    },
+    {
+      "id": "c5",
+      "type": "mcq_single",
+      "question": "Qu'est-ce que l'écoute active selon les principes de communication managériale ?",
+      "options": [
+        { "id": "A", "text": "Écouter en silence absolu sans jamais poser de questions." },
+        { "id": "B", "text": "Porter attention, reformuler et poser des questions pour valider sa compréhension." },
+        { "id": "C", "text": "Prendre des notes exhaustives pendant que l'autre parle." },
+        { "id": "D", "text": "Répondre immédiatement pour montrer son intérêt." }
+      ],
+      "correct": ["B"],
+      "explanation": "L'écoute active implique attention totale, reformulation pour confirmer la compréhension, et questions ouvertes — pas seulement le silence."
+    }
+  ]
+}

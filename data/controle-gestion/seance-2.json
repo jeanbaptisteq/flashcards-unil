@@ -1,0 +1,159 @@
+{
+  "id": "seance-2",
+  "course": "controle-gestion",
+  "lesson": "Séance 2 — Coûts pour décider",
+  "cards": [
+    {
+      "id": "c1",
+      "type": "mcq_single",
+      "question": "Un coût est dit 'pertinent' (relevant) pour une décision si :",
+      "options": [
+        { "id": "A", "text": "Il est fixe et connu à l'avance." },
+        { "id": "B", "text": "Il diffère entre les alternatives étudiées ET est un coût futur." },
+        { "id": "C", "text": "Il a déjà été engagé et ne peut pas être récupéré." },
+        { "id": "D", "text": "Il représente plus de 10 % du coût total." }
+      ],
+      "correct": ["B"],
+      "explanation": "Un coût pertinent est futur (à venir) et différentiel (varie selon l'alternative choisie). Un coût passé (sunk cost) n'est jamais pertinent."
+    },
+    {
+      "id": "c2",
+      "type": "mcq_single",
+      "question": "Qu'est-ce qu'un 'sunk cost' (coût irrécupérable) ?",
+      "options": [
+        { "id": "A", "text": "Un coût variable qui augmente avec la production." },
+        { "id": "B", "text": "Un coût passé qui ne peut pas être modifié par une décision future." },
+        { "id": "C", "text": "Un coût futur lié à l'abandon d'une alternative." },
+        { "id": "D", "text": "Un coût fixe qui reste constant quelle que soit l'alternative." }
+      ],
+      "correct": ["B"],
+      "explanation": "Un sunk cost est irrécupérable : il a été engagé dans le passé et ne change pas selon la décision prise. Il ne doit PAS influencer les décisions futures."
+    },
+    {
+      "id": "c3",
+      "type": "mcq_multi",
+      "question": "Parmi les coûts suivants, lesquels sont des coûts pertinents pour décider d'externaliser une activité ?",
+      "options": [
+        { "id": "A", "text": "Le loyer du bâtiment déjà signé pour 5 ans (non résiliable)." },
+        { "id": "B", "text": "Les salaires économisés si l'activité est externalisée." },
+        { "id": "C", "text": "Le coût du contrat avec le prestataire externe." },
+        { "id": "D", "text": "Le coût d'achat des machines acquises il y a 3 ans." }
+      ],
+      "correct": ["B", "C"],
+      "explanation": "B (économies de salaires futures) et C (coût futur du prestataire) varient selon la décision → pertinents. A est un sunk cost (bail signé). D est aussi un sunk cost."
+    },
+    {
+      "id": "c4",
+      "type": "mcq_single",
+      "question": "Qu'est-ce que la marge sur coûts variables (MCV) unitaire ?",
+      "options": [
+        { "id": "A", "text": "Prix de vente unitaire − coût fixe unitaire" },
+        { "id": "B", "text": "Prix de vente unitaire − coût variable unitaire" },
+        { "id": "C", "text": "Chiffre d'affaires total − charges totales" },
+        { "id": "D", "text": "Coût total − bénéfice net" }
+      ],
+      "correct": ["B"],
+      "explanation": "MCV unitaire = PV unitaire − CV unitaire. Elle représente la contribution de chaque unité vendue à la couverture des coûts fixes."
+    },
+    {
+      "id": "c5",
+      "type": "mcq_single",
+      "question": "Une entreprise vend un produit à 50 CHF. Le coût variable unitaire est de 30 CHF. Les coûts fixes totaux sont de 40 000 CHF. Quel est le point-mort (break-even) en unités ?",
+      "options": [
+        { "id": "A", "text": "800 unités" },
+        { "id": "B", "text": "1 333 unités" },
+        { "id": "C", "text": "2 000 unités" },
+        { "id": "D", "text": "2 500 unités" }
+      ],
+      "correct": ["C"],
+      "explanation": "MCV = 50 − 30 = 20 CHF/unité. Point-mort = CF / MCV = 40 000 / 20 = 2 000 unités."
+    },
+    {
+      "id": "c6",
+      "type": "mcq_multi",
+      "question": "Parmi les affirmations suivantes sur le comportement des coûts, lesquelles sont correctes ?",
+      "options": [
+        { "id": "A", "text": "Un coût variable au total augmente proportionnellement au volume de production." },
+        { "id": "B", "text": "Un coût fixe unitaire reste constant quel que soit le volume." },
+        { "id": "C", "text": "Un coût variable unitaire reste constant quel que soit le volume." },
+        { "id": "D", "text": "Un coût fixe unitaire diminue quand le volume augmente." }
+      ],
+      "correct": ["A", "C", "D"],
+      "explanation": "A : Vrai — CV total = CVu × Q, proportionnel à Q. B : Faux — le CF unitaire DIMINUE quand le volume augmente (répartition des CF sur plus d'unités). C : Vrai — le CVu est constant par définition. D : Vrai — c'est le mécanisme des économies d'échelle."
+    },
+    {
+      "id": "c7",
+      "type": "mcq_single",
+      "question": "La relation linéaire entre coûts et volume (CT = CF + CVu × Q) est valable :",
+      "options": [
+        { "id": "A", "text": "Pour tous les niveaux de production imaginables" },
+        { "id": "B", "text": "Uniquement dans un intervalle de pertinence (relevant range)" },
+        { "id": "C", "text": "Seulement pour les coûts fixes" },
+        { "id": "D", "text": "Uniquement en cas de demande stable" }
+      ],
+      "correct": ["B"],
+      "explanation": "La linéarité n'est valable que dans un intervalle de pertinence. Hors de cet intervalle, les coûts peuvent être curvilignes ou évoluer par paliers (coûts semi-fixes)."
+    },
+    {
+      "id": "c8",
+      "type": "mcq_single",
+      "question": "Malea peut fabriquer 50 vestes polaires (revenus 5 000 €, coûts matières 1 000 €) ou travailler comme monitrice de ski (revenus 1 200 €). Si elle choisit de fabriquer, quel est son coût d'opportunité ?",
+      "options": [
+        { "id": "A", "text": "5 000 €" },
+        { "id": "B", "text": "4 000 €" },
+        { "id": "C", "text": "1 200 €" },
+        { "id": "D", "text": "1 000 €" }
+      ],
+      "correct": ["C"],
+      "explanation": "Le coût d'opportunité = cash-flow de la meilleure alternative sacrifiée = revenus monitrice de ski = 1 200 €. Ce n'est pas le profit des vestes (4 000 €) ni les coûts matières (1 000 €)."
+    },
+    {
+      "id": "c9",
+      "type": "mcq_multi",
+      "question": "Dans la décision Make-or-Buy du cas Nordic, lesquels de ces éléments doivent être EXCLUS de l'analyse (non pertinents) ?",
+      "options": [
+        { "id": "A", "text": "Les coûts indirects fixes de CHF 0.25/unité — identiques dans les deux alternatives." },
+        { "id": "B", "text": "Le coût direct de main d'œuvre de CHF 1.00/unité." },
+        { "id": "C", "text": "Les CHF 5 000 payés au consultant avant la décision." },
+        { "id": "D", "text": "Le prix du fournisseur externe à CHF 2.00/unité." }
+      ],
+      "correct": ["A", "C"],
+      "explanation": "A : coûts fixes identiques dans les deux alternatives → non pertinents. C : sunk cost (payé avant la décision, non récupérable) → non pertinent. B et D varient selon l'alternative choisie → pertinents."
+    },
+    {
+      "id": "c10",
+      "type": "mcq_single",
+      "question": "Altis hésite entre deux prix : CHF 6.50 (3 000 unités) ou CHF 5.00 (10 000 unités). CVu = CHF 3.50, CF = CHF 6 000. Quelle option est préférable et quel est l'écart de bénéfice ?",
+      "options": [
+        { "id": "A", "text": "Option 1 (CHF 6.50) — bénéfice supérieur de CHF 6 000" },
+        { "id": "B", "text": "Option 2 (CHF 5.00) — bénéfice supérieur de CHF 6 000" },
+        { "id": "C", "text": "Option 1 (CHF 6.50) — bénéfice supérieur de CHF 3 000" },
+        { "id": "D", "text": "Les deux options donnent le même bénéfice" }
+      ],
+      "correct": ["B"],
+      "explanation": "MCu1 = 3.00 → Résultat1 = 3.00×3000 − 6000 = +3 000. MCu2 = 1.50 → Résultat2 = 1.50×10000 − 6000 = +9 000. Option 2 meilleure de 6 000 CHF. Leçon : la MCu unitaire est trompeuse — c'est la MCV totale qui décide."
+    },
+    {
+      "id": "c11",
+      "type": "mcq_single",
+      "question": "Dans le modèle CVB, le point-mort (break-even point) est le volume Q* tel que :",
+      "options": [
+        { "id": "A", "text": "Le bénéfice est maximal" },
+        { "id": "B", "text": "Les revenus totaux égalent les coûts variables totaux" },
+        { "id": "C", "text": "Les revenus totaux égalent les coûts totaux (bénéfice = 0)" },
+        { "id": "D", "text": "La marge de contribution unitaire est à son maximum" }
+      ],
+      "correct": ["C"],
+      "explanation": "Q* = CF / MCu. Au point-mort : revenus = coûts totaux → bénéfice = 0. En dessous de Q* : perte. Au-dessus de Q* : bénéfice."
+    },
+    {
+      "id": "c12",
+      "type": "dropdown",
+      "question": "Complète la phrase",
+      "prompt": "Un coût semi-variable combine une composante fixe et une composante ____.",
+      "choices": ["variable", "indirecte", "pertinente", "passée"],
+      "correct": "variable",
+      "explanation": "Ex. : un véhicule d'entreprise = part fixe (assurance, immatriculation) + part variable (carburant au km). Les deux composantes s'additionnent dans le coût total."
+    }
+  ]
+}
