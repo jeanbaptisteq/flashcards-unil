@@ -1,4 +1,5 @@
 import type { MCQMultiCard } from '../types'
+import { assetUrl } from '../utils/paths'
 
 interface Props {
   card: MCQMultiCard
@@ -33,7 +34,7 @@ export default function CardMCQMulti({ card, phase, selected, isCorrect, onSelec
   return (
     <div className="card-content">
       {card.image_front && (
-        <img src={card.image_front} alt="Illustration" className="card-image" />
+        <img src={assetUrl(card.image_front)} alt="Illustration" className="card-image" />
       )}
       <p className="card-question">{card.question}</p>
       <p className="card-hint">Plusieurs réponses possibles</p>

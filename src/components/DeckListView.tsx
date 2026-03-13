@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import type { CourseIndex, DeckMeta } from '../types'
 import { getAllStates } from '../store'
 import { isDue, getCardKey } from '../scheduler'
+import { dataUrl } from '../utils/paths'
 
 interface DeckStats {
   total: number
@@ -30,7 +31,7 @@ export default function DeckListView({ courseId, onBack, onNavigateDeck }: Props
   useEffect(() => {
     const allStates = getAllStates()
 
-    fetch(`/data/${courseId}/index.json`)
+    fetch(dataUrl(`/data/${courseId}/index.json`))
       .then((r) => {
         if (!r.ok) throw new Error('not found')
         return r.json() as Promise<CourseIndex>
@@ -43,7 +44,7 @@ export default function DeckListView({ courseId, onBack, onNavigateDeck }: Props
         await Promise.all(
           index.decks.map(async (deck) => {
             try {
-              const dr = await fetch(`/data/${courseId}/${deck.file}`)
+              const dr = await fetch(dataUrl(`/data/${courseId}/${deck.file}`))
               if (!dr.ok) return
               const deckData = await dr.json()
               let total = 0

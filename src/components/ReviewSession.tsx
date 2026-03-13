@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from 'react'
 import type { Card, Deck, Rating } from '../types'
 import { getCardState, saveSM2 } from '../store'
 import { isDue, applyRating, getCardKey } from '../scheduler'
+import { assetUrl, dataUrl } from '../utils/paths'
 import CardMCQSingle from './CardMCQSingle'
 import CardMCQMulti from './CardMCQMulti'
 import CardImageRecall from './CardImageRecall'
@@ -52,7 +53,7 @@ export default function ReviewSession({ courseId, deckId, onBack }: Props) {
   const [error, setError] = useState(false)
 
   useEffect(() => {
-    fetch(`/data/${courseId}/${deckId}.json`)
+    fetch(dataUrl(`/data/${courseId}/${deckId}.json`))
       .then((r) => {
         if (!r.ok) throw new Error('not found')
         return r.json() as Promise<Deck>
@@ -238,7 +239,7 @@ export default function ReviewSession({ courseId, deckId, onBack }: Props) {
           {/* image_back in answer phase */}
           {phase === 'answer' && currentCard.image_back && (
             <div className="image-back-wrap">
-              <img src={currentCard.image_back} alt="Illustration" className="card-image" />
+              <img src={assetUrl(currentCard.image_back)} alt="Illustration" className="card-image" />
             </div>
           )}
         </div>

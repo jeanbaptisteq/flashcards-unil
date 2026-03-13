@@ -1,4 +1,5 @@
 import type { DropdownCard } from '../types'
+import { assetUrl } from '../utils/paths'
 
 interface Props {
   card: DropdownCard
@@ -14,7 +15,7 @@ export default function CardDropdown({ card, phase, selected, isCorrect, onSelec
   return (
     <div className="card-content">
       {card.image_front && (
-        <img src={card.image_front} alt="Illustration" className="card-image" />
+        <img src={assetUrl(card.image_front)} alt="Illustration" className="card-image" />
       )}
       <p className="card-question">{card.question}</p>
 

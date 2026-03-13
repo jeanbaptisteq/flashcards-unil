@@ -1,4 +1,5 @@
 import type { ImageRecallCard } from '../types'
+import { assetUrl } from '../utils/paths'
 
 interface Props {
   card: ImageRecallCard
@@ -12,7 +13,7 @@ export default function CardImageRecall({ card, phase }: Props) {
       {card.prompt && <p className="card-hint">{card.prompt}</p>}
 
       <div className="image-recall-wrap">
-        <img src={card.image} alt="Slide" className="card-image card-image-large" />
+        <img src={assetUrl(card.image)} alt="Slide" className="card-image card-image-large" />
       </div>
 
       {phase === 'answer' && (

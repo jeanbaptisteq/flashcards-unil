@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import type { CourseIndex } from '../types'
 import { getAllStates } from '../store'
 import { isDue, getCardKey } from '../scheduler'
+import { dataUrl } from '../utils/paths'
 
 const COURSES = [
   { id: 'controle-gestion', name: 'Contrôle de gestion', color: '#2563eb' },
@@ -29,7 +30,7 @@ export default function HomeView({ onNavigateCourse }: Props) {
     Promise.all(
       COURSES.map(async (course) => {
         try {
-          const res = await fetch(`/data/${course.id}/index.json`)
+          const res = await fetch(dataUrl(`/data/${course.id}/index.json`))
           if (!res.ok) return { id: course.id, stats: { totalDecks: 0, totalCards: 0, dueCards: 0 } }
           const index: CourseIndex = await res.json()
 
@@ -39,7 +40,7 @@ export default function HomeView({ onNavigateCourse }: Props) {
           await Promise.all(
             index.decks.map(async (deck) => {
               try {
-                const dr = await fetch(`/data/${course.id}/${deck.file}`)
+                const dr = await fetch(dataUrl(`/data/${course.id}/${deck.file}`))
                 if (!dr.ok) return
                 const deckData = await dr.json()
                 for (const card of deckData.cards ?? []) {
