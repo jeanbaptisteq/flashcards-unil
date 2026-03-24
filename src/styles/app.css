@@ -85,50 +85,6 @@ button {
   accent-color: var(--accent);
 }
 
-.sync-panel {
-  margin-top: 1rem;
-  margin-bottom: 0.75rem;
-  padding: 0.9rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  background: var(--bg2);
-}
-
-.sync-title {
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 0.55rem;
-}
-
-.sync-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.55rem;
-}
-
-.sync-input {
-  width: 100%;
-  background: var(--bg3);
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 0.45rem 0.6rem;
-  font: inherit;
-  font-size: 0.84rem;
-}
-
-.sync-actions {
-  margin-top: 0.65rem;
-  display: flex;
-  gap: 0.5rem;
-}
-
-.sync-status {
-  margin-top: 0.55rem;
-  font-size: 0.8rem;
-  color: var(--text2);
-}
-
 .view-header {
   display: flex;
   align-items: center;
@@ -896,13 +852,5 @@ button {
   .btn-rating {
     padding: 0.55rem 0.9rem;
     font-size: 0.82rem;
-  }
-
-  .sync-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .sync-actions {
-    flex-wrap: wrap;
   }
 }
