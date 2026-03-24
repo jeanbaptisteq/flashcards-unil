@@ -4,6 +4,13 @@ import { getAllCourseExamSettings, getAllStates } from '../store'
 import { getCardKey, isScheduledDue, wasDifficultOnDate } from '../scheduler'
 import { dataUrl } from '../utils/paths'
 import { daysBetween, todayLocal } from '../utils/date'
+import {
+  getSyncSettings,
+  pullSyncNow,
+  pushSyncNow,
+  saveSyncSettings,
+  tryAutoPull,
+} from '../sync'
 
 const COURSES = [
   { id: 'controle-gestion', name: 'Contrôle de gestion', color: '#2563eb' },
@@ -27,6 +34,8 @@ interface Props {
 export default function HomeView({ onNavigateCourse }: Props) {
   const [stats, setStats] = useState<Record<string, CourseStats>>({})
   const [showArchived, setShowArchived] = useState(false)
+  const [syncSettings, setSyncSettings] = useState(() => getSyncSettings())
+  const [syncStatus, setSyncStatus] = useState('')
 
   useEffect(() => {
     const today = todayLocal()
@@ -89,11 +98,83 @@ export default function HomeView({ onNavigateCourse }: Props) {
     })
   }, [])
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      tryAutoPull().then((result) => {
+        if (result === 'applied') {
+          window.location.reload()
+        }
+      })
+    }, 15000)
+    return () => clearInterval(timer)
+  }, [])
+
+  const handleSaveSyncSettings = () => {
+    saveSyncSettings(syncSettings)
+    setSyncStatus('Configuration sync sauvegardée.')
+  }
+
+  const handlePush = async () => {
+    try {
+      await pushSyncNow()
+      setSyncStatus('Synchronisation envoyée vers GitHub Gist.')
+    } catch (error) {
+      setSyncStatus(error instanceof Error ? error.message : 'Échec de synchronisation.')
+    }
+  }
+
+  const handlePull = async () => {
+    try {
+      const result = await pullSyncNow()
+      if (result === 'applied') {
+        setSyncStatus('Synchronisation récupérée. Rechargement…')
+        setTimeout(() => window.location.reload(), 400)
+      } else {
+        setSyncStatus('Aucune donnée distante plus récente.')
+      }
+    } catch (error) {
+      setSyncStatus(error instanceof Error ? error.message : 'Échec de synchronisation.')
+    }
+  }
+
   return (
     <div className="page">
       <header className="app-header">
         <h1 className="app-title">Flashcards UNIL</h1>
         <p className="app-subtitle">Révision par cours &amp; séance</p>
+        <section className="sync-panel">
+          <h2 className="sync-title">Synchronisation multi-appareils</h2>
+          <div className="sync-grid">
+            <input
+              className="sync-input"
+              type="text"
+              placeholder="Gist ID"
+              value={syncSettings.gistId}
+              onChange={(e) => setSyncSettings((s) => ({ ...s, gistId: e.target.value }))}
+            />
+            <input
+              className="sync-input"
+              type="password"
+              placeholder="GitHub token (scope gist)"
+              value={syncSettings.token}
+              onChange={(e) => setSyncSettings((s) => ({ ...s, token: e.target.value }))}
+            />
+          </div>
+          <label className="archived-toggle">
+            <input
+              type="checkbox"
+              checked={syncSettings.autoSync}
+              onChange={(e) => setSyncSettings((s) => ({ ...s, autoSync: e.target.checked }))}
+            />
+            <span>Auto-sync (push auto + pull périodique)</span>
+          </label>
+          <div className="sync-actions">
+            <button className="btn-secondary" onClick={handleSaveSyncSettings}>Sauvegarder</button>
+            <button className="btn-secondary" onClick={handlePush}>Push</button>
+            <button className="btn-secondary" onClick={handlePull}>Pull</button>
+          </div>
+          {syncStatus && <p className="sync-status">{syncStatus}</p>}
+        </section>
         <label className="archived-toggle">
           <input
             type="checkbox"
