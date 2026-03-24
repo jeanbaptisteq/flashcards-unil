@@ -69,9 +69,40 @@ export interface SM2State {
   reps: number
 }
 
+export type QueueState = 'new' | 'learning' | 'review' | 'relearning'
+
+export interface ReviewLogEntry {
+  date: string
+  rating: Rating
+}
+
+export interface CardPerformance {
+  againCount: number
+  hardCount: number
+  totalRated: number
+  recentRatings: Rating[]
+}
+
+export interface ExamProgress {
+  examDateTracked: string
+  reviewsInExamCycle: number
+  lastReviewedOn: string
+}
+
 export interface UserCardState {
   note: string
   sm2: SM2State
+  queueState: QueueState
+  lastReviewedOn: string
+  reviewLog: ReviewLogEntry[]
+  performance: CardPerformance
+  examProgress: ExamProgress
+}
+
+export interface CourseExamSettings {
+  examDate: string
+  archived: boolean
+  updatedAt: string
 }
 
 export type Rating = 0 | 1 | 2 | 3

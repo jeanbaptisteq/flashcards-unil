@@ -1,8 +1,21 @@
 import { useEffect, useState, useCallback } from 'react'
 import type { Card, Deck, Rating } from '../types'
-import { getCardState, saveSM2 } from '../store'
-import { isDue, applyRating, getCardKey } from '../scheduler'
+import { getCardState, getCourseExamSettings, saveCardState } from '../store'
+import {
+  appendReviewLog,
+  applyRatingWithExamContext,
+  computeReviewPriorityScore,
+  deriveQueueState,
+  getCardKey,
+  hasAnyReviewOnDate,
+  isImportantCard,
+  isScheduledDue,
+  updateExamProgress,
+  updatePerformance,
+  wasDifficultOnDate,
+} from '../scheduler'
 import { assetUrl, dataUrl } from '../utils/paths'
+import { todayLocal } from '../utils/date'
 import CardMCQSingle from './CardMCQSingle'
 import CardMCQMulti from './CardMCQMulti'
 import CardImageRecall from './CardImageRecall'
@@ -21,6 +34,8 @@ interface Props {
   deckId: string
   onBack: () => void
 }
+
+const DAILY_NEW_LIMIT = 20
 
 const RATING_LABELS: Record<Rating, string> = {
   0: 'Encore',
@@ -51,8 +66,14 @@ export default function ReviewSession({ courseId, deckId, onBack }: Props) {
   const [stats, setStats] = useState({ correct: 0, total: 0 })
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
+  const [examDate, setExamDate] = useState('')
+  const [isArchived, setIsArchived] = useState(false)
 
   useEffect(() => {
+    const exam = getCourseExamSettings(courseId)
+    setExamDate(exam.examDate)
+    setIsArchived(exam.archived)
+
     fetch(dataUrl(`/data/${courseId}/${deckId}.json`))
       .then((r) => {
         if (!r.ok) throw new Error('not found')
@@ -60,16 +81,51 @@ export default function ReviewSession({ courseId, deckId, onBack }: Props) {
       })
       .then((data) => {
         setDeck(data)
-        // Build session queue: due cards first, then new cards, then future cards
+        const today = todayLocal()
         const cards = [...data.cards]
-        cards.sort((a, b) => {
-          const stA = getCardState(getCardKey(courseId, deckId, a.id))
-          const stB = getCardState(getCardKey(courseId, deckId, b.id))
-          const dueA = isDue(stA.sm2) ? 0 : 1
-          const dueB = isDue(stB.sm2) ? 0 : 1
-          return dueA - dueB
+
+        const hasSessionToday = cards.some((card) => {
+          const state = getCardState(getCardKey(courseId, deckId, card.id))
+          return hasAnyReviewOnDate(state, today)
         })
-        setQueue(cards.map((c) => ({ card: c, isLap: false })))
+
+        const relearningDue: Card[] = []
+        const reviewDue: Array<{ card: Card; score: number }> = []
+        const difficultToday: Card[] = []
+        const newCards: Card[] = []
+
+        for (const card of cards) {
+          const state = getCardState(getCardKey(courseId, deckId, card.id))
+
+          if (wasDifficultOnDate(state, today)) {
+            difficultToday.push(card)
+            continue
+          }
+
+          if (isScheduledDue(state, today)) {
+            if (state.queueState === 'learning' || state.queueState === 'relearning') {
+              relearningDue.push(card)
+            } else {
+              reviewDue.push({ card, score: computeReviewPriorityScore(state, today) })
+            }
+            continue
+          }
+
+          if (state.queueState === 'new' && !hasSessionToday) {
+            newCards.push(card)
+          }
+        }
+
+        reviewDue.sort((a, b) => b.score - a.score)
+
+        const finalQueue = [
+          ...difficultToday,
+          ...relearningDue,
+          ...reviewDue.map((entry) => entry.card),
+          ...newCards.slice(0, DAILY_NEW_LIMIT),
+        ]
+
+        setQueue(finalQueue.map((c) => ({ card: c, isLap: false })))
         setLoading(false)
       })
       .catch(() => {
@@ -105,8 +161,33 @@ export default function ReviewSession({ courseId, deckId, onBack }: Props) {
       if (!currentCard) return
       const cardKey = getCardKey(courseId, deckId, currentCard.id)
       const state = getCardState(cardKey)
-      const newSM2 = applyRating(state.sm2, rating)
-      saveSM2(cardKey, newSM2)
+      const reviewDate = todayLocal()
+      const performance = updatePerformance(state.performance, rating)
+      const reviewLog = appendReviewLog(state.reviewLog, reviewDate, rating)
+
+      const activeExamDate = !isArchived ? examDate : ''
+      const examProgress = activeExamDate
+        ? updateExamProgress(state.examProgress, activeExamDate, reviewDate)
+        : { examDateTracked: '', reviewsInExamCycle: 0, lastReviewedOn: '' }
+
+      const newSM2 = applyRatingWithExamContext(state.sm2, rating, activeExamDate
+        ? {
+            examDate: activeExamDate,
+            isImportant: isImportantCard(performance, state.sm2.easeFactor),
+            reviewsInExamCycle: examProgress.reviewsInExamCycle,
+          }
+        : null)
+      const queueState = deriveQueueState(state.queueState, rating, newSM2)
+
+      saveCardState(cardKey, {
+        ...state,
+        queueState,
+        lastReviewedOn: reviewDate,
+        reviewLog,
+        performance,
+        examProgress,
+        sm2: newSM2,
+      })
 
       if (rating === 0) {
         // Add card back to end of queue
@@ -123,7 +204,7 @@ export default function ReviewSession({ courseId, deckId, onBack }: Props) {
         setIsCorrect(null)
       }
     },
-    [currentCard, currentIdx, queue.length, courseId, deckId],
+    [currentCard, currentIdx, queue.length, courseId, deckId, examDate, isArchived],
   )
 
   const cardKey = currentCard ? getCardKey(courseId, deckId, currentCard.id) : ''
@@ -149,6 +230,17 @@ export default function ReviewSession({ courseId, deckId, onBack }: Props) {
           <button className="btn-back" onClick={onBack}>← Retour</button>
         </header>
         <p className="empty-state error">Impossible de charger ce deck.</p>
+      </div>
+    )
+  }
+
+  if (isArchived) {
+    return (
+      <div className="page">
+        <header className="view-header">
+          <button className="btn-back" onClick={onBack}>← Retour</button>
+        </header>
+        <p className="empty-state">Ce cours est archivé car la date d’examen est passée.</p>
       </div>
     )
   }
@@ -180,7 +272,16 @@ export default function ReviewSession({ courseId, deckId, onBack }: Props) {
     )
   }
 
-  if (!currentCard) return null
+  if (!currentCard) {
+    return (
+      <div className="page">
+        <header className="view-header">
+          <button className="btn-back" onClick={onBack}>← Retour</button>
+        </header>
+        <p className="empty-state">Rien à réviser pour ce deck aujourd’hui.</p>
+      </div>
+    )
+  }
 
   const progress = queue.length > 0 ? Math.round((currentIdx / queue.length) * 100) : 0
 
@@ -190,6 +291,7 @@ export default function ReviewSession({ courseId, deckId, onBack }: Props) {
         <button className="btn-back" onClick={onBack}>← Retour</button>
         <div className="session-progress-wrap">
           <span className="session-counter">{currentIdx + 1} / {queue.length}</span>
+          {examDate && <span className="exam-mode-badge">Mode examen actif</span>}
           <div className="progress-bar-wrap">
             <div className="progress-bar" style={{ width: `${progress}%` }} />
           </div>

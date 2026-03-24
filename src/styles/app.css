@@ -72,6 +72,19 @@ button {
   font-size: 0.95rem;
 }
 
+.archived-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+  color: var(--text2);
+  font-size: 0.85rem;
+}
+
+.archived-toggle input {
+  accent-color: var(--accent);
+}
+
 .view-header {
   display: flex;
   align-items: center;
@@ -232,6 +245,11 @@ button {
   color: var(--success);
 }
 
+.badge-archived {
+  color: var(--warning);
+  font-weight: 600;
+}
+
 /* ─── Buttons ───────────────────────────────────────────────── */
 .btn-start {
   padding: 0.5rem 1.1rem;
@@ -274,6 +292,103 @@ button {
   cursor: not-allowed;
 }
 
+.btn-secondary {
+  padding: 0.58rem 1rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text2);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.btn-secondary:hover {
+  border-color: var(--text2);
+  color: var(--text);
+}
+
+.exam-panel {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.exam-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.exam-panel-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.exam-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.exam-date-input {
+  background: var(--bg3);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.6rem;
+  font: inherit;
+  font-size: 0.88rem;
+}
+
+.exam-meta {
+  margin-top: 0.65rem;
+  color: var(--text2);
+  font-size: 0.82rem;
+}
+
+.analytics-panel {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.analytics-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.65rem;
+}
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.6rem;
+}
+
+.analytics-item {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.75rem;
+}
+
+.analytics-label {
+  display: block;
+  color: var(--text2);
+  font-size: 0.78rem;
+  margin-bottom: 0.25rem;
+}
+
+.analytics-value {
+  font-size: 1rem;
+  color: var(--text);
+}
+
 /* ─── Review session ────────────────────────────────────────── */
 .session-progress-wrap {
   flex: 1;
@@ -286,6 +401,18 @@ button {
 .session-counter {
   font-size: 0.85rem;
   color: var(--text2);
+  white-space: nowrap;
+}
+
+.exam-mode-badge {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.45rem;
+  border-radius: 999px;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  color: var(--accent);
   white-space: nowrap;
 }
 
@@ -712,6 +839,10 @@ button {
 
   .btn-start {
     align-self: flex-end;
+  }
+
+  .exam-controls {
+    flex-wrap: wrap;
   }
 
   .rating-buttons {
