@@ -1,202 +1,294 @@
+import { createClient, type Session, type SupabaseClient } from '@supabase/supabase-js'
+
 const CARD_STATE_STORAGE_KEY = 'flashcards_unil_v1'
 const EXAM_SETTINGS_STORAGE_KEY = 'flashcards_unil_exam_v1'
-const SYNC_SETTINGS_STORAGE_KEY = 'flashcards_unil_sync_settings_v1'
 const LOCAL_UPDATED_AT_STORAGE_KEY = 'flashcards_unil_local_updated_at_v1'
-const SYNC_FILE_NAME = 'flashcards-unil-sync.json'
-const AUTO_PULL_COOLDOWN_MS = 30 * 1000
+const SYNC_INITIALIZED_KEY = 'flashcards_unil_sync_initialized_v1'
 
-export interface SyncSettings {
-  gistId: string
-  token: string
-  autoSync: boolean
-}
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || 'https://wqveiutqcwdjhpygzlbw.supabase.co'
+const SUPABASE_ANON_KEY =
+  import.meta.env.VITE_SUPABASE_ANON_KEY ||
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndxdmVpdXRxY3dkamhweWd6bGJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQzNjk3OTEsImV4cCI6MjA4OTk0NTc5MX0.R0qU7mYFdj9__13x7jGFp7HV1EWOwmy8zJuv6XMCMP4'
 
-interface SyncPayload {
+interface CloudSnapshot {
   version: 1
   updatedAt: string
   cardState: string
   examSettings: string
 }
 
+type SyncState =
+  | 'idle'
+  | 'auth_required'
+  | 'sending_magic_link'
+  | 'syncing'
+  | 'ok'
+  | 'error'
+
+export interface CloudSyncStatus {
+  state: SyncState
+  email: string
+  message: string
+}
+
+const syncStatus: CloudSyncStatus = {
+  state: 'idle',
+  email: '',
+  message: '',
+}
+
+type Listener = (status: CloudSyncStatus) => void
+
+const listeners = new Set<Listener>()
+
+let supabase: SupabaseClient | null = null
+let currentSession: Session | null = null
 let autoPushTimer: ReturnType<typeof setTimeout> | null = null
-let lastAutoPullAt = 0
+let autoPullTimer: ReturnType<typeof setInterval> | null = null
+
+function emitStatus(next: Partial<CloudSyncStatus>): void {
+  Object.assign(syncStatus, next)
+  for (const listener of listeners) listener({ ...syncStatus })
+}
+
+function getClient(): SupabaseClient {
+  if (!supabase) {
+    supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+      auth: {
+        persistSession: true,
+        autoRefreshToken: true,
+        detectSessionInUrl: true,
+      },
+    })
+  }
+  return supabase
+}
 
 function nowIso(): string {
   return new Date().toISOString()
 }
 
-function toNumber(value: string | null): number {
+function toTimestamp(value: string): number {
   if (!value) return 0
   const parsed = Date.parse(value)
   return Number.isFinite(parsed) ? parsed : 0
 }
 
-function defaultSyncSettings(): SyncSettings {
-  return {
-    gistId: '',
-    token: '',
-    autoSync: false,
-  }
-}
-
-export function getSyncSettings(): SyncSettings {
+function localHasMeaningfulData(): boolean {
   try {
-    const raw = localStorage.getItem(SYNC_SETTINGS_STORAGE_KEY)
-    if (!raw) return defaultSyncSettings()
-    const parsed = JSON.parse(raw) as Partial<SyncSettings>
-    return {
-      gistId: typeof parsed.gistId === 'string' ? parsed.gistId.trim() : '',
-      token: typeof parsed.token === 'string' ? parsed.token.trim() : '',
-      autoSync: Boolean(parsed.autoSync),
-    }
+    const cards = JSON.parse(localStorage.getItem(CARD_STATE_STORAGE_KEY) || '{}')
+    const exams = JSON.parse(localStorage.getItem(EXAM_SETTINGS_STORAGE_KEY) || '{}')
+    return Object.keys(cards).length > 0 || Object.keys(exams).length > 0
   } catch {
-    return defaultSyncSettings()
+    return false
   }
-}
-
-export function saveSyncSettings(settings: SyncSettings): void {
-  localStorage.setItem(
-    SYNC_SETTINGS_STORAGE_KEY,
-    JSON.stringify({
-      gistId: settings.gistId.trim(),
-      token: settings.token.trim(),
-      autoSync: settings.autoSync,
-    }),
-  )
 }
 
 export function touchLocalUpdatedAt(): void {
   localStorage.setItem(LOCAL_UPDATED_AT_STORAGE_KEY, nowIso())
 }
 
-export function getLocalUpdatedAt(): string {
-  return localStorage.getItem(LOCAL_UPDATED_AT_STORAGE_KEY) ?? ''
+function getLocalUpdatedAt(): string {
+  return localStorage.getItem(LOCAL_UPDATED_AT_STORAGE_KEY) || ''
 }
 
-function buildPayload(): SyncPayload {
+function buildLocalSnapshot(): CloudSnapshot {
   return {
     version: 1,
     updatedAt: getLocalUpdatedAt() || nowIso(),
-    cardState: localStorage.getItem(CARD_STATE_STORAGE_KEY) ?? '{}',
-    examSettings: localStorage.getItem(EXAM_SETTINGS_STORAGE_KEY) ?? '{}',
+    cardState: localStorage.getItem(CARD_STATE_STORAGE_KEY) || '{}',
+    examSettings: localStorage.getItem(EXAM_SETTINGS_STORAGE_KEY) || '{}',
   }
 }
 
-function applyRemotePayload(payload: SyncPayload): void {
-  localStorage.setItem(CARD_STATE_STORAGE_KEY, payload.cardState || '{}')
-  localStorage.setItem(EXAM_SETTINGS_STORAGE_KEY, payload.examSettings || '{}')
-  localStorage.setItem(LOCAL_UPDATED_AT_STORAGE_KEY, payload.updatedAt || nowIso())
+function applySnapshot(snapshot: CloudSnapshot): void {
+  localStorage.setItem(CARD_STATE_STORAGE_KEY, snapshot.cardState || '{}')
+  localStorage.setItem(EXAM_SETTINGS_STORAGE_KEY, snapshot.examSettings || '{}')
+  localStorage.setItem(LOCAL_UPDATED_AT_STORAGE_KEY, snapshot.updatedAt || nowIso())
 }
 
-function assertConfigured(settings: SyncSettings): void {
-  if (!settings.gistId || !settings.token) {
-    throw new Error('Configuration de synchronisation incomplète.')
+async function readRemoteSnapshot(userId: string): Promise<CloudSnapshot | null> {
+  const client = getClient()
+  const { data, error } = await client
+    .from('user_state_snapshots')
+    .select('state, updated_at')
+    .eq('user_id', userId)
+    .maybeSingle()
+
+  if (error) throw error
+  if (!data) return null
+
+  const state = data.state as Partial<CloudSnapshot> | null
+  if (!state || state.version !== 1) return null
+
+  return {
+    version: 1,
+    updatedAt: typeof data.updated_at === 'string' ? data.updated_at : '',
+    cardState: typeof state.cardState === 'string' ? state.cardState : '{}',
+    examSettings: typeof state.examSettings === 'string' ? state.examSettings : '{}',
   }
 }
 
-async function fetchGist(settings: SyncSettings): Promise<any> {
-  const response = await fetch(`https://api.github.com/gists/${settings.gistId}`, {
-    headers: {
-      Accept: 'application/vnd.github+json',
-      Authorization: `Bearer ${settings.token}`,
-      'X-GitHub-Api-Version': '2022-11-28',
+async function writeRemoteSnapshot(userId: string, snapshot: CloudSnapshot): Promise<void> {
+  const client = getClient()
+  const { error } = await client.from('user_state_snapshots').upsert(
+    {
+      user_id: userId,
+      state: snapshot,
+      updated_at: snapshot.updatedAt,
     },
-  })
-  if (!response.ok) {
-    throw new Error(`GitHub API ${response.status}: impossible de lire le Gist.`)
-  }
-  return response.json()
+    { onConflict: 'user_id' },
+  )
+  if (error) throw error
 }
 
-function extractPayloadFromGist(gist: any): SyncPayload | null {
-  const files = gist?.files ?? {}
-  const preferred = files[SYNC_FILE_NAME]
-  const file = preferred ?? Object.values(files)[0]
-  const content = typeof (file as any)?.content === 'string' ? (file as any).content : ''
-  if (!content) return null
-  try {
-    const parsed = JSON.parse(content) as Partial<SyncPayload>
-    if (parsed.version !== 1) return null
-    return {
-      version: 1,
-      updatedAt: typeof parsed.updatedAt === 'string' ? parsed.updatedAt : '',
-      cardState: typeof parsed.cardState === 'string' ? parsed.cardState : '{}',
-      examSettings: typeof parsed.examSettings === 'string' ? parsed.examSettings : '{}',
+async function syncOnAuthenticated(session: Session): Promise<void> {
+  currentSession = session
+  emitStatus({
+    state: 'syncing',
+    email: session.user.email || '',
+    message: 'Synchronisation en cours…',
+  })
+
+  const userId = session.user.id
+  const remote = await readRemoteSnapshot(userId)
+  const initialized = localStorage.getItem(SYNC_INITIALIZED_KEY) === '1'
+  const localSnapshot = buildLocalSnapshot()
+
+  if (!initialized) {
+    if (localHasMeaningfulData()) {
+      await writeRemoteSnapshot(userId, localSnapshot)
+    } else if (remote) {
+      applySnapshot(remote)
+      window.location.reload()
+      return
+    } else {
+      await writeRemoteSnapshot(userId, localSnapshot)
     }
-  } catch {
-    return null
+    localStorage.setItem(SYNC_INITIALIZED_KEY, '1')
+  } else if (remote) {
+    const localTs = toTimestamp(getLocalUpdatedAt())
+    const remoteTs = toTimestamp(remote.updatedAt)
+    if (remoteTs > localTs) {
+      applySnapshot(remote)
+      window.location.reload()
+      return
+    }
   }
-}
 
-async function patchGist(settings: SyncSettings, payload: SyncPayload): Promise<void> {
-  const response = await fetch(`https://api.github.com/gists/${settings.gistId}`, {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/vnd.github+json',
-      Authorization: `Bearer ${settings.token}`,
-      'X-GitHub-Api-Version': '2022-11-28',
-    },
-    body: JSON.stringify({
-      files: {
-        [SYNC_FILE_NAME]: {
-          content: JSON.stringify(payload),
-        },
-      },
-    }),
+  if (autoPullTimer) clearInterval(autoPullTimer)
+  autoPullTimer = setInterval(() => {
+    pullIfRemoteNewer().catch(() => {
+      // silent background errors
+    })
+  }, 20000)
+
+  emitStatus({
+    state: 'ok',
+    email: session.user.email || '',
+    message: 'Synchronisé.',
   })
-  if (!response.ok) {
-    throw new Error(`GitHub API ${response.status}: impossible d'écrire le Gist.`)
+}
+
+async function pullIfRemoteNewer(): Promise<void> {
+  if (!currentSession) return
+  const remote = await readRemoteSnapshot(currentSession.user.id)
+  if (!remote) return
+  const localTs = toTimestamp(getLocalUpdatedAt())
+  const remoteTs = toTimestamp(remote.updatedAt)
+  if (remoteTs > localTs) {
+    applySnapshot(remote)
+    window.location.reload()
   }
 }
 
-export async function pushSyncNow(): Promise<void> {
-  const settings = getSyncSettings()
-  assertConfigured(settings)
-  const payload = buildPayload()
-  await patchGist(settings, payload)
+export async function initializeCloudSync(): Promise<void> {
+  const client = getClient()
+  const { data } = await client.auth.getSession()
+  currentSession = data.session
+
+  client.auth.onAuthStateChange((_event, session) => {
+    currentSession = session
+    if (!session) {
+      emitStatus({
+        state: 'auth_required',
+        email: '',
+        message: 'Connectez-vous pour activer la sync multi-appareils.',
+      })
+      return
+    }
+    syncOnAuthenticated(session).catch((error: unknown) => {
+      emitStatus({
+        state: 'error',
+        message: error instanceof Error ? error.message : 'Erreur de synchronisation.',
+      })
+    })
+  })
+
+  if (!data.session) {
+    emitStatus({
+      state: 'auth_required',
+      email: '',
+      message: 'Connectez-vous pour activer la sync multi-appareils.',
+    })
+    return
+  }
+
+  await syncOnAuthenticated(data.session)
 }
 
-export async function pullSyncNow(): Promise<'applied' | 'ignored'> {
-  const settings = getSyncSettings()
-  assertConfigured(settings)
-  const gist = await fetchGist(settings)
-  const remote = extractPayloadFromGist(gist)
-  if (!remote) {
-    return 'ignored'
+export function subscribeSyncStatus(listener: Listener): () => void {
+  listeners.add(listener)
+  listener({ ...syncStatus })
+  return () => listeners.delete(listener)
+}
+
+export async function requestMagicLink(email: string): Promise<void> {
+  const client = getClient()
+  emitStatus({ state: 'sending_magic_link', message: 'Envoi du lien magique…' })
+  const { error } = await client.auth.signInWithOtp({
+    email,
+    options: {
+      emailRedirectTo: window.location.href,
+    },
+  })
+  if (error) {
+    emitStatus({ state: 'error', message: error.message })
+    throw error
   }
-  const remoteTs = toNumber(remote.updatedAt)
-  const localTs = toNumber(getLocalUpdatedAt())
-  if (remoteTs <= localTs) {
-    return 'ignored'
+  emitStatus({ state: 'auth_required', message: 'Email envoyé. Ouvrez le lien de connexion.' })
+}
+
+export async function signOutCloudSync(): Promise<void> {
+  const client = getClient()
+  await client.auth.signOut()
+  currentSession = null
+  if (autoPullTimer) {
+    clearInterval(autoPullTimer)
+    autoPullTimer = null
   }
-  applyRemotePayload(remote)
-  return 'applied'
+  emitStatus({
+    state: 'auth_required',
+    email: '',
+    message: 'Déconnecté.',
+  })
 }
 
 export function scheduleAutoPush(): void {
-  const settings = getSyncSettings()
-  if (!settings.autoSync || !settings.gistId || !settings.token) return
-
+  if (!currentSession) return
   if (autoPushTimer) clearTimeout(autoPushTimer)
   autoPushTimer = setTimeout(() => {
-    pushSyncNow().catch(() => {
-      // Keep silent for auto-sync background failures.
-    })
+    const snapshot = buildLocalSnapshot()
+    writeRemoteSnapshot(currentSession!.user.id, snapshot)
+      .then(() => {
+        emitStatus({ state: 'ok', message: 'Synchronisé.' })
+      })
+      .catch((error: unknown) => {
+        emitStatus({
+          state: 'error',
+          message: error instanceof Error ? error.message : 'Erreur d’envoi cloud.',
+        })
+      })
     autoPushTimer = null
-  }, 1500)
+  }, 1200)
 }
-
-export async function tryAutoPull(): Promise<'applied' | 'ignored'> {
-  const settings = getSyncSettings()
-  if (!settings.autoSync || !settings.gistId || !settings.token) return 'ignored'
-  const now = Date.now()
-  if (now - lastAutoPullAt < AUTO_PULL_COOLDOWN_MS) return 'ignored'
-  lastAutoPullAt = now
-  try {
-    return await pullSyncNow()
-  } catch {
-    return 'ignored'
-  }
-}
-

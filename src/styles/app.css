@@ -43,6 +43,46 @@ button {
   color: inherit;
 }
 
+.sync-auth-strip {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0.65rem 1.25rem 0;
+}
+
+.sync-auth-strip.compact {
+  padding-top: 0.35rem;
+}
+
+.sync-auth-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.sync-auth-text {
+  font-size: 0.8rem;
+  color: var(--text2);
+}
+
+.sync-auth-error {
+  color: var(--danger);
+}
+
+.sync-auth-input {
+  background: var(--bg3);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.35rem 0.5rem;
+  font-size: 0.8rem;
+}
+
+.sync-auth-message {
+  font-size: 0.78rem;
+  color: var(--text3);
+}
+
 /* ─── Page layout ───────────────────────────────────────────── */
 .page {
   min-height: 100vh;
