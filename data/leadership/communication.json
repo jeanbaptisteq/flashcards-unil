@@ -63,6 +63,226 @@
       ],
       "correct": ["B"],
       "explanation": "L'écoute active implique attention totale, reformulation pour confirmer la compréhension, et questions ouvertes — pas seulement le silence."
+    },
+    {
+      "id": "c6",
+      "type": "mcq_single",
+      "question": "La résurgence des théories sur les traits de personnalité dans le domaine du leadership au cours des années 2000 s'explique par la création du système Big Five. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["A"],
+      "explanation": "Le modèle Big Five et l'usage des méta-analyses ont relancé l'intérêt pour les traits de personnalité comme prédicteurs du leadership."
+    },
+    {
+      "id": "c7",
+      "type": "mcq_single",
+      "question": "La théorie du leadership situationnel propose qu'un leadership efficace varie en fonction de la situation et dépend du niveau de préparation ou de maturité (autonomie) de chaque membre de l'équipe. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["A"],
+      "explanation": "Le leadership situationnel recommande d'adapter le style du leader au niveau de compétence et de motivation des subordonnés."
+    },
+    {
+      "id": "c8",
+      "type": "mcq_single",
+      "question": "En l'absence de hiérarchie formelle au sein d'un groupe, une hiérarchie informelle se formera presque automatiquement, souvent rapidement. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["A"],
+      "explanation": "Le cours souligne que des leaders informels émergent vite, même quand aucune hiérarchie officielle n'est prévue."
+    },
+    {
+      "id": "c9",
+      "type": "mcq_single",
+      "question": "Dans le modèle de contingence de Fiedler, l'efficacité d'un dirigeant est déterminée par l'adéquation de son style de leadership avec une combinaison de facteurs situationnels. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["A"],
+      "explanation": "Le coeur du modèle de Fiedler est le fit entre style de leadership et contrôle situationnel."
+    },
+    {
+      "id": "c10",
+      "type": "mcq_single",
+      "question": "L'un des principaux avantages du modèle de contingence de Fiedler est que tout dirigeant peut facilement modifier son style pour bien diriger dans toute situation. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "Une critique centrale du modèle est justement qu'il considère le style de leadership comme relativement stable."
+    },
+    {
+      "id": "c11",
+      "type": "mcq_single",
+      "question": "Selon la théorie de l'échange leader-membre (LMX), le leader traite tous les membres de l'équipe de la même manière et noue des relations identiques avec chacun. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "LMX postule des relations différenciées selon les membres, avec des dynamiques de cercle interne/externe."
+    },
+    {
+      "id": "c12",
+      "type": "mcq_single",
+      "question": "French et Raven distinguent pouvoir positionnel et pouvoir personnel. Le pouvoir de position est plus informel, tandis que le pouvoir personnel est plus formel. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "C'est l'inverse: le pouvoir de position est plutôt formel, le pouvoir personnel plutôt informel."
+    },
+    {
+      "id": "c13",
+      "type": "mcq_single",
+      "question": "Dans le phénomène de diffusion de la responsabilité, les individus sont plus enclins à agir en groupe parce qu'ils partagent la responsabilité. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "La diffusion de responsabilité diminue souvent l'action, car chacun pense qu'un autre interviendra."
+    },
+    {
+      "id": "c14",
+      "type": "mcq_single",
+      "question": "Il existe une réponse claire et unique à la question de savoir si les dirigeants naissent ou se forment. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "Le leadership résulte généralement d'une combinaison de facteurs innés et acquis."
+    },
+    {
+      "id": "c15",
+      "type": "mcq_single",
+      "question": "L'un des principaux avantages des théories comportementales est la possibilité de former les dirigeants. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["A"],
+      "explanation": "Les théories comportementales portent sur des comportements observables, donc entraînables."
+    },
+    {
+      "id": "c16",
+      "type": "mcq_single",
+      "question": "On parle de pratique managériale basée sur l'évidence scientifique si une décision est prise uniquement sur l'avis d'un praticien expérimenté. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "Une approche fondée sur l'évidence combine données scientifiques, expertise et contexte, pas uniquement l'expérience."
+    },
+    {
+      "id": "c17",
+      "type": "mcq_single",
+      "question": "Une des raisons évoquées pour lesquelles les managers se fient facilement à un expert est que l'expérience perçue de la source augmente sa crédibilité. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["A"],
+      "explanation": "Le cours souligne ce biais de confiance envers une source perçue comme expérimentée."
+    },
+    {
+      "id": "c18",
+      "type": "mcq_single",
+      "question": "Selon Fiedler, plus le score CMA/LPC est élevé, moins le leader est orienté vers les personnes. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "Un score CMA/LPC élevé indique plutôt une orientation relationnelle (personnes)."
+    },
+    {
+      "id": "c19",
+      "type": "mcq_single",
+      "question": "Un supérieur qui menace son secrétaire de conséquences négatives s'il n'exécute pas une tâche exerce à la fois un pouvoir de position et un pouvoir coercitif. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["A"],
+      "explanation": "La menace relève du pouvoir coercitif, rendu possible par la position hiérarchique."
+    },
+    {
+      "id": "c20",
+      "type": "mcq_single",
+      "question": "Les leaders peuvent être à la fois orientés vers les tâches et orientés vers les personnes; ces dimensions ne sont pas mutuellement exclusives. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["A"],
+      "explanation": "Les modèles comportementaux montrent que ces deux dimensions sont indépendantes."
+    },
+    {
+      "id": "c21",
+      "type": "mcq_single",
+      "question": "Les deux composantes essentielles des théories comportementales du leadership sont la production de l'employé et sa considération. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "Les dimensions classiques sont structuration (tâche) et considération (personne)."
+    },
+    {
+      "id": "c22",
+      "type": "mcq_single",
+      "question": "Dans une entreprise, une hiérarchie stable favorise la performance du groupe dans toutes les situations. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "L'effet dépend du contexte, du type de tâche et de la légitimité du leader."
+    },
+    {
+      "id": "c23",
+      "type": "mcq_single",
+      "question": "La diffusion de la responsabilité peut apparaître fréquemment dans des structures holacratiques. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["A"],
+      "explanation": "Quand les responsabilités sont moins explicites, le risque que chacun s'en remette aux autres augmente."
+    },
+    {
+      "id": "c24",
+      "type": "mcq_single",
+      "question": "Si un supérieur offre un bonus de fin d'année pour une excellente performance, il exerce principalement un pouvoir légitime. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "Ce cas illustre d'abord un pouvoir de récompense, pas uniquement un pouvoir légitime."
+    },
+    {
+      "id": "c25",
+      "type": "mcq_single",
+      "question": "Les personnes en position de pouvoir suivent parfois moins les règles tout en exigeant davantage que les autres les respectent; appeler cela \"effet d'obéissance\" est exact. Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Vrai" },
+        { "id": "B", "text": "Faux" }
+      ],
+      "correct": ["B"],
+      "explanation": "L'énoncé d'examen classe cette formulation comme fausse: l'étiquetage conceptuel \"effet d'obéissance\" est incorrect ici."
     }
   ]
 }
