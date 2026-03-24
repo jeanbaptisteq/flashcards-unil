@@ -7,7 +7,7 @@ import type {
   ReviewLogEntry,
 } from './types'
 import { compareDate, todayLocal } from './utils/date'
-import { scheduleAutoPush, touchLocalUpdatedAt } from './sync'
+import { pushSyncNow, scheduleAutoPush, touchLocalUpdatedAt } from './sync'
 
 const CARD_STATE_STORAGE_KEY = 'flashcards_unil_v1'
 const EXAM_SETTINGS_STORAGE_KEY = 'flashcards_unil_exam_v1'
@@ -145,6 +145,9 @@ function saveAll(data: Record<string, UserCardState>): void {
   localStorage.setItem(CARD_STATE_STORAGE_KEY, JSON.stringify(data))
   touchLocalUpdatedAt()
   scheduleAutoPush()
+  pushSyncNow().catch(() => {
+    // best effort immediate sync
+  })
 }
 
 function normalizeCourseExamSettings(raw: unknown): CourseExamSettings {
@@ -176,6 +179,9 @@ function saveAllExamSettings(data: Record<string, CourseExamSettings>): void {
   localStorage.setItem(EXAM_SETTINGS_STORAGE_KEY, JSON.stringify(data))
   touchLocalUpdatedAt()
   scheduleAutoPush()
+  pushSyncNow().catch(() => {
+    // best effort immediate sync
+  })
 }
 
 export function getCardState(cardKey: string): UserCardState {

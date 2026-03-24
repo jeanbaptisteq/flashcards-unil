@@ -274,15 +274,18 @@ export async function signOutCloudSync(): Promise<void> {
   })
 }
 
+export async function pushSyncNow(): Promise<void> {
+  if (!currentSession) return
+  const snapshot = buildLocalSnapshot()
+  await writeRemoteSnapshot(currentSession.user.id, snapshot)
+  emitStatus({ state: 'ok', message: 'Synchronisé.' })
+}
+
 export function scheduleAutoPush(): void {
   if (!currentSession) return
   if (autoPushTimer) clearTimeout(autoPushTimer)
   autoPushTimer = setTimeout(() => {
-    const snapshot = buildLocalSnapshot()
-    writeRemoteSnapshot(currentSession!.user.id, snapshot)
-      .then(() => {
-        emitStatus({ state: 'ok', message: 'Synchronisé.' })
-      })
+    pushSyncNow()
       .catch((error: unknown) => {
         emitStatus({
           state: 'error',
