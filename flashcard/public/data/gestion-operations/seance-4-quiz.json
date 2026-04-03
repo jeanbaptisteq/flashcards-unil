@@ -1,0 +1,113 @@
+{
+  "id": "seance-4-quiz",
+  "course": "gestion-operations",
+  "lesson": "Séance 4 — Quiz 4 (Coûts d'installation et d'inventaire)",
+  "cards": [
+    {
+      "id": "c1",
+      "type": "numeric_input",
+      "question": "L'impression de livres au sein d'une maison d'édition se déroule comme suit. Chaque livre est constitué d'un corps principal et d'une couverture. Une imprimante peut imprimer soit le corps principal (une unité toutes les 30 secondes), soit la couverture (une unité toutes les 20 secondes). Entre ces deux types d'impression, il faut 10 minutes pour changer le type de papier et régler l'imprimante.\n\nLa maison d'édition imprime pendant 10 heures par jour et souhaite atteindre un débit de 600 livres imprimés par jour. Quelle est la taille de lot recommandée ?",
+      "correct": "120",
+      "accepted": ["120,0", "120.0"],
+      "placeholder": "Ex: 120",
+      "explanation": "Débit visé = 600/10 h = 60 u/h = 1 u/min. Temps de réglage total du cycle = 20 min. Temps de traitement par livre = 30 s + 20 s = 50 s = 50/60 min. Formule: B = (débit x temps de réglage) / (1 - débit x temps de traitement). Application: B = (1 x 20) / (1 - 1 x 50/60) = 120."
+    },
+    {
+      "id": "c2",
+      "type": "numeric_input",
+      "question": "En utilisant la taille de lot trouvée à la question précédente, quelle est la capacité du processus par minute ?",
+      "correct": "1",
+      "accepted": ["1,0", "1.0"],
+      "placeholder": "Ex: 1",
+      "explanation": "Capacité = B / (temps de réglage + B x temps de traitement). Application: 120 / (20 + 120 x 50/60) = 1 u/min."
+    },
+    {
+      "id": "c3",
+      "type": "numeric_input",
+      "question": "Suite à l'achat des droits d'impression d'un nouveau best-seller, la maison d'édition décide d'imprimer ce livre avec une taille de lot de 40 unités. Quel est le débit de cette production (en livres par minute) ?",
+      "correct": "0,75",
+      "accepted": ["0.75", "0,750", "0.750"],
+      "placeholder": "Ex: 0,75",
+      "explanation": "Capacité = 40 / (20 + 40 x 50/60) = 0,75 livre/min."
+    },
+    {
+      "id": "c4",
+      "type": "mcq_multi",
+      "question": "Concernant le temps de réglage, laquelle ou lesquelles des propositions suivantes sont vraies ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pour une taille de lot donnée, si le temps de réglage augmente, la capacité de production diminue."
+        },
+        {
+          "id": "B",
+          "text": "Pour une taille de lot donnée, une augmentation du temps de réglage entraîne une augmentation de la capacité de production."
+        },
+        {
+          "id": "C",
+          "text": "Si le temps de réglage double, les coûts d'inventaire seront plus faibles pour une même demande à satisfaire."
+        },
+        {
+          "id": "D",
+          "text": "Pour satisfaire la même demande avec un temps de réglage plus long, la taille du lot doit augmenter."
+        }
+      ],
+      "correct": ["A", "D"],
+      "explanation": "Un temps de réglage plus long ralentit le processus et réduit la capacité. Pour maintenir la même demande avec plus de réglages, il faut souvent produire par lots plus grands."
+    },
+    {
+      "id": "c5",
+      "type": "numeric_input",
+      "question": "La production de vélos électriques se déroule comme suit:\n\nChaque vélo fini se compose d'un cadre et de deux roues. Les cadres et les roues sont produits sur la même machine. La production d'un cadre prend 25 minutes et celle d'une roue 15 minutes. Le temps de réglage pour chaque changement de production est de 30 minutes.\n\nAprès la production des pièces, les vélos doivent être assemblés, ce qui prend 1 heure par vélo.\n\nQuelle est la taille de lot recommandée ?",
+      "correct": "12",
+      "accepted": ["12,0", "12.0"],
+      "placeholder": "Ex: 12",
+      "explanation": "Temps de traitement par vélo = 25 + 2 x 15 = 55 min = 11/12 h. Temps de réglage total par cycle = 2 x 30 min = 1 h. Débit cible = 1 vélo/h. Formule: B = (débit x temps de réglage) / (1 - débit x temps de traitement). Application: B = (1 x 1) / (1 - 1 x 11/12) = 12."
+    },
+    {
+      "id": "c6",
+      "type": "numeric_input",
+      "question": "En reprenant la taille de lot de la question précédente, quel est l'inventaire moyen de cadres ?",
+      "correct": "3,5",
+      "accepted": ["3.5", "3,50", "3.50"],
+      "placeholder": "Ex: 3,5",
+      "explanation": "Inventaire moyen = (1/2) x B x (1 - débit x temps de traitement cadre). Avec B = 12, débit = 1 u/h et temps cadre = 25/60 h: (1/2) x 12 x (1 - 25/60) = 3,5."
+    },
+    {
+      "id": "c7",
+      "type": "numeric_input",
+      "question": "En reprenant la taille de lot de la question précédente, quel est l'inventaire moyen de roues ?",
+      "image_front": "/data/gestion-operations/assets/gestion-operations-seance-4-capture-1.png",
+      "image_back": "/data/gestion-operations/assets/gestion-operations-seance-4-capture-2.png",
+      "correct": "6",
+      "accepted": ["6,0", "6.0"],
+      "placeholder": "Ex: 6",
+      "explanation": "En paires de roues: temps de traitement d'une paire = 30/60 = 0,5 h; inventaire moyen = (1/2) x 12 x (1 - 1 x 0,5) = 3 paires. Conversion: 3 paires = 6 roues."
+    },
+    {
+      "id": "c8",
+      "type": "mcq_multi",
+      "question": "Lesquelles des propositions suivantes sont fausses lorsqu'on augmente la taille de lot dans un processus de production ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "La capacité du processus augmente."
+        },
+        {
+          "id": "B",
+          "text": "La capacité de réaction face à la demande des clients s'améliore."
+        },
+        {
+          "id": "C",
+          "text": "Le temps de cycle total augmente."
+        },
+        {
+          "id": "D",
+          "text": "Le stock maximal est plus faible."
+        }
+      ],
+      "correct": ["B", "D"],
+      "explanation": "Des lots plus grands améliorent souvent la capacité, mais réduisent la réactivité, augmentent les lead times et augmentent généralement le stock maximal."
+    }
+  ]
+}

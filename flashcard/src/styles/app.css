@@ -140,6 +140,15 @@ button {
   color: var(--text);
 }
 
+.session-header-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
 /* ─── Back button ───────────────────────────────────────────── */
 .btn-back {
   color: var(--text2);
@@ -245,9 +254,7 @@ button {
 
 .deck-item {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  align-items: stretch;
   background: var(--bg2);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -257,6 +264,14 @@ button {
 
 .deck-item:hover {
   border-color: var(--accent);
+}
+
+.deck-item-main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
 }
 
 .deck-info {
@@ -288,6 +303,14 @@ button {
 .badge-archived {
   color: var(--warning);
   font-weight: 600;
+}
+
+.deck-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.7rem;
+  flex-shrink: 0;
 }
 
 /* ─── Buttons ───────────────────────────────────────────────── */
@@ -429,9 +452,189 @@ button {
   color: var(--text);
 }
 
+/* ─── Course PDF source ────────────────────────────────────── */
+.course-pdf-panel {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.course-pdf-panel.compact {
+  padding: 0.85rem 1rem;
+}
+
+.course-pdf-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.course-pdf-title-wrap {
+  min-width: 0;
+  flex: 1;
+}
+
+.course-pdf-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.18rem 0.45rem;
+  margin-bottom: 0.25rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.course-pdf-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.course-pdf-meta {
+  margin-top: 0.25rem;
+  color: var(--text2);
+  font-size: 0.82rem;
+}
+
+.course-pdf-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.course-pdf-tabs {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  margin-top: 0.85rem;
+}
+
+.course-pdf-tab {
+  padding: 0.45rem 0.75rem;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text2);
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.course-pdf-tab:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.course-pdf-tab.active {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.course-pdf-link {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.course-pdf-toggle {
+  min-width: 92px;
+}
+
+.course-pdf-inline {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.course-pdf-inline-chip,
+.course-pdf-inline-link,
+.course-pdf-inline-source {
+  padding: 0.32rem 0.65rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text2);
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.course-pdf-inline-chip {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+  min-width: 0;
+}
+
+.course-pdf-frame-wrap {
+  margin-top: 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: #0b1220;
+}
+
+.course-pdf-frame {
+  display: block;
+  width: 100%;
+  height: 540px;
+  border: 0;
+  background: #0b1220;
+}
+
+@media (max-width: 720px) {
+  .view-header {
+    align-items: flex-start;
+  }
+
+  .session-header-right {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .deck-item {
+    padding: 0.95rem 1rem;
+  }
+
+  .deck-item-main {
+    flex-direction: column;
+  }
+
+  .btn-start {
+    width: 100%;
+  }
+
+  .deck-actions {
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .course-pdf-inline {
+    justify-content: flex-start;
+  }
+
+  .session-pdf-access {
+    justify-content: flex-start;
+  }
+}
+
 /* ─── Review session ────────────────────────────────────────── */
 .session-progress-wrap {
-  flex: 1;
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -462,6 +665,12 @@ button {
   background: var(--bg3);
   border-radius: 99px;
   overflow: hidden;
+}
+
+.session-pdf-access {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 .progress-bar {
@@ -647,6 +856,17 @@ button {
   border-radius: var(--radius-sm);
   font-weight: 600;
   font-size: 0.9rem;
+}
+
+.numeric-input-field {
+  width: min(360px, 100%);
+  background: var(--bg3);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 0.45rem 0.65rem;
+  font: inherit;
+  font-size: 0.95rem;
 }
 
 .answer-correct {
@@ -883,6 +1103,35 @@ button {
 
   .exam-controls {
     flex-wrap: wrap;
+  }
+
+  .course-pdf-head {
+    align-items: stretch;
+  }
+
+  .course-pdf-actions {
+    width: 100%;
+  }
+
+  .course-pdf-tabs {
+    gap: 0.35rem;
+  }
+
+  .course-pdf-link,
+  .course-pdf-toggle {
+    flex: 1;
+  }
+
+  .session-header-right {
+    gap: 0.5rem;
+  }
+
+  .session-pdf-access {
+    justify-content: flex-start;
+  }
+
+  .course-pdf-frame {
+    height: 420px;
   }
 
   .rating-buttons {

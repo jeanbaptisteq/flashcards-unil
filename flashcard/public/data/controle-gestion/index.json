@@ -2,6 +2,7 @@
   "id": "controle-gestion",
   "name": "Contrôle de gestion",
   "color": "#2563eb",
+  "sourcePdf": "/data/controle-gestion/assets/source.pdf",
   "decks": [
     {
       "id": "seance-1",

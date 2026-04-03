@@ -2,6 +2,7 @@
   "id": "bia",
   "name": "Business Intelligence & Analytics",
   "color": "#0d9488",
+  "sourcePdf": "/data/bia/assets/source.pdf",
   "decks": [
     {
       "id": "intro",

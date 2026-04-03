@@ -1,0 +1,57 @@
+{
+  "id": "gestion-operations",
+  "name": "Gestion des opérations",
+  "color": "#7c3aed",
+  "sourcePdfs": [
+    {
+      "title": "Cours 1 — GDOP",
+      "path": "/data/gestion-operations/assets/cours1-gdop.pdf"
+    },
+    {
+      "title": "Cours 2 — GDOP",
+      "path": "/data/gestion-operations/assets/cours2-gdop.pdf"
+    },
+    {
+      "title": "Cours 3 — GDOP",
+      "path": "/data/gestion-operations/assets/cours3-gdop.pdf"
+    },
+    {
+      "title": "Cours 3 — Quiz GDOP",
+      "path": "/data/gestion-operations/assets/quiz3-gdop.pdf"
+    },
+    {
+      "title": "Cours 4 — GDOP",
+      "path": "/data/gestion-operations/assets/cours4-gdop.pdf"
+    },
+    {
+      "title": "Cours 4 — Quiz GDOP",
+      "path": "/data/gestion-operations/assets/quiz4-gdop.pdf"
+    },
+    {
+      "title": "Cours 5 — GDOP",
+      "path": "/data/gestion-operations/assets/cours5-gdop.pdf"
+    }
+  ],
+  "decks": [
+    {
+      "id": "seance-1-quiz",
+      "title": "Séance 1 — Quiz 1",
+      "file": "seance-1-quiz.json"
+    },
+    {
+      "id": "seance-2-quiz",
+      "title": "Séance 2 — Quiz 2",
+      "file": "seance-2-quiz.json"
+    },
+    {
+      "id": "seance-3-quiz",
+      "title": "Séance 3 — Quiz 3",
+      "file": "seance-3-quiz.json"
+    },
+    {
+      "id": "seance-4-quiz",
+      "title": "Séance 4 — Quiz 4",
+      "file": "seance-4-quiz.json"
+    }
+  ]
+}

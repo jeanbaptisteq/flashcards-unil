@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from 'react'
-import type { Card, Deck, Rating } from '../types'
+import type { Card, CoursePdfRef, Deck, Rating } from '../types'
 import { getCardState, getCourseExamSettings, saveCardState } from '../store'
 import {
   appendReviewLog,
@@ -20,7 +20,9 @@ import CardMCQSingle from './CardMCQSingle'
 import CardMCQMulti from './CardMCQMulti'
 import CardImageRecall from './CardImageRecall'
 import CardDropdown from './CardDropdown'
+import CardNumericInput from './CardNumericInput'
 import NoteEditor from './NoteEditor'
+import CoursePdfPanel from './CoursePdfPanel'
 
 type Phase = 'question' | 'answer'
 
@@ -55,6 +57,10 @@ function arraysEqual(a: string[], b: string[]): boolean {
   return a.length === b.length && a.every((v, i) => v === b[i])
 }
 
+function normalizeNumberLike(value: string): string {
+  return value.trim().replace(/\s+/g, '').replace(',', '.')
+}
+
 export default function ReviewSession({ courseId, deckId, onBack }: Props) {
   const [deck, setDeck] = useState<Deck | null>(null)
   const [queue, setQueue] = useState<SessionCard[]>([])
@@ -68,11 +74,30 @@ export default function ReviewSession({ courseId, deckId, onBack }: Props) {
   const [error, setError] = useState(false)
   const [examDate, setExamDate] = useState('')
   const [isArchived, setIsArchived] = useState(false)
+  const [sourcePdfs, setSourcePdfs] = useState<CoursePdfRef[]>([])
 
   useEffect(() => {
     const exam = getCourseExamSettings(courseId)
     setExamDate(exam.examDate)
     setIsArchived(exam.archived)
+
+    fetch(dataUrl(`/data/${courseId}/index.json`))
+      .then((r) => {
+        if (!r.ok) throw new Error('not found')
+        return r.json() as Promise<{ sourcePdf?: string | null; sourcePdfs?: CoursePdfRef[] }>
+      })
+      .then((index) => {
+        setSourcePdfs(
+          index.sourcePdfs?.length
+            ? index.sourcePdfs
+            : index.sourcePdf
+              ? [{ title: 'Source PDF du cours', path: index.sourcePdf }]
+              : [],
+        )
+      })
+      .catch(() => {
+        setSourcePdfs([])
+      })
 
     fetch(dataUrl(`/data/${courseId}/${deckId}.json`))
       .then((r) => {
@@ -125,7 +150,13 @@ export default function ReviewSession({ courseId, deckId, onBack }: Props) {
           ...newCards.slice(0, DAILY_NEW_LIMIT),
         ]
 
-        setQueue(finalQueue.map((c) => ({ card: c, isLap: false })))
+        // Fallback for quiz decks: always allow a run even if scheduler has no due cards
+        // (common when a synced state marks the deck as already studied today).
+        const queueToUse = finalQueue.length === 0 && data.id.includes('quiz')
+          ? cards
+          : finalQueue
+
+        setQueue(queueToUse.map((c) => ({ card: c, isLap: false })))
         setLoading(false)
       })
       .catch(() => {
@@ -147,6 +178,10 @@ export default function ReviewSession({ courseId, deckId, onBack }: Props) {
       correct = arraysEqual([...selectedAnswer].sort(), [...currentCard.correct].sort())
     } else if (currentCard.type === 'dropdown') {
       correct = selectedAnswer[0] === currentCard.correct
+    } else if (currentCard.type === 'numeric_input') {
+      const userValue = normalizeNumberLike(selectedAnswer[0] ?? '')
+      const accepted = [currentCard.correct, ...(currentCard.accepted ?? [])].map(normalizeNumberLike)
+      correct = accepted.includes(userValue)
     } else {
       correct = true // image_recall: not auto-graded
     }
@@ -289,12 +324,26 @@ export default function ReviewSession({ courseId, deckId, onBack }: Props) {
     <div className="page">
       <header className="view-header">
         <button className="btn-back" onClick={onBack}>← Retour</button>
-        <div className="session-progress-wrap">
-          <span className="session-counter">{currentIdx + 1} / {queue.length}</span>
-          {examDate && <span className="exam-mode-badge">Mode examen actif</span>}
-          <div className="progress-bar-wrap">
-            <div className="progress-bar" style={{ width: `${progress}%` }} />
+        <div className="session-header-right">
+          <div className="session-progress-wrap">
+            <span className="session-counter">{currentIdx + 1} / {queue.length}</span>
+            {examDate && <span className="exam-mode-badge">Mode examen actif</span>}
+            <div className="progress-bar-wrap">
+              <div className="progress-bar" style={{ width: `${progress}%` }} />
+            </div>
           </div>
+          {sourcePdfs.length > 0 && (
+            <div className="session-pdf-access">
+              <CoursePdfPanel
+                title="PDF du cours"
+                pdfs={sourcePdfs}
+                sourceHint={deck?.lesson ?? deckId}
+                defaultExpanded={false}
+                compact={true}
+                inline={true}
+              />
+            </div>
+          )}
         </div>
       </header>
 
@@ -330,6 +379,15 @@ export default function ReviewSession({ courseId, deckId, onBack }: Props) {
           )}
           {currentCard.type === 'dropdown' && (
             <CardDropdown
+              card={currentCard}
+              phase={phase}
+              selected={selectedAnswer[0] ?? ''}
+              isCorrect={isCorrect}
+              onSelect={(val) => setSelectedAnswer([val])}
+            />
+          )}
+          {currentCard.type === 'numeric_input' && (
+            <CardNumericInput
               card={currentCard}
               phase={phase}
               selected={selectedAnswer[0] ?? ''}

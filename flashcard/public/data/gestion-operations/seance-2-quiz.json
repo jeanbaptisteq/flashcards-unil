@@ -1,0 +1,154 @@
+{
+  "id": "seance-2-quiz",
+  "course": "gestion-operations",
+  "lesson": "Séance 2 — Quiz 2 (Capacité, goulot, utilisation)",
+  "cards": [
+    {
+      "id": "c1",
+      "type": "mcq_multi",
+      "question": "Selon le diagramme de flux, quelles affirmations sont correctes ?",
+      "image_front": "/data/gestion-operations/assets/gestion-operations-seance-2-capture-1.png",
+      "options": [
+        { "id": "A", "text": "Les triangles représentent les activités du processus de production." },
+        { "id": "B", "text": "Les carrés/rectangles représentent les activités du processus de production." },
+        { "id": "C", "text": "Toutes les unités passent par chaque activité." },
+        { "id": "D", "text": "Les triangles représentent les unités du processus de production." },
+        { "id": "E", "text": "Chaque activité a sa propre capacité." },
+        { "id": "F", "text": "Une activité peut traiter différents types d'unités." }
+      ],
+      "correct": ["B", "E", "F"],
+      "explanation": "Dans le schéma, les triangles sont des zones tampons (buffers) et les rectangles sont les activités. Une activité a sa capacité propre, et certaines activités peuvent traiter plusieurs types d'unités."
+    },
+    {
+      "id": "c2",
+      "type": "mcq_single",
+      "question": "En prenant en compte le tableau, quelle activité est le goulot d'étranglement du processus ?",
+      "image_front": "/data/gestion-operations/assets/gestion-operations-seance-2-capture-2.png",
+      "options": [
+        { "id": "A", "text": "Triage" },
+        { "id": "B", "text": "Assemblage" },
+        { "id": "C", "text": "Emballage" },
+        { "id": "D", "text": "Recyclage" }
+      ],
+      "correct": ["C"],
+      "explanation": "Le goulot d'étranglement est l'activité avec la capacité la plus faible. Ici, c'est Emballage."
+    },
+    {
+      "id": "c3",
+      "type": "mcq_single",
+      "question": "Quelle est la capacité du processus en unités par minute ?",
+      "options": [
+        { "id": "A", "text": "0,5" },
+        { "id": "B", "text": "0,6" },
+        { "id": "C", "text": "0,65" },
+        { "id": "D", "text": "0,8" }
+      ],
+      "correct": ["B"],
+      "explanation": "Capacité processus = capacité du goulot. Avec 36 unités/heure: 36/60 = 0,6 unité/minute."
+    },
+    {
+      "id": "c4",
+      "type": "mcq_single",
+      "question": "Une entreprise produit 3 vélos/jour et la demande est de 12 vélos/semaine (7 jours/semaine). Quel est le taux d'utilisation journalier ?",
+      "options": [
+        { "id": "A", "text": "0,40" },
+        { "id": "B", "text": "0,50" },
+        { "id": "C", "text": "0,57" },
+        { "id": "D", "text": "0,70" }
+      ],
+      "correct": ["C"],
+      "explanation": "Débit = 12/7 vélos/jour. Utilisation = (12/7)/3 = 0,57."
+    },
+    {
+      "id": "c5",
+      "type": "mcq_single",
+      "question": "Que signifie le fait que le taux d'utilisation soit égal au taux d'utilisation implicite ?",
+      "options": [
+        { "id": "A", "text": "Le débit est inférieur à la demande." },
+        { "id": "B", "text": "Le débit est égal à la demande." },
+        { "id": "C", "text": "Le débit est supérieur à la demande." },
+        { "id": "D", "text": "On ne peut rien conclure." }
+      ],
+      "correct": ["B"],
+      "explanation": "Utilisation = débit/capacité et utilisation implicite = demande/capacité. Égalité => débit = demande."
+    },
+    {
+      "id": "c6",
+      "type": "mcq_single",
+      "question": "Cas Tikasun: quelle activité est le goulot d'étranglement ?",
+      "options": [
+        { "id": "A", "text": "Coupage du bois" },
+        { "id": "B", "text": "Assemblage" },
+        { "id": "C", "text": "Peinture" },
+        { "id": "D", "text": "Contrôle du produit fini" }
+      ],
+      "correct": ["A"],
+      "explanation": "Capacités/jour: coupage 4x2=8, assemblage 3x4=12, peinture 20, contrôle 15. Minimum = 8 => coupage du bois."
+    },
+    {
+      "id": "c7",
+      "type": "mcq_single",
+      "question": "Cas Tikasun: en supposant un mois de 30 jours, quelle est la capacité mensuelle du processus ?",
+      "options": [
+        { "id": "A", "text": "210" },
+        { "id": "B", "text": "240" },
+        { "id": "C", "text": "300" },
+        { "id": "D", "text": "360" }
+      ],
+      "correct": ["B"],
+      "explanation": "Capacité mensuelle = capacité du goulot par jour x 30 = 8 x 30 = 240."
+    },
+    {
+      "id": "c8",
+      "type": "mcq_single",
+      "question": "Cas Tikasun: quel est le taux d'utilisation implicite de l'activité de coupage du bois ?",
+      "options": [
+        { "id": "A", "text": "80%" },
+        { "id": "B", "text": "100%" },
+        { "id": "C", "text": "125%" },
+        { "id": "D", "text": "150%" }
+      ],
+      "correct": ["C"],
+      "explanation": "Utilisation implicite = demande/capacité = 300/240 = 1,25 = 125%."
+    },
+    {
+      "id": "c9",
+      "type": "mcq_single",
+      "question": "Cas Tikasun: quel est le taux d'utilisation de l'activité de peinture ?",
+      "options": [
+        { "id": "A", "text": "30%" },
+        { "id": "B", "text": "40%" },
+        { "id": "C", "text": "57%" },
+        { "id": "D", "text": "75%" }
+      ],
+      "correct": ["B"],
+      "explanation": "Débit = 240 unités/mois, capacité peinture = 20x30 = 600. Utilisation = 240/600 = 40%."
+    },
+    {
+      "id": "c10",
+      "type": "mcq_single",
+      "question": "On ajoute des chaises uniquement aux activités Peinture et Contrôle. Quelle est la capacité mensuelle de production de chaises ?",
+      "options": [
+        { "id": "A", "text": "180" },
+        { "id": "B", "text": "210" },
+        { "id": "C", "text": "240" },
+        { "id": "D", "text": "360" }
+      ],
+      "correct": ["B"],
+      "explanation": "Capacité restante peinture = 600-240=360. Capacité restante contrôle = 450-240=210. Le goulot est contrôle => 210 chaises/mois."
+    },
+    {
+      "id": "c11",
+      "type": "mcq_single",
+      "question": "Quel est le nouveau taux d'utilisation de l'activité de peinture après ajout des chaises ?",
+      "options": [
+        { "id": "A", "text": "60%" },
+        { "id": "B", "text": "65%" },
+        { "id": "C", "text": "70%" },
+        { "id": "D", "text": "75%" }
+      ],
+      "correct": ["D"],
+      "explanation": "Nouveau débit peinture = 240 tables + 210 chaises = 450. Capacité = 600. Utilisation = 450/600 = 75%."
+    }
+  ]
+}

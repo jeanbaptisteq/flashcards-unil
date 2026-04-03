@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import type { CourseIndex, DeckMeta } from '../types'
+import type { CourseIndex, CoursePdfRef, DeckMeta } from '../types'
 import {
   clearCourseExamDate,
   getAllStates,
@@ -9,6 +9,7 @@ import {
 import { getCardKey, isMastered, isScheduledDue, wasDifficultOnDate } from '../scheduler'
 import { dataUrl } from '../utils/paths'
 import { daysBetween, todayLocal } from '../utils/date'
+import CoursePdfPanel from './CoursePdfPanel'
 
 interface DeckStats {
   total: number
@@ -39,6 +40,7 @@ const COURSE_NAMES: Record<string, string> = {
 export default function DeckListView({ courseId, onBack, onNavigateDeck }: Props) {
   const [decks, setDecks] = useState<DeckMeta[]>([])
   const [deckStats, setDeckStats] = useState<Record<string, DeckStats>>({})
+  const [sourcePdfs, setSourcePdfs] = useState<CoursePdfRef[]>([])
   const [analytics, setAnalytics] = useState<CourseAnalytics>({
     totalCards: 0,
     masteredCards: 0,
@@ -64,6 +66,13 @@ export default function DeckListView({ courseId, onBack, onNavigateDeck }: Props
         return r.json() as Promise<CourseIndex>
       })
       .then(async (index) => {
+        setSourcePdfs(
+          index.sourcePdfs?.length
+            ? index.sourcePdfs
+            : index.sourcePdf
+              ? [{ title: 'Source PDF du cours', path: index.sourcePdf }]
+              : [],
+        )
         setDecks(index.decks)
 
         const statsMap: Record<string, DeckStats> = {}
@@ -125,6 +134,7 @@ export default function DeckListView({ courseId, onBack, onNavigateDeck }: Props
       .catch(() => {
         setError(true)
         setLoading(false)
+        setSourcePdfs([])
       })
   }, [courseId])
 
@@ -220,28 +230,42 @@ export default function DeckListView({ courseId, onBack, onNavigateDeck }: Props
           const s = deckStats[deck.id]
           return (
             <div key={deck.id} className="deck-item">
-              <div className="deck-info">
-                <h2 className="deck-title">{deck.title}</h2>
-                {s && (
-                  <p className="deck-meta">
-                    {s.total} cartes
-                    {!isArchived && s.due > 0 && (
-                      <span className="badge-due"> · {s.due} à réviser aujourd'hui</span>
-                    )}
-                    {!isArchived && s.due === 0 && s.total > 0 && (
-                      <span className="badge-done"> · À jour</span>
-                    )}
-                    {isArchived && <span className="badge-archived"> · Archivé</span>}
-                  </p>
-                )}
+              <div className="deck-item-main">
+                <div className="deck-info">
+                  <h2 className="deck-title">{deck.title}</h2>
+                  {s && (
+                    <p className="deck-meta">
+                      {s.total} cartes
+                      {!isArchived && s.due > 0 && (
+                        <span className="badge-due"> · {s.due} à réviser aujourd'hui</span>
+                      )}
+                      {!isArchived && s.due === 0 && s.total > 0 && (
+                        <span className="badge-done"> · À jour</span>
+                      )}
+                      {isArchived && <span className="badge-archived"> · Archivé</span>}
+                    </p>
+                  )}
+                </div>
+
+                <div className="deck-actions">
+                  <button
+                    className="btn-start"
+                    onClick={() => onNavigateDeck(deck.id)}
+                    disabled={s?.total === 0 || isArchived}
+                  >
+                    {isArchived ? 'Archivé' : 'Commencer'}
+                  </button>
+
+                  <CoursePdfPanel
+                    title="PDF du cours"
+                    pdfs={sourcePdfs}
+                    sourceHint={deck.title}
+                    defaultExpanded={false}
+                    compact={true}
+                    inline={true}
+                  />
+                </div>
               </div>
-              <button
-                className="btn-start"
-                onClick={() => onNavigateDeck(deck.id)}
-                disabled={s?.total === 0 || isArchived}
-              >
-                {isArchived ? 'Archivé' : 'Commencer'}
-              </button>
             </div>
           )
         })}

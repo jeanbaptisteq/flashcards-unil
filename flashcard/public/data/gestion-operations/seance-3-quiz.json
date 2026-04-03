@@ -1,0 +1,141 @@
+{
+  "id": "seance-3-quiz",
+  "course": "gestion-operations",
+  "lesson": "Séance 3 — Quiz 3 (Capacité, lead time, utilisation)",
+  "cards": [
+    {
+      "id": "c1",
+      "type": "mcq_single",
+      "question": "Le graphique ci-dessous représente les différents temps d’activité de deux start-up de livraison de paniers de fruits et légumes locaux. En tant que gestionnaire souhaitant investir dans l'une de ces start-up, vous vous demandez quel processus a la plus grande capacité et donc quelle start-up pourra livrer le plus grand nombre de paniers. Vous savez également que les processus ne sont pas contraints par la demande du marché, qui est en constante augmentation, et qu'il n'y a qu'un seul travailleur par activité.\n\nCompte tenu du graphique ci-dessus, dans quelle start-up devriez-vous investir si votre décision d’investissement est uniquement fondée sur la capacité du processus ?",
+      "image_front": "/data/gestion-operations/assets/gestion-operations-seance-3-capture-1.png",
+      "options": [
+        { "id": "A", "text": "On ne peut pas savoir." },
+        { "id": "B", "text": "La start-up A." },
+        { "id": "C", "text": "Les deux, car elles ont la même capacité." },
+        { "id": "D", "text": "La start-up B." }
+      ],
+      "correct": ["B"],
+      "explanation": "L’activité Livraison est le goulot d’étranglement de la start-up A, alors que celui de la start-up B est plus limitant. La capacité maximale de B est inférieure à celle de A."
+    },
+    {
+      "id": "c2",
+      "type": "numeric_input",
+      "question": "On fait l'hypothèse que le goulot d’étranglement de la start-up B est maintenant l'activité 1, qui a une durée de 89 minutes par panier de fruits et légumes. Sachant que les employés travaillent 8 heures par jour et 5 jours par semaine, combien de paniers de fruits et légumes la start-up B pourra-t-elle livrer par semaine (arrondissez votre réponse à l'entier supérieur) ?",
+      "correct": "27",
+      "accepted": ["27,0", "27.0"],
+      "placeholder": "Ex: 27",
+      "explanation": "Capacité de B: 1 panier/89 min = 0,0112 panier/min. Puis 0,0112 x 60 x 8 x 5 = 27 paniers/semaine (arrondi supérieur)."
+    },
+    {
+      "id": "c3",
+      "type": "numeric_input",
+      "question": "Une chaîne de production de gobelets en carton produit en moyenne une unité toutes les 5 secondes. Les gobelets sont ensuite emballés par des employés en paquets de 120 gobelets; ce processus dure en moyenne 6 minutes. Le salaire horaire de la main-d'oeuvre est de 45 CHF.\n\nQuel est le coût de la main-d'oeuvre directe par gobelet, sachant que le processus n'est pas contraint par la demande ? Donnez votre réponse en centimes par gobelet.",
+      "correct": "6,25",
+      "accepted": ["6.25"],
+      "placeholder": "Ex: 6,25",
+      "explanation": "Débit = 1/5 x 3600 = 720 gobelets/h. Coût unitaire = 45/720 = 0,0625 CHF = 6,25 centimes."
+    },
+    {
+      "id": "c4",
+      "type": "numeric_input",
+      "question": "La production de sacs à dos à partir de bâches de camion recyclées se déroule en cinq étapes, présentées dans le tableau ci-dessous.\n\nQuelle est la capacité du processus (en u/h) ?",
+      "correct": "0,6667",
+      "accepted": ["0.6667", "0,667", "0.667", "0,6666", "0.6666"],
+      "placeholder": "Ex: 0,6667",
+      "explanation": "Le goulot d’étranglement est Nettoyage. Capacité Nettoyage = 1/1,5 = 0,6667 u/h."
+    },
+    {
+      "id": "c5",
+      "type": "numeric_input",
+      "question": "En supposant qu'il n'y a pas d'inventaire dans le processus, combien de temps (en heures) faut-il pour produire la première unité ?",
+      "correct": "10",
+      "accepted": ["10,0", "10.0"],
+      "placeholder": "Ex: 10",
+      "explanation": "La première unité passe par toutes les activités: 1,5 + 2,5 + 3 + 2 + 1 = 10 heures."
+    },
+    {
+      "id": "c6",
+      "type": "numeric_input",
+      "question": "Combien de temps (en heures) faut-il pour produire les 7 premières unités ?",
+      "correct": "19",
+      "accepted": ["19,0", "19.0"],
+      "placeholder": "Ex: 19",
+      "explanation": "Temps total = 10 h + (7 - 1)/0,6667 = 10 h + 9 h = 19 h."
+    },
+    {
+      "id": "c7",
+      "type": "numeric_input",
+      "question": "Quel est le contenu du travail de ce processus (en heures) ?",
+      "correct": "10",
+      "accepted": ["10,0", "10.0"],
+      "placeholder": "Ex: 10",
+      "explanation": "Contenu du travail = somme des temps des activités avec main-d'oeuvre = 10 h."
+    },
+    {
+      "id": "c8",
+      "type": "numeric_input",
+      "question": "Quel est le temps d'inactivité de l'activité de nettoyage ?",
+      "correct": "0",
+      "accepted": ["0,0", "0.0"],
+      "placeholder": "Ex: 0",
+      "explanation": "Nettoyage est le goulot d’étranglement, donc pas d'inactivité."
+    },
+    {
+      "id": "c9",
+      "type": "numeric_input",
+      "question": "Quel est le taux moyen d'utilisation de la main-d'oeuvre dans ce processus ?",
+      "correct": "0,667",
+      "accepted": ["0.667", "0,6667", "0.6667", "66,7%", "66.7%"],
+      "placeholder": "Ex: 0,667",
+      "explanation": "Moyenne pondérée par le nombre de ressources = 66,7%, soit 0,667."
+    },
+    {
+      "id": "c10",
+      "type": "numeric_input",
+      "question": "Quel est le taux d'inactivité de l'activité 4 (attention, exprimez votre réponse en pourcentage) ?",
+      "correct": "0,33",
+      "accepted": ["0.33", "0,333", "0.333", "33,3%", "33.3%"],
+      "placeholder": "Ex: 0,33",
+      "explanation": "Taux d'inactivité = 1 - 66,7% = 33,3%, soit 0,33 en proportion."
+    },
+    {
+      "id": "c11",
+      "type": "mcq_single",
+      "question": "Lequel de ces changements permettrait de réduire au mieux le temps d'inactivité moyen du processus ?",
+      "options": [
+        { "id": "A", "text": "Transférer un opérateur de l'activité 3 à l'activité 2." },
+        { "id": "B", "text": "Transférer un opérateur de l'activité 4 à l'activité 3." },
+        { "id": "C", "text": "Transférer un opérateur de l'activité 4 à l'activité 1." },
+        { "id": "D", "text": "Transférer un opérateur de l'activité 3 à l'activité 1." }
+      ],
+      "correct": ["D"],
+      "explanation": "Transférer une ressource de 3 vers 1 augmente la capacité du goulot et améliore l'utilisation moyenne globale."
+    },
+    {
+      "id": "c12",
+      "type": "mcq_multi",
+      "question": "Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "Si on ajoute une ressource à une activité d'un processus contraint par la demande, le taux d'utilisation de cette activité va baisser." },
+        { "id": "B", "text": "Si on ajoute une ressource à une activité, le contenu total du travail va diminuer." },
+        { "id": "C", "text": "Si on ajoute une ressource à une activité, le contenu total du travail va augmenter." },
+        { "id": "D", "text": "En ajoutant des ressources aux bonnes activités d'un processus contraint par sa capacité, on peut diminuer le temps d'inactivité total." }
+      ],
+      "correct": ["A", "D"],
+      "explanation": "Les affirmations 1 et 4 sont vraies; 2 et 3 sont fausses."
+    },
+    {
+      "id": "c13",
+      "type": "mcq_multi",
+      "question": "Vrai ou faux ?",
+      "options": [
+        { "id": "A", "text": "En répliquant une ligne de production, on peut contrôler les taux d'utilisation." },
+        { "id": "B", "text": "En supposant un salaire horaire identique pour tous les travailleurs, un travailleur ayant un taux d'utilisation de 80 % reçoit le même salaire par unité produite qu'un travailleur ayant un taux d'utilisation de 60 %." },
+        { "id": "C", "text": "En augmentant la spécialisation de chaque activité, il est possible de corriger des taux d'utilisation trop faibles." },
+        { "id": "D", "text": "En répliquant une ligne, on peut bénéficier de l'expérience acquise lors de la mise en place de la ligne initiale." }
+      ],
+      "correct": ["B", "C", "D"],
+      "explanation": "Les affirmations 2, 3 et 4 sont vraies; 1 est fausse."
+    }
+  ]
+}

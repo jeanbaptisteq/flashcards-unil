@@ -2,6 +2,7 @@
   "id": "leadership",
   "name": "Leadership",
   "color": "#dc2626",
+  "sourcePdf": "/data/leadership/assets/source.pdf",
   "decks": [
     {
       "id": "communication",

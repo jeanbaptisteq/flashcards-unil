@@ -1,0 +1,111 @@
+{
+  "id": "seance-1-quiz",
+  "course": "gestion-operations",
+  "lesson": "Séance 1 — Quiz 1 (Offre/Demande, Gantt, Loi de Little)",
+  "cards": [
+    {
+      "id": "c1",
+      "type": "mcq_multi",
+      "question": "Du point de vue d'un gestionnaire, quelles affirmations sont correctes ?",
+      "options": [
+        { "id": "A", "text": "Si la demande est supérieure à l'offre, cela équivaut à une perte de revenu." },
+        { "id": "B", "text": "Si la demande est supérieure à l'offre, cela équivaut à un gaspillage de ressources." },
+        { "id": "C", "text": "Si la demande est inférieure à l'offre, cela équivaut à un gaspillage de ressources." },
+        { "id": "D", "text": "Si la demande est inférieure à l'offre, cela équivaut à une perte de revenu." }
+      ],
+      "correct": ["A", "C"],
+      "explanation": "Si la demande dépasse l'offre, on perd des ventes potentielles (perte de revenu). Si l'offre dépasse la demande, on immobilise des ressources dans des invendus (gaspillage)."
+    },
+    {
+      "id": "c2",
+      "type": "mcq_single",
+      "question": "Qu'est-ce qu'un diagramme de Gantt ne permet pas de voir ?",
+      "options": [
+        { "id": "A", "text": "Les différentes activités d'un processus." },
+        { "id": "B", "text": "L'ordre des activités dans un processus." },
+        { "id": "C", "text": "Le temps associé à chaque activité." },
+        { "id": "D", "text": "Le temps d'attente imprévu entre les activités d'un processus." }
+      ],
+      "correct": ["D"],
+      "explanation": "Le Gantt représente les activités planifiées, leur ordre et leur durée prévue, mais pas les aléas réels et attentes imprévues entre étapes."
+    },
+    {
+      "id": "c3",
+      "type": "mcq_single",
+      "question": "Louis et Nadine: débit = 5 kg/min et lead time = 0,5 h. Quel est l'inventaire moyen ?",
+      "options": [
+        { "id": "A", "text": "120 kg" },
+        { "id": "B", "text": "150 kg" },
+        { "id": "C", "text": "165 kg" },
+        { "id": "D", "text": "300 kg" }
+      ],
+      "correct": ["B"],
+      "explanation": "5 kg/min = 300 kg/h. Loi de Little: Inventaire moyen = Débit x Lead time = 300 x 0,5 = 150 kg."
+    },
+    {
+      "id": "c4",
+      "type": "mcq_single",
+      "question": "Avec lead time constant (0,5 h), quelle est la différence entre les débits d'été et d'hiver ?",
+      "options": [
+        { "id": "A", "text": "60 kg/h" },
+        { "id": "B", "text": "75 kg/h" },
+        { "id": "C", "text": "90 kg/h" },
+        { "id": "D", "text": "105 kg/h" }
+      ],
+      "correct": ["C"],
+      "explanation": "Inventaire été = 165 kg, hiver = 120 kg. Débits: 165/0,5 = 330 kg/h et 120/0,5 = 240 kg/h. Différence = 90 kg/h."
+    },
+    {
+      "id": "c5",
+      "type": "mcq_single",
+      "question": "La quantité de stock présente dans le système correspond à quel type de stock ?",
+      "options": [
+        { "id": "A", "text": "Stock saisonnier" },
+        { "id": "B", "text": "Stock de transit" },
+        { "id": "C", "text": "Stock tampon" },
+        { "id": "D", "text": "Stock dormant" }
+      ],
+      "correct": ["B"],
+      "explanation": "Le stock de transit est la quantité de stock présente dans le système pendant son temps de traversée."
+    },
+    {
+      "id": "c6",
+      "type": "mcq_single",
+      "question": "Les stocks servant à absorber les variations de débit et éviter les ruptures correspondent à quel type ?",
+      "options": [
+        { "id": "A", "text": "Stock tampon" },
+        { "id": "B", "text": "Stock de transit" },
+        { "id": "C", "text": "Stock saisonnier" },
+        { "id": "D", "text": "Stock spéculatif" }
+      ],
+      "correct": ["A"],
+      "explanation": "Le stock tampon (stock de sécurité) absorbe la variabilité et protège contre les ruptures."
+    },
+    {
+      "id": "c7",
+      "type": "mcq_single",
+      "question": "Les stocks constitués pour faire face à une demande saisonnière (capacité rigide) correspondent à quel type ?",
+      "options": [
+        { "id": "A", "text": "Stock tampon" },
+        { "id": "B", "text": "Stock de transit" },
+        { "id": "C", "text": "Stock saisonnier" },
+        { "id": "D", "text": "Stock obsolète" }
+      ],
+      "correct": ["C"],
+      "explanation": "Le stock saisonnier anticipe les fluctuations prévisibles de la demande quand la capacité n'est pas parfaitement flexible."
+    },
+    {
+      "id": "c8",
+      "type": "mcq_multi",
+      "question": "Parmi les situations suivantes, lesquelles illustrent une inadéquation entre l'offre et la demande ?",
+      "options": [
+        { "id": "A", "text": "Concert sans billets disponibles." },
+        { "id": "B", "text": "Magasin sans la pointure demandée." },
+        { "id": "C", "text": "Invendus en fin de journée dans une boulangerie." },
+        { "id": "D", "text": "Stock parfaitement aligné avec la demande." }
+      ],
+      "correct": ["A", "B", "C"],
+      "explanation": "A, B et C sont des cas classiques de déséquilibre offre/demande. D décrit au contraire un équilibre."
+    }
+  ]
+}

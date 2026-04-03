@@ -1,4 +1,4 @@
-export type CardType = 'mcq_single' | 'mcq_multi' | 'image_recall' | 'dropdown'
+export type CardType = 'mcq_single' | 'mcq_multi' | 'image_recall' | 'dropdown' | 'numeric_input'
 
 export interface CardOption {
   id: string
@@ -40,7 +40,15 @@ export interface DropdownCard extends BaseCard {
   correct: string
 }
 
-export type Card = MCQSingleCard | MCQMultiCard | ImageRecallCard | DropdownCard
+export interface NumericInputCard extends BaseCard {
+  type: 'numeric_input'
+  prompt?: string
+  placeholder?: string
+  correct: string
+  accepted?: string[]
+}
+
+export type Card = MCQSingleCard | MCQMultiCard | ImageRecallCard | DropdownCard | NumericInputCard
 
 export interface Deck {
   id: string
@@ -59,7 +67,14 @@ export interface CourseIndex {
   id: string
   name: string
   color: string
+  sourcePdf?: string | null
+  sourcePdfs?: CoursePdfRef[]
   decks: DeckMeta[]
+}
+
+export interface CoursePdfRef {
+  title: string
+  path: string
 }
 
 export interface SM2State {
