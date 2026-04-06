@@ -1,9 +1,10 @@
-import { createClient, type Session, type SupabaseClient } from '@supabase/supabase-js'
+import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 
 const CARD_STATE_STORAGE_KEY = 'flashcards_unil_v1'
 const EXAM_SETTINGS_STORAGE_KEY = 'flashcards_unil_exam_v1'
 const LOCAL_UPDATED_AT_STORAGE_KEY = 'flashcards_unil_local_updated_at_v1'
 const SYNC_INITIALIZED_KEY = 'flashcards_unil_sync_initialized_v1'
+const REMOTE_STATE_KEY = 'flashcards-unil'
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || 'https://wqveiutqcwdjhpygzlbw.supabase.co'
 const SUPABASE_ANON_KEY =
@@ -17,23 +18,15 @@ interface CloudSnapshot {
   examSettings: string
 }
 
-type SyncState =
-  | 'idle'
-  | 'auth_required'
-  | 'sending_magic_link'
-  | 'syncing'
-  | 'ok'
-  | 'error'
+type SyncState = 'idle' | 'syncing' | 'ok' | 'error'
 
 export interface CloudSyncStatus {
   state: SyncState
-  email: string
   message: string
 }
 
 const syncStatus: CloudSyncStatus = {
   state: 'idle',
-  email: '',
   message: '',
 }
 
@@ -42,7 +35,6 @@ type Listener = (status: CloudSyncStatus) => void
 const listeners = new Set<Listener>()
 
 let supabase: SupabaseClient | null = null
-let currentSession: Session | null = null
 let autoPushTimer: ReturnType<typeof setTimeout> | null = null
 let autoPullTimer: ReturnType<typeof setInterval> | null = null
 
@@ -55,9 +47,9 @@ function getClient(): SupabaseClient {
   if (!supabase) {
     supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
       auth: {
-        persistSession: true,
-        autoRefreshToken: true,
-        detectSessionInUrl: true,
+        persistSession: false,
+        autoRefreshToken: false,
+        detectSessionInUrl: false,
       },
     })
   }
@@ -107,12 +99,12 @@ function applySnapshot(snapshot: CloudSnapshot): void {
   localStorage.setItem(LOCAL_UPDATED_AT_STORAGE_KEY, snapshot.updatedAt || nowIso())
 }
 
-async function readRemoteSnapshot(userId: string): Promise<CloudSnapshot | null> {
+async function readRemoteSnapshot(): Promise<CloudSnapshot | null> {
   const client = getClient()
   const { data, error } = await client
     .from('user_state_snapshots')
     .select('state, updated_at')
-    .eq('user_id', userId)
+    .eq('user_id', REMOTE_STATE_KEY)
     .maybeSingle()
 
   if (error) throw error
@@ -129,11 +121,11 @@ async function readRemoteSnapshot(userId: string): Promise<CloudSnapshot | null>
   }
 }
 
-async function writeRemoteSnapshot(userId: string, snapshot: CloudSnapshot): Promise<void> {
+async function writeRemoteSnapshot(snapshot: CloudSnapshot): Promise<void> {
   const client = getClient()
   const { error } = await client.from('user_state_snapshots').upsert(
     {
-      user_id: userId,
+      user_id: REMOTE_STATE_KEY,
       state: snapshot,
       updated_at: snapshot.updatedAt,
     },
@@ -142,28 +134,30 @@ async function writeRemoteSnapshot(userId: string, snapshot: CloudSnapshot): Pro
   if (error) throw error
 }
 
-async function syncOnAuthenticated(session: Session): Promise<void> {
-  currentSession = session
-  emitStatus({
-    state: 'syncing',
-    email: session.user.email || '',
-    message: 'Synchronisation en cours…',
-  })
+async function syncFromRemoteOrSeedLocal(): Promise<void> {
+  emitStatus({ state: 'syncing', message: 'Synchronisation Supabase en cours…' })
 
-  const userId = session.user.id
-  const remote = await readRemoteSnapshot(userId)
+  const remote = await readRemoteSnapshot()
   const initialized = localStorage.getItem(SYNC_INITIALIZED_KEY) === '1'
   const localSnapshot = buildLocalSnapshot()
 
   if (!initialized) {
-    if (localHasMeaningfulData()) {
-      await writeRemoteSnapshot(userId, localSnapshot)
-    } else if (remote) {
-      applySnapshot(remote)
-      window.location.reload()
-      return
+    if (remote) {
+      const localTs = toTimestamp(localSnapshot.updatedAt)
+      const remoteTs = toTimestamp(remote.updatedAt)
+      if (remoteTs > localTs) {
+        applySnapshot(remote)
+        localStorage.setItem(SYNC_INITIALIZED_KEY, '1')
+        window.location.reload()
+        return
+      }
+      if (localHasMeaningfulData()) {
+        await writeRemoteSnapshot(localSnapshot)
+      } else {
+        applySnapshot(remote)
+      }
     } else {
-      await writeRemoteSnapshot(userId, localSnapshot)
+      await writeRemoteSnapshot(localSnapshot)
     }
     localStorage.setItem(SYNC_INITIALIZED_KEY, '1')
   } else if (remote) {
@@ -185,15 +179,14 @@ async function syncOnAuthenticated(session: Session): Promise<void> {
 
   emitStatus({
     state: 'ok',
-    email: session.user.email || '',
-    message: 'Synchronisé.',
+    message: 'Synchronisé avec Supabase.',
   })
 }
 
 async function pullIfRemoteNewer(): Promise<void> {
-  if (!currentSession) return
-  const remote = await readRemoteSnapshot(currentSession.user.id)
+  const remote = await readRemoteSnapshot()
   if (!remote) return
+
   const localTs = toTimestamp(getLocalUpdatedAt())
   const remoteTs = toTimestamp(remote.updatedAt)
   if (remoteTs > localTs) {
@@ -203,38 +196,18 @@ async function pullIfRemoteNewer(): Promise<void> {
 }
 
 export async function initializeCloudSync(): Promise<void> {
-  const client = getClient()
-  const { data } = await client.auth.getSession()
-  currentSession = data.session
-
-  client.auth.onAuthStateChange((_event, session) => {
-    currentSession = session
-    if (!session) {
-      emitStatus({
-        state: 'auth_required',
-        email: '',
-        message: 'Connectez-vous pour activer la sync multi-appareils.',
-      })
-      return
+  try {
+    await syncFromRemoteOrSeedLocal()
+  } catch (error) {
+    if (autoPullTimer) {
+      clearInterval(autoPullTimer)
+      autoPullTimer = null
     }
-    syncOnAuthenticated(session).catch((error: unknown) => {
-      emitStatus({
-        state: 'error',
-        message: error instanceof Error ? error.message : 'Erreur de synchronisation.',
-      })
-    })
-  })
-
-  if (!data.session) {
     emitStatus({
-      state: 'auth_required',
-      email: '',
-      message: 'Connectez-vous pour activer la sync multi-appareils.',
+      state: 'error',
+      message: error instanceof Error ? error.message : 'Erreur de synchronisation Supabase.',
     })
-    return
   }
-
-  await syncOnAuthenticated(data.session)
 }
 
 export function subscribeSyncStatus(listener: Listener): () => void {
@@ -243,55 +216,24 @@ export function subscribeSyncStatus(listener: Listener): () => void {
   return () => listeners.delete(listener)
 }
 
-export async function requestMagicLink(email: string): Promise<void> {
-  const client = getClient()
-  emitStatus({ state: 'sending_magic_link', message: 'Envoi du lien magique…' })
-  const { error } = await client.auth.signInWithOtp({
-    email,
-    options: {
-      emailRedirectTo: window.location.href,
-    },
-  })
-  if (error) {
-    emitStatus({ state: 'error', message: error.message })
-    throw error
-  }
-  emitStatus({ state: 'auth_required', message: 'Email envoyé. Ouvrez le lien de connexion.' })
-}
-
-export async function signOutCloudSync(): Promise<void> {
-  const client = getClient()
-  await client.auth.signOut()
-  currentSession = null
-  if (autoPullTimer) {
-    clearInterval(autoPullTimer)
-    autoPullTimer = null
-  }
-  emitStatus({
-    state: 'auth_required',
-    email: '',
-    message: 'Déconnecté.',
-  })
-}
-
 export async function pushSyncNow(): Promise<void> {
-  if (!currentSession) return
   const snapshot = buildLocalSnapshot()
-  await writeRemoteSnapshot(currentSession.user.id, snapshot)
-  emitStatus({ state: 'ok', message: 'Synchronisé.' })
+  await writeRemoteSnapshot(snapshot)
+  emitStatus({ state: 'ok', message: 'Synchronisé avec Supabase.' })
 }
 
 export function scheduleAutoPush(): void {
-  if (!currentSession) return
   if (autoPushTimer) clearTimeout(autoPushTimer)
   autoPushTimer = setTimeout(() => {
     pushSyncNow()
       .catch((error: unknown) => {
         emitStatus({
           state: 'error',
-          message: error instanceof Error ? error.message : 'Erreur d’envoi cloud.',
+          message: error instanceof Error ? error.message : 'Erreur de synchronisation Supabase.',
         })
       })
-    autoPushTimer = null
+      .finally(() => {
+        autoPushTimer = null
+      })
   }, 1200)
 }

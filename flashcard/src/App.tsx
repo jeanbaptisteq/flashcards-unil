@@ -2,13 +2,7 @@ import { useEffect, useState } from 'react'
 import HomeView from './components/HomeView'
 import DeckListView from './components/DeckListView'
 import ReviewSession from './components/ReviewSession'
-import {
-  initializeCloudSync,
-  requestMagicLink,
-  signOutCloudSync,
-  subscribeSyncStatus,
-  type CloudSyncStatus,
-} from './sync'
+import { initializeCloudSync, subscribeSyncStatus, type CloudSyncStatus } from './sync'
 
 type View =
   | { type: 'home' }
@@ -17,10 +11,8 @@ type View =
 
 export default function App() {
   const [view, setView] = useState<View>({ type: 'home' })
-  const [email, setEmail] = useState('')
   const [syncStatus, setSyncStatus] = useState<CloudSyncStatus>({
     state: 'idle',
-    email: '',
     message: '',
   })
 
@@ -28,54 +20,29 @@ export default function App() {
     initializeCloudSync().catch((error: unknown) => {
       setSyncStatus({
         state: 'error',
-        email: '',
-        message: error instanceof Error ? error.message : 'Erreur de synchronisation.',
+        message: error instanceof Error ? error.message : 'Erreur de synchronisation Supabase.',
       })
     })
     return subscribeSyncStatus((status) => setSyncStatus(status))
   }, [])
 
-  const handleSendMagicLink = async () => {
-    if (!email.trim()) return
-    await requestMagicLink(email.trim())
-  }
+  const syncLabel =
+    syncStatus.state === 'syncing'
+      ? 'Synchronisation Supabase en cours…'
+      : syncStatus.state === 'error'
+        ? `Sync Supabase: ${syncStatus.message}`
+        : 'Sync Supabase active'
 
   if (view.type === 'home') {
     return (
       <>
         <div className="sync-auth-strip">
-          {syncStatus.state === 'auth_required' && (
-            <div className="sync-auth-content">
-              <span className="sync-auth-text">Sync cloud: connectez-vous</span>
-              <input
-                className="sync-auth-input"
-                type="email"
-                placeholder="votre email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <button className="btn-secondary" onClick={handleSendMagicLink}>
-                Envoyer le lien
-              </button>
-              {syncStatus.message && <span className="sync-auth-message">{syncStatus.message}</span>}
-            </div>
-          )}
-          {(syncStatus.state === 'ok' || syncStatus.state === 'syncing') && (
-            <div className="sync-auth-content">
-              <span className="sync-auth-text">
-                Sync cloud active {syncStatus.email ? `· ${syncStatus.email}` : ''}
-              </span>
+          <div className="sync-auth-content">
+            <span className="sync-auth-text">{syncLabel}</span>
+            {syncStatus.message && syncStatus.state !== 'error' && (
               <span className="sync-auth-message">{syncStatus.message}</span>
-              <button className="btn-secondary" onClick={() => signOutCloudSync()}>
-                Se déconnecter
-              </button>
-            </div>
-          )}
-          {syncStatus.state === 'error' && (
-            <div className="sync-auth-content">
-              <span className="sync-auth-text sync-auth-error">{syncStatus.message}</span>
-            </div>
-          )}
+            )}
+          </div>
         </div>
         <HomeView
           onNavigateCourse={(courseId) => setView({ type: 'course', courseId })}
@@ -89,7 +56,11 @@ export default function App() {
       <>
         <div className="sync-auth-strip compact">
           <span className="sync-auth-text">
-            Sync: {syncStatus.state === 'ok' || syncStatus.state === 'syncing' ? 'active' : 'inactive'}
+            {syncStatus.state === 'syncing'
+              ? 'Synchronisation Supabase en cours…'
+              : syncStatus.state === 'error'
+                ? 'Sync Supabase indisponible'
+                : 'Sync Supabase active'}
           </span>
         </div>
         <DeckListView
@@ -108,7 +79,11 @@ export default function App() {
       <>
         <div className="sync-auth-strip compact">
           <span className="sync-auth-text">
-            Sync: {syncStatus.state === 'ok' || syncStatus.state === 'syncing' ? 'active' : 'inactive'}
+            {syncStatus.state === 'syncing'
+              ? 'Synchronisation Supabase en cours…'
+              : syncStatus.state === 'error'
+                ? 'Sync Supabase indisponible'
+                : 'Sync Supabase active'}
           </span>
         </div>
         <ReviewSession

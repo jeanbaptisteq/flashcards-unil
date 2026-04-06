@@ -2,7 +2,7 @@
 
 ## Portée
 
-Gestion du code source sur GitHub. Couvre : pousser des modifications, synchroniser sur une nouvelle machine, et déployer l'app en ligne via GitHub Pages.
+Gestion du code source sur GitHub. Couvre : pousser des modifications, synchroniser sur une nouvelle machine, et déployer l'app en ligne via Vercel.
 
 ---
 
@@ -66,64 +66,42 @@ npm run dev
 
 ---
 
-## Déployer l'app en ligne (GitHub Pages)
+## Déployer l'app en ligne (Vercel)
 
 Pour rendre l'app accessible depuis n'importe quel navigateur sans `npm run dev`.
 
-### Étape 1 — Configurer Vite pour le sous-chemin GitHub Pages
+### Étape 1 — Vérifier le lien Vercel
 
-Dans `.app/vite.config.ts`, ajouter le `base` :
-
-```ts
-export default defineConfig({
-  plugins: [react()],
-  base: '/flashcards-unil/',
-})
-```
-
-### Étape 2 — Installer `gh-pages`
+Le repo local contient déjà le lien Vercel dans `.vercel/project.json`.
+Si le projet doit être relié à un autre compte ou une autre team, refaire le lien avec :
 
 ```bash
-cd .app
-npm install --save-dev gh-pages
+vercel link
 ```
 
-### Étape 3 — Ajouter le script dans `package.json`
-
-```json
-"scripts": {
-  "deploy": "npm run build && gh-pages -d dist"
-}
-```
-
-### Étape 4 — Déployer
+### Étape 2 — Déployer
 
 ```bash
 npm run deploy
 ```
 
-L'app sera accessible sur : `https://jeanbaptisteq.github.io/flashcards-unil/`
-
-> Activer GitHub Pages dans les settings du repo : Settings → Pages → Source → `gh-pages` branch.
-
-### Étape 5 — Valider le déploiement
+Ce script lance désormais :
 
 ```bash
-gh api repos/jeanbaptisteq/flashcards-unil/pages --jq .status
+vercel deploy --prod --yes
 ```
 
-Statuts attendus : `building` puis `built`.
-Si `building`, attendre 30-90 secondes puis recharger l'URL avec cache-busting :
+### Étape 3 — Valider le déploiement
 
-```text
-https://jeanbaptisteq.github.io/flashcards-unil/?v=<timestamp>
+```bash
+vercel inspect <deployment-url>
 ```
 
 ### Correctif important : chemins `/data` et assets
 
-Sur GitHub Pages, l'app est servie sous `/flashcards-unil/`.
-Les appels `fetch('/data/...')` cassent en production (404).  
-Règle : toujours préfixer les chemins avec `import.meta.env.BASE_URL`.
+Sur Vercel, l'app est servie à la racine du domaine.
+Les appels `fetch('/data/...')` doivent rester construits via `import.meta.env.BASE_URL`.
+Le repo utilise déjà `dataUrl/assetUrl` pour garder les chemins portables.
 
 Implémentation actuelle :
 
@@ -161,4 +139,4 @@ fetch(dataUrl(`/data/${courseId}/${deck.file}`))
 | Conflits après `git pull` | Résoudre manuellement les fichiers JSON en conflit, puis `git add . && git commit` |
 | Rollback d'un deck cassé | `git log --oneline`, puis `git checkout <hash> -- public/data/<cours>/<deck>.json` |
 | Changer la visibilité du repo | `gh repo edit flashcards-unil --visibility public` (ou `--visibility private`) |
-| GitHub Pages affiche `0 séances · 0 cartes` | Vérifier la console : si 404 sur `/data/...`, utiliser `dataUrl/assetUrl` (ne pas utiliser des chemins absolus `/data`) |
+| Vercel affiche `0 séances · 0 cartes` | Vérifier la console : si 404 sur `/data/...`, utiliser `dataUrl/assetUrl` (ne pas utiliser des chemins absolus `/data`) |
