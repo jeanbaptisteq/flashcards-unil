@@ -4,10 +4,13 @@ const CARD_STATE_STORAGE_KEY = 'flashcards_unil_v1'
 const EXAM_SETTINGS_STORAGE_KEY = 'flashcards_unil_exam_v1'
 const LOCAL_UPDATED_AT_STORAGE_KEY = 'flashcards_unil_local_updated_at_v1'
 const SYNC_INITIALIZED_KEY = 'flashcards_unil_sync_initialized_v1'
-const REMOTE_STATE_KEY = 'flashcards-unil'
+const REMOTE_STATE_KEY = 'd5b150d0-067e-4c60-a316-3e312031c75a'
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL?.trim() ?? ''
-const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY?.trim() ?? ''
+const SUPABASE_URL =
+  import.meta.env.VITE_SUPABASE_URL?.trim() || 'https://wqveiutqcwdjhpygzlbw.supabase.co'
+const SUPABASE_ANON_KEY =
+  import.meta.env.VITE_SUPABASE_ANON_KEY?.trim() ||
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndxdmVpdXRxY3dkamhweWd6bGJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQzNjk3OTEsImV4cCI6MjA4OTk0NTc5MX0.R0qU7mYFdj9__13x7jGFp7HV1EWOwmy8zJuv6XMCMP4'
 
 interface CloudSnapshot {
   version: 1
