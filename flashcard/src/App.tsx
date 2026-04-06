@@ -19,8 +19,11 @@ export default function App() {
   useEffect(() => {
     initializeCloudSync().catch((error: unknown) => {
       setSyncStatus({
-        state: 'error',
-        message: error instanceof Error ? error.message : 'Erreur de synchronisation Supabase.',
+        state: 'unavailable',
+        message:
+          error instanceof Error
+            ? error.message
+            : 'Synchronisation Supabase indisponible.',
       })
     })
     return subscribeSyncStatus((status) => setSyncStatus(status))
@@ -29,8 +32,8 @@ export default function App() {
   const syncLabel =
     syncStatus.state === 'syncing'
       ? 'Synchronisation Supabase en cours…'
-      : syncStatus.state === 'error'
-        ? `Sync Supabase: ${syncStatus.message}`
+      : syncStatus.state === 'unavailable'
+        ? 'Sync Supabase indisponible'
         : 'Sync Supabase active'
 
   if (view.type === 'home') {
@@ -39,7 +42,7 @@ export default function App() {
         <div className="sync-auth-strip">
           <div className="sync-auth-content">
             <span className="sync-auth-text">{syncLabel}</span>
-            {syncStatus.message && syncStatus.state !== 'error' && (
+            {syncStatus.message && syncStatus.state !== 'unavailable' && (
               <span className="sync-auth-message">{syncStatus.message}</span>
             )}
           </div>
@@ -58,7 +61,7 @@ export default function App() {
           <span className="sync-auth-text">
             {syncStatus.state === 'syncing'
               ? 'Synchronisation Supabase en cours…'
-              : syncStatus.state === 'error'
+              : syncStatus.state === 'unavailable'
                 ? 'Sync Supabase indisponible'
                 : 'Sync Supabase active'}
           </span>
@@ -81,7 +84,7 @@ export default function App() {
           <span className="sync-auth-text">
             {syncStatus.state === 'syncing'
               ? 'Synchronisation Supabase en cours…'
-              : syncStatus.state === 'error'
+              : syncStatus.state === 'unavailable'
                 ? 'Sync Supabase indisponible'
                 : 'Sync Supabase active'}
           </span>

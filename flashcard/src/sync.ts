@@ -6,10 +6,8 @@ const LOCAL_UPDATED_AT_STORAGE_KEY = 'flashcards_unil_local_updated_at_v1'
 const SYNC_INITIALIZED_KEY = 'flashcards_unil_sync_initialized_v1'
 const REMOTE_STATE_KEY = 'flashcards-unil'
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || 'https://wqveiutqcwdjhpygzlbw.supabase.co'
-const SUPABASE_ANON_KEY =
-  import.meta.env.VITE_SUPABASE_ANON_KEY ||
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndxdmVpdXRxY3dkamhweWd6bGJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQzNjk3OTEsImV4cCI6MjA4OTk0NTc5MX0.R0qU7mYFdj9__13x7jGFp7HV1EWOwmy8zJuv6XMCMP4'
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL?.trim() ?? ''
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY?.trim() ?? ''
 
 interface CloudSnapshot {
   version: 1
@@ -18,7 +16,7 @@ interface CloudSnapshot {
   examSettings: string
 }
 
-type SyncState = 'idle' | 'syncing' | 'ok' | 'error'
+type SyncState = 'idle' | 'syncing' | 'ok' | 'error' | 'unavailable'
 
 export interface CloudSyncStatus {
   state: SyncState
@@ -37,13 +35,30 @@ const listeners = new Set<Listener>()
 let supabase: SupabaseClient | null = null
 let autoPushTimer: ReturnType<typeof setTimeout> | null = null
 let autoPullTimer: ReturnType<typeof setInterval> | null = null
+let syncAvailable = Boolean(SUPABASE_URL && SUPABASE_ANON_KEY)
 
 function emitStatus(next: Partial<CloudSyncStatus>): void {
   Object.assign(syncStatus, next)
   for (const listener of listeners) listener({ ...syncStatus })
 }
 
+function setUnavailable(message = 'Synchronisation Supabase indisponible.'): void {
+  syncAvailable = false
+  if (autoPushTimer) {
+    clearTimeout(autoPushTimer)
+    autoPushTimer = null
+  }
+  if (autoPullTimer) {
+    clearInterval(autoPullTimer)
+    autoPullTimer = null
+  }
+  emitStatus({ state: 'unavailable', message })
+}
+
 function getClient(): SupabaseClient {
+  if (!syncAvailable) {
+    throw new Error('Supabase sync is unavailable.')
+  }
   if (!supabase) {
     supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
       auth: {
@@ -100,6 +115,7 @@ function applySnapshot(snapshot: CloudSnapshot): void {
 }
 
 async function readRemoteSnapshot(): Promise<CloudSnapshot | null> {
+  if (!syncAvailable) return null
   const client = getClient()
   const { data, error } = await client
     .from('user_state_snapshots')
@@ -122,6 +138,7 @@ async function readRemoteSnapshot(): Promise<CloudSnapshot | null> {
 }
 
 async function writeRemoteSnapshot(snapshot: CloudSnapshot): Promise<void> {
+  if (!syncAvailable) return
   const client = getClient()
   const { error } = await client.from('user_state_snapshots').upsert(
     {
@@ -135,6 +152,10 @@ async function writeRemoteSnapshot(snapshot: CloudSnapshot): Promise<void> {
 }
 
 async function syncFromRemoteOrSeedLocal(): Promise<void> {
+  if (!syncAvailable) {
+    setUnavailable()
+    return
+  }
   emitStatus({ state: 'syncing', message: 'Synchronisation Supabase en cours…' })
 
   const remote = await readRemoteSnapshot()
@@ -197,16 +218,17 @@ async function pullIfRemoteNewer(): Promise<void> {
 
 export async function initializeCloudSync(): Promise<void> {
   try {
+    if (!syncAvailable) {
+      setUnavailable()
+      return
+    }
     await syncFromRemoteOrSeedLocal()
   } catch (error) {
-    if (autoPullTimer) {
-      clearInterval(autoPullTimer)
-      autoPullTimer = null
-    }
-    emitStatus({
-      state: 'error',
-      message: error instanceof Error ? error.message : 'Erreur de synchronisation Supabase.',
-    })
+    setUnavailable(
+      error instanceof Error && error.message
+        ? `Synchronisation Supabase indisponible: ${error.message}`
+        : 'Synchronisation Supabase indisponible.',
+    )
   }
 }
 
@@ -217,23 +239,26 @@ export function subscribeSyncStatus(listener: Listener): () => void {
 }
 
 export async function pushSyncNow(): Promise<void> {
+  if (!syncAvailable) return
   const snapshot = buildLocalSnapshot()
-  await writeRemoteSnapshot(snapshot)
-  emitStatus({ state: 'ok', message: 'Synchronisé avec Supabase.' })
+  try {
+    await writeRemoteSnapshot(snapshot)
+    emitStatus({ state: 'ok', message: 'Synchronisé avec Supabase.' })
+  } catch (error) {
+    setUnavailable(
+      error instanceof Error && error.message
+        ? `Synchronisation Supabase indisponible: ${error.message}`
+        : 'Synchronisation Supabase indisponible.',
+    )
+  }
 }
 
 export function scheduleAutoPush(): void {
+  if (!syncAvailable) return
   if (autoPushTimer) clearTimeout(autoPushTimer)
   autoPushTimer = setTimeout(() => {
-    pushSyncNow()
-      .catch((error: unknown) => {
-        emitStatus({
-          state: 'error',
-          message: error instanceof Error ? error.message : 'Erreur de synchronisation Supabase.',
-        })
-      })
-      .finally(() => {
-        autoPushTimer = null
-      })
+    pushSyncNow().finally(() => {
+      autoPushTimer = null
+    })
   }, 1200)
 }
