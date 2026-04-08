@@ -153,5 +153,12 @@
       ],
       "explanation": "**Le fait qu'une personne pense avoir la capacité à évoluer et à se développer peut la motiver à investir de l'effort pour s'améliorer.**\n\n- Vrai / Faux\n\nLes personnes avec un \"growth mindset\" ont généralement plus de facilité à investir de l'effort pour s'améliorer, notamment après un échec, que les personnes avec un \"fixed mindset\""
     }
+  ],
+  "sourcePdfs": [
+    {
+      "title": "Markdown du quiz",
+      "path": "/data/leadership/assets/le_self_leadership_quiz.md",
+      "kind": "markdown"
+    }
   ]
 }

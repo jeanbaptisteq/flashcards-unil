@@ -7,72 +7,171 @@
       "id": "c1",
       "type": "mcq_single",
       "question": "Le résultat d’une négociation est meilleur si on échange d’abord des informations personnelles qui soulignent la similarité des personnes. Vrai ou faux ?",
-      "options": [{ "id": "A", "text": "Vrai" }, { "id": "B", "text": "Faux" }],
-      "correct": ["A"],
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
       "explanation": "Selon le principe d’appréciation et d’amitié, mettre en avant les similarités améliore la relation et peut améliorer l’issue d’une négociation."
     },
     {
       "id": "c2",
       "type": "mcq_single",
       "question": "Choisir un paquet de biscuit est un choix qui passe par la route centrale de la persuasion. Vrai ou faux ?",
-      "options": [{ "id": "A", "text": "Vrai" }, { "id": "B", "text": "Faux" }],
-      "correct": ["B"],
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
       "explanation": "Ce type de décision peu impliquante passe souvent par la voie périphérique et des heuristiques."
     },
     {
       "id": "c3",
       "type": "mcq_single",
       "question": "Le choix de ses études passe par la route périphérique de la persuasion. Vrai ou faux ?",
-      "options": [{ "id": "A", "text": "Vrai" }, { "id": "B", "text": "Faux" }],
-      "correct": ["B"],
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
       "explanation": "Le choix des études est une décision importante qui implique généralement une forte élaboration: voie centrale."
     },
     {
       "id": "c4",
       "type": "mcq_single",
       "question": "La preuve sociale suggère que les individus sont plus susceptibles de suivre le comportement d'un groupe minoritaire. Vrai ou faux ?",
-      "options": [{ "id": "A", "text": "Vrai" }, { "id": "B", "text": "Faux" }],
-      "correct": ["B"],
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
       "explanation": "La preuve sociale repose sur la majorité: si beaucoup le font, cela est perçu comme correct."
     },
     {
       "id": "c5",
       "type": "mcq_single",
       "question": "La voie centrale de la persuasion nécessite une faible élaboration du message et s'appuie principalement sur des indices tels que l'attrait du discours. Vrai ou faux ?",
-      "options": [{ "id": "A", "text": "Vrai" }, { "id": "B", "text": "Faux" }],
-      "correct": ["B"],
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
       "explanation": "Cette description correspond à la voie périphérique. La voie centrale implique une forte élaboration et des arguments solides."
     },
     {
       "id": "c6",
       "type": "mcq_single",
       "question": "Selon le modèle de probabilité d'élaboration, la motivation et la capacité sont les deux facteurs clés qui déterminent la voie de persuasion qu'un individu utilisera. Vrai ou faux ?",
-      "options": [{ "id": "A", "text": "Vrai" }, { "id": "B", "text": "Faux" }],
-      "correct": ["A"],
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
       "explanation": "Dans l’ELM, la voie centrale est favorisée si la personne est motivée et capable; sinon la voie périphérique domine."
     },
     {
       "id": "c7",
       "type": "mcq_single",
       "question": "La voie périphérique de la persuasion est généralement associée à un changement d'attitude à long terme. Vrai ou faux ?",
-      "options": [{ "id": "A", "text": "Vrai" }, { "id": "B", "text": "Faux" }],
-      "correct": ["B"],
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
       "explanation": "La voie périphérique est plutôt associée à des changements à court terme; la voie centrale est plus durable."
     },
     {
       "id": "c8",
       "type": "mcq_single",
       "question": "La rareté augmente la demande d'un produit en créant un sentiment d'urgence. Vrai ou faux ?",
-      "options": [{ "id": "A", "text": "Vrai" }, { "id": "B", "text": "Faux" }],
-      "correct": ["A"],
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
       "explanation": "Une offre limitée dans le temps ou en quantité augmente la demande via la peur de manquer l’opportunité."
     },
     {
       "id": "c9",
       "type": "mcq_single",
       "question": "Les heuristiques sont des règles complexes qui nécessitent un effort cognitif important pour prendre des décisions. Vrai ou faux ?",
-      "options": [{ "id": "A", "text": "Vrai" }, { "id": "B", "text": "Faux" }],
-      "correct": ["B"],
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
       "explanation": "Les heuristiques sont des règles simples, des raccourcis mentaux à faible coût cognitif."
     },
     {
@@ -80,93 +179,225 @@
       "type": "mcq_multi",
       "question": "Vous demandez d’abord à quelqu’un de vous prêter sa voiture 1 heure, puis vous visez la journée. Sur quelles technique(s)/principe(s) vous basez-vous ?",
       "options": [
-        { "id": "A", "text": "Technique de la porte au nez" },
-        { "id": "B", "text": "Technique du pied-dans-la-porte" },
-        { "id": "C", "text": "Principe de réciprocité" },
-        { "id": "D", "text": "Principe d’engagement et de cohérence" }
+        {
+          "id": "A",
+          "text": "Technique de la porte au nez"
+        },
+        {
+          "id": "B",
+          "text": "Technique du pied-dans-la-porte"
+        },
+        {
+          "id": "C",
+          "text": "Principe de réciprocité"
+        },
+        {
+          "id": "D",
+          "text": "Principe d’engagement et de cohérence"
+        }
       ],
-      "correct": ["B", "D"],
+      "correct": [
+        "B",
+        "D"
+      ],
       "explanation": "Petite demande puis grande demande = pied-dans-la-porte. Le mécanisme clé est l’engagement/cohérence."
     },
     {
       "id": "c11",
       "type": "mcq_single",
       "question": "« L’utilisation des indices de persuasion est plus efficace lorsque l’interlocuteur est fatigué. » Vrai ou faux ?",
-      "options": [{ "id": "A", "text": "Vrai" }, { "id": "B", "text": "Faux" }],
-      "correct": ["A"],
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
       "explanation": "La fatigue réduit la capacité de traitement et favorise l’usage d’indices périphériques."
     },
     {
       "id": "c12",
       "type": "mcq_single",
       "question": "Demander une grande faveur puis demander une plus petite faveur est un exemple de la technique du pied-dans-la-porte. Vrai ou faux ?",
-      "options": [{ "id": "A", "text": "Vrai" }, { "id": "B", "text": "Faux" }],
-      "correct": ["B"],
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
       "explanation": "Grande demande puis petite demande correspond à la porte-au-nez, pas au pied-dans-la-porte."
     },
     {
       "id": "c13",
       "type": "mcq_single",
       "question": "Un employé choisit un ordinateur recommandé par son département pour sa facilité d’utilisation : il utilise une heuristique pour décider. Vrai ou faux ?",
-      "options": [{ "id": "A", "text": "Vrai" }, { "id": "B", "text": "Faux" }],
-      "correct": ["A"],
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
       "explanation": "La recommandation agit comme un indice simple de décision, donc une heuristique."
     },
     {
       "id": "c14",
       "type": "mcq_single",
       "question": "Flatter un individu augmente sa propension à coopérer grâce au mécanisme de la voie centrale. Vrai ou faux ?",
-      "options": [{ "id": "A", "text": "Vrai" }, { "id": "B", "text": "Faux" }],
-      "correct": ["B"],
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
       "explanation": "La flatterie agit via des indices affectifs périphériques, pas via l’analyse centrale des arguments."
     },
     {
       "id": "c15",
       "type": "mcq_single",
       "question": "Pour des thématiques importantes pour une personne, la qualité des arguments influence davantage sa manière de penser. Vrai ou faux ?",
-      "options": [{ "id": "A", "text": "Vrai" }, { "id": "B", "text": "Faux" }],
-      "correct": ["A"],
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
       "explanation": "Quand l’enjeu personnel est élevé, la personne traite davantage en voie centrale et la qualité des arguments compte plus."
     },
     {
       "id": "c16",
       "type": "mcq_single",
       "question": "La technique du pied-dans-la-porte se base principalement sur le principe de réciprocité. Vrai ou faux ?",
-      "options": [{ "id": "A", "text": "Vrai" }, { "id": "B", "text": "Faux" }],
-      "correct": ["B"],
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
       "explanation": "Le pied-dans-la-porte repose surtout sur l’engagement et la cohérence."
     },
     {
       "id": "c17",
       "type": "mcq_single",
       "question": "Selon le modèle de probabilité d’élaboration, la voie centrale est utilisée lorsque les individus ne sont pas motivés ou ne sont pas capables de comprendre. Vrai ou faux ?",
-      "options": [{ "id": "A", "text": "Vrai" }, { "id": "B", "text": "Faux" }],
-      "correct": ["B"],
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
       "explanation": "Si motivation/capacité sont faibles, la voie périphérique est plus probable."
     },
     {
       "id": "c18",
       "type": "mcq_single",
       "question": "Selon les principes de persuasion, la preuve sociale se base sur les effets de l’obéissance. Vrai ou faux ?",
-      "options": [{ "id": "A", "text": "Vrai" }, { "id": "B", "text": "Faux" }],
-      "correct": ["B"],
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
       "explanation": "La preuve sociale repose sur la conformité à la majorité, pas sur l’obéissance à l’autorité."
     },
     {
       "id": "c19",
       "type": "mcq_single",
       "question": "Une célébrité qui fait de la publicité pour un produit cible la persuasion par la route centrale. Vrai ou faux ?",
-      "options": [{ "id": "A", "text": "Vrai" }, { "id": "B", "text": "Faux" }],
-      "correct": ["B"],
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
       "explanation": "Une célébrité agit surtout comme indice périphérique (attractivité/crédibilité perçue)."
     },
     {
       "id": "c20",
       "type": "mcq_single",
       "question": "Afficher une note de 5 étoiles sur un site web cible la persuasion par la route centrale. Vrai ou faux ?",
-      "options": [{ "id": "A", "text": "Vrai" }, { "id": "B", "text": "Faux" }],
-      "correct": ["B"],
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
       "explanation": "Les étoiles sont un indice social/heuristique typiquement périphérique."
+    }
+  ],
+  "sourcePdfs": [
+    {
+      "title": "Markdown du cours",
+      "path": "/data/leadership/assets/persuasion.md",
+      "kind": "markdown"
     }
   ]
 }

@@ -153,5 +153,12 @@
       ],
       "explanation": "**Etant donné que les femmes occupent dorénavant de plus en plus de postes associés à des stéréotypes masculins, elles sont de plus en plus perçues comme faisant preuve d'agentivité avec le temps.**\n\n- Vrai / Faux\n\nLes chiffres ne montrent pas que les femmes sont perçues comme démontrant plus d'agentivité qu'auparavant."
     }
+  ],
+  "sourcePdfs": [
+    {
+      "title": "Markdown du quiz",
+      "path": "/data/leadership/assets/women_and_leadership_quiz.md",
+      "kind": "markdown"
+    }
   ]
 }

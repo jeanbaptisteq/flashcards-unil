@@ -23,6 +23,7 @@ import CardDropdown from './CardDropdown'
 import CardNumericInput from './CardNumericInput'
 import NoteEditor from './NoteEditor'
 import CoursePdfPanel from './CoursePdfPanel'
+import { buildCourseSources, mergeCourseSources } from '../utils/courseSources'
 
 type Phase = 'question' | 'answer'
 
@@ -86,25 +87,13 @@ export default function ReviewSession({ courseId, deckId, onBack }: Props) {
         if (!r.ok) throw new Error('not found')
         return r.json() as Promise<{ sourcePdf?: string | null; sourcePdfs?: CoursePdfRef[] }>
       })
-      .then((index) => {
-        setSourcePdfs(
-          index.sourcePdfs?.length
-            ? index.sourcePdfs
-            : index.sourcePdf
-              ? [{ title: 'Source PDF du cours', path: index.sourcePdf }]
-              : [],
-        )
-      })
-      .catch(() => {
-        setSourcePdfs([])
-      })
+      .then(async (index) => {
+        const courseSources = buildCourseSources(index)
+        const deckResponse = await fetch(dataUrl(`/data/${courseId}/${deckId}.json`))
+        if (!deckResponse.ok) throw new Error('not found')
+        const data = (await deckResponse.json()) as Deck
 
-    fetch(dataUrl(`/data/${courseId}/${deckId}.json`))
-      .then((r) => {
-        if (!r.ok) throw new Error('not found')
-        return r.json() as Promise<Deck>
-      })
-      .then((data) => {
+        setSourcePdfs(mergeCourseSources(buildCourseSources(data), courseSources))
         setDeck(data)
         const today = todayLocal()
         const cards = [...data.cards]
@@ -160,6 +149,7 @@ export default function ReviewSession({ courseId, deckId, onBack }: Props) {
         setLoading(false)
       })
       .catch(() => {
+        setSourcePdfs([])
         setError(true)
         setLoading(false)
       })
@@ -335,12 +325,11 @@ export default function ReviewSession({ courseId, deckId, onBack }: Props) {
           {sourcePdfs.length > 0 && (
             <div className="session-pdf-access">
               <CoursePdfPanel
-                title="PDF du cours"
+                title="Source du cours"
                 pdfs={sourcePdfs}
                 sourceHint={deck?.lesson ?? deckId}
                 defaultExpanded={false}
                 compact={true}
-                inline={true}
               />
             </div>
           )}

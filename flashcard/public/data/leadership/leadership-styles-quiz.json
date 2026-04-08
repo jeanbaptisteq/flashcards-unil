@@ -433,5 +433,12 @@
       ],
       "explanation": "Réponse correcte : Laissez-faire."
     }
+  ],
+  "sourcePdfs": [
+    {
+      "title": "Markdown du quiz",
+      "path": "/data/leadership/assets/leadership_styles_quiz.md",
+      "kind": "markdown"
+    }
   ]
 }

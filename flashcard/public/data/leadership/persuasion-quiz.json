@@ -391,5 +391,12 @@
       ],
       "explanation": "Afficher une note de 5 étoiles sur un site web cible la persuasion par la route centrale. Vrai ou faux ?\n\n**Explication :** Une note (étoiles) fonctionne comme heuristique/indice social, donc relève principalement de la voie périphérique."
     }
+  ],
+  "sourcePdfs": [
+    {
+      "title": "Markdown du quiz",
+      "path": "/data/leadership/assets/persuasion_quiz.md",
+      "kind": "markdown"
+    }
   ]
 }

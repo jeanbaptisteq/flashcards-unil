@@ -9,5 +9,17 @@
       "title": "Introduction — Classification & ML",
       "file": "intro.json"
     }
+  ],
+  "sourcePdfs": [
+    {
+      "title": "Markdown du cours",
+      "path": "/data/bia/assets/resume.md",
+      "kind": "markdown"
+    },
+    {
+      "title": "PDF du cours",
+      "path": "/data/bia/assets/source.pdf",
+      "kind": "pdf"
+    }
   ]
 }

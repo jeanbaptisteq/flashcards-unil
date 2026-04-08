@@ -153,5 +153,12 @@
       ],
       "explanation": "**Plus de leadership est généralement attribué aux personnes avec un visage plus rond (p.ex. baby face).**\n\n- Vrai / Faux\n\nC'est une tendance. Moins de leadership est généralement attribué aux personnes avec un visage plus rond (p.ex. baby face).w"
     }
+  ],
+  "sourcePdfs": [
+    {
+      "title": "Markdown du quiz",
+      "path": "/data/leadership/assets/perception_social_quiz.md",
+      "kind": "markdown"
+    }
   ]
 }

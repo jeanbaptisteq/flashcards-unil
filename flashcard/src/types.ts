@@ -55,6 +55,8 @@ export interface Deck {
   course: string
   lesson: string
   cards: Card[]
+  sourcePdf?: string | null
+  sourcePdfs?: CoursePdfRef[]
 }
 
 export interface DeckMeta {
@@ -75,6 +77,8 @@ export interface CourseIndex {
 export interface CoursePdfRef {
   title: string
   path: string
+  kind?: 'pdf' | 'markdown'
+  session?: number
 }
 
 export interface SM2State {

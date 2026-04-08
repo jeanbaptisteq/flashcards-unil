@@ -64,5 +64,17 @@
       "title": "9. Persuasion — Quiz",
       "file": "persuasion-quiz.json"
     }
+  ],
+  "sourcePdfs": [
+    {
+      "title": "Markdown du cours",
+      "path": "/data/leadership/assets/leadership_apprentissage_cours.md",
+      "kind": "markdown"
+    },
+    {
+      "title": "PDF du cours",
+      "path": "/data/leadership/assets/source.pdf",
+      "kind": "pdf"
+    }
   ]
 }

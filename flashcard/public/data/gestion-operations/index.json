@@ -4,32 +4,44 @@
   "color": "#7c3aed",
   "sourcePdfs": [
     {
+      "title": "Markdown du cours",
+      "path": "/data/gestion-operations/assets/resume.md",
+      "kind": "markdown"
+    },
+    {
       "title": "Cours 1 — GDOP",
-      "path": "/data/gestion-operations/assets/cours1-gdop.pdf"
+      "path": "/data/gestion-operations/assets/cours1-gdop.pdf",
+      "kind": "pdf"
     },
     {
       "title": "Cours 2 — GDOP",
-      "path": "/data/gestion-operations/assets/cours2-gdop.pdf"
+      "path": "/data/gestion-operations/assets/cours2-gdop.pdf",
+      "kind": "pdf"
     },
     {
       "title": "Cours 3 — GDOP",
-      "path": "/data/gestion-operations/assets/cours3-gdop.pdf"
+      "path": "/data/gestion-operations/assets/cours3-gdop.pdf",
+      "kind": "pdf"
     },
     {
       "title": "Cours 3 — Quiz GDOP",
-      "path": "/data/gestion-operations/assets/quiz3-gdop.pdf"
+      "path": "/data/gestion-operations/assets/quiz3-gdop.pdf",
+      "kind": "pdf"
     },
     {
       "title": "Cours 4 — GDOP",
-      "path": "/data/gestion-operations/assets/cours4-gdop.pdf"
+      "path": "/data/gestion-operations/assets/cours4-gdop.pdf",
+      "kind": "pdf"
     },
     {
       "title": "Cours 4 — Quiz GDOP",
-      "path": "/data/gestion-operations/assets/quiz4-gdop.pdf"
+      "path": "/data/gestion-operations/assets/quiz4-gdop.pdf",
+      "kind": "pdf"
     },
     {
       "title": "Cours 5 — GDOP",
-      "path": "/data/gestion-operations/assets/cours5-gdop.pdf"
+      "path": "/data/gestion-operations/assets/cours5-gdop.pdf",
+      "kind": "pdf"
     }
   ],
   "decks": [

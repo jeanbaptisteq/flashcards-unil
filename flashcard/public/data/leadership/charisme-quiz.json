@@ -288,5 +288,12 @@
       ],
       "explanation": "Dans un discours charismatique, il suffit de répéter un mot pour valider la tactique de répétition. Vrai ou faux ?\n\n**Explication :** Les critères d'examen précisent qu'il ne suffit pas de répéter un mot isolé ; il faut reprendre une partie de structure de phrase de manière identifiable."
     }
+  ],
+  "sourcePdfs": [
+    {
+      "title": "Markdown du quiz",
+      "path": "/data/leadership/assets/le_charisme_quiz.md",
+      "kind": "markdown"
+    }
   ]
 }

@@ -10,6 +10,7 @@ import { getCardKey, isMastered, isScheduledDue, wasDifficultOnDate } from '../s
 import { dataUrl } from '../utils/paths'
 import { daysBetween, todayLocal } from '../utils/date'
 import { filterDuplicateDecks } from '../utils/decks'
+import { buildCourseSources, mergeCourseSources } from '../utils/courseSources'
 import CoursePdfPanel from './CoursePdfPanel'
 
 interface DeckStats {
@@ -41,7 +42,8 @@ const COURSE_NAMES: Record<string, string> = {
 export default function DeckListView({ courseId, onBack, onNavigateDeck }: Props) {
   const [decks, setDecks] = useState<DeckMeta[]>([])
   const [deckStats, setDeckStats] = useState<Record<string, DeckStats>>({})
-  const [sourcePdfs, setSourcePdfs] = useState<CoursePdfRef[]>([])
+  const [courseSources, setCourseSources] = useState<CoursePdfRef[]>([])
+  const [deckSources, setDeckSources] = useState<Record<string, CoursePdfRef[]>>({})
   const [analytics, setAnalytics] = useState<CourseAnalytics>({
     totalCards: 0,
     masteredCards: 0,
@@ -68,16 +70,12 @@ export default function DeckListView({ courseId, onBack, onNavigateDeck }: Props
       })
       .then(async (index) => {
         const visibleDecks = filterDuplicateDecks(index.decks)
-        setSourcePdfs(
-          index.sourcePdfs?.length
-            ? index.sourcePdfs
-            : index.sourcePdf
-              ? [{ title: 'Source PDF du cours', path: index.sourcePdf }]
-              : [],
-        )
+        const nextCourseSources = buildCourseSources(index)
+        setCourseSources(nextCourseSources)
         setDecks(visibleDecks)
 
         const statsMap: Record<string, DeckStats> = {}
+        const sourcesMap: Record<string, CoursePdfRef[]> = {}
         const nextAnalytics: CourseAnalytics = {
           totalCards: 0,
           masteredCards: 0,
@@ -92,6 +90,8 @@ export default function DeckListView({ courseId, onBack, onNavigateDeck }: Props
               const dr = await fetch(dataUrl(`/data/${courseId}/${deck.file}`))
               if (!dr.ok) return
               const deckData = await dr.json()
+              const deckSpecificSources = buildCourseSources(deckData)
+              sourcesMap[deck.id] = mergeCourseSources(deckSpecificSources, nextCourseSources)
               let total = 0
               let due = 0
               for (const card of deckData.cards ?? []) {
@@ -130,13 +130,15 @@ export default function DeckListView({ courseId, onBack, onNavigateDeck }: Props
         )
 
         setDeckStats(statsMap)
+        setDeckSources(sourcesMap)
         setAnalytics(nextAnalytics)
         setLoading(false)
       })
       .catch(() => {
         setError(true)
         setLoading(false)
-        setSourcePdfs([])
+        setCourseSources([])
+        setDeckSources({})
       })
   }, [courseId])
 
@@ -259,12 +261,11 @@ export default function DeckListView({ courseId, onBack, onNavigateDeck }: Props
                   </button>
 
                   <CoursePdfPanel
-                    title="PDF du cours"
-                    pdfs={sourcePdfs}
+                    title="Source du cours"
+                    pdfs={deckSources[deck.id] ?? courseSources}
                     sourceHint={deck.title}
                     defaultExpanded={false}
                     compact={true}
-                    inline={true}
                   />
                 </div>
               </div>

@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { marked } from 'marked'
 import type { CoursePdfRef } from '../types'
 import { assetUrl } from '../utils/paths'
+import { buildCourseSources, isMarkdownSource, selectSource } from '../utils/courseSources'
 
 interface Props {
   title: string
@@ -10,55 +12,6 @@ interface Props {
   defaultExpanded?: boolean
   compact?: boolean
   inline?: boolean
-}
-
-function normalizeText(value: string): string {
-  return value
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-}
-
-function extractSessionNumber(value: string): string | null {
-  const match = normalizeText(value).match(/(?:seance|session|quiz|cours)\s*(\d+)/)
-  return match?.[1] ?? null
-}
-
-function selectSource(sources: CoursePdfRef[], hint?: string): CoursePdfRef {
-  if (sources.length <= 1) return sources[0]
-
-  const normalizedHint = hint ? normalizeText(hint) : ''
-  const sessionNumber = hint ? extractSessionNumber(hint) : null
-
-  if (sessionNumber) {
-    const courseMatch = sources.find((source) => {
-      const normalizedTitle = normalizeText(source.title)
-      const normalizedPath = normalizeText(source.path)
-      return (
-        normalizedPath.includes(`cours${sessionNumber}`) ||
-        normalizedTitle.includes(`cours ${sessionNumber}`) ||
-        normalizedTitle.includes(`cours${sessionNumber}`)
-      )
-    })
-    if (courseMatch) return courseMatch
-
-    const quizMatch = sources.find((source) => {
-      const normalizedTitle = normalizeText(source.title)
-      const normalizedPath = normalizeText(source.path)
-      return (
-        normalizedPath.includes(`quiz${sessionNumber}`) ||
-        (normalizedTitle.includes('quiz') && normalizedPath.includes(sessionNumber))
-      )
-    })
-    if (quizMatch) return quizMatch
-  }
-
-  if (normalizedHint.includes('quiz')) {
-    const quizSource = sources.find((source) => normalizeText(source.title).includes('quiz'))
-    if (quizSource) return quizSource
-  }
-
-  return sources[0]
 }
 
 export default function CoursePdfPanel({
@@ -71,15 +24,53 @@ export default function CoursePdfPanel({
   inline = false,
 }: Props) {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded)
-  const sources = pdfs?.length ? pdfs : pdfPath ? [{ title, path: pdfPath }] : []
-
-  if (sources.length === 0) return null
-
-  const hintedSource = selectSource(sources, sourceHint)
-  const initialActiveIndex = Math.max(0, sources.findIndex((source) => source.path === hintedSource.path))
+  const sources = buildCourseSources({
+    sourcePdfs: pdfs?.length ? pdfs : undefined,
+    sourcePdf: pdfs?.length ? undefined : pdfPath,
+  })
+  const [markdownContent, setMarkdownContent] = useState('')
+  const hintedSource = sources.length ? selectSource(sources, sourceHint) : null
+  const initialActiveIndex = hintedSource
+    ? Math.max(0, sources.findIndex((source) => source.path === hintedSource.path))
+    : 0
   const [activeIndex, setActiveIndex] = useState(() => initialActiveIndex)
-  const activeSource = inline ? hintedSource : sources[Math.min(activeIndex, sources.length - 1)]
-  const resolvedPath = assetUrl(activeSource.path)
+  const activeSource = sources.length
+    ? inline && hintedSource
+      ? hintedSource
+      : sources[Math.min(activeIndex, sources.length - 1)]
+    : null
+  const resolvedPath = activeSource ? assetUrl(activeSource.path) : ''
+  const isMarkdown = activeSource ? isMarkdownSource(activeSource) : false
+  const openLabel = isMarkdown ? 'Ouvrir le Markdown' : 'Ouvrir le PDF'
+
+  useEffect(() => {
+    let cancelled = false
+
+    if (!isMarkdown) {
+      setMarkdownContent('')
+      return
+    }
+
+    fetch(resolvedPath)
+      .then((response) => {
+        if (!response.ok) throw new Error('not found')
+        return response.text()
+      })
+      .then((text) => {
+        if (!cancelled) setMarkdownContent(text)
+      })
+      .catch(() => {
+        if (!cancelled) setMarkdownContent('')
+      })
+
+    return () => {
+      cancelled = true
+    }
+  }, [isMarkdown, resolvedPath])
+
+  const markdownHtml = isMarkdown && markdownContent ? String(marked.parse(markdownContent)) : ''
+
+  if (!activeSource) return null
 
   if (inline) {
     return (
@@ -136,7 +127,7 @@ export default function CoursePdfPanel({
             target="_blank"
             rel="noreferrer"
           >
-            Ouvrir le PDF
+            {openLabel}
           </a>
         </div>
       </div>
@@ -158,12 +149,36 @@ export default function CoursePdfPanel({
 
       {isExpanded && (
         <div className="course-pdf-frame-wrap">
-          <iframe
-            className="course-pdf-frame"
-            src={resolvedPath}
-            title={activeSource.title}
-            loading="lazy"
-          />
+          {isMarkdown ? (
+            markdownContent ? (
+              <div className="course-markdown-view">
+                <div className="course-markdown-toolbar">
+                  <span className="course-markdown-chip">Markdown</span>
+                  <a
+                    className="course-markdown-link"
+                    href={resolvedPath}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Ouvrir le Markdown
+                  </a>
+                </div>
+                <article
+                  className="course-markdown-content"
+                  dangerouslySetInnerHTML={{ __html: markdownHtml }}
+                />
+              </div>
+            ) : (
+              <div className="course-markdown-loading">Chargement du markdown…</div>
+            )
+          ) : (
+            <iframe
+              className="course-pdf-frame"
+              src={resolvedPath}
+              title={activeSource.title}
+              loading="lazy"
+            />
+          )}
         </div>
       )}
     </section>

@@ -24,5 +24,17 @@
       "title": "Quiz 2 — Coûts pour décider",
       "file": "quiz-2-couts-pour-decider.json"
     }
+  ],
+  "sourcePdfs": [
+    {
+      "title": "Markdown du cours",
+      "path": "/data/controle-gestion/assets/controle_de_gestion.md",
+      "kind": "markdown"
+    },
+    {
+      "title": "PDF du cours",
+      "path": "/data/controle-gestion/assets/source.pdf",
+      "kind": "pdf"
+    }
   ]
 }

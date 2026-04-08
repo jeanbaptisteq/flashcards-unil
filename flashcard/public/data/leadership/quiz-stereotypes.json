@@ -516,5 +516,12 @@
       ],
       "explanation": "La désindividualisation est une bonne stratégie pour briser les associations stéréotypées. Vrai ou faux ?\n\n**Explication :** C'est l'individuation (et non la désindividualisation) qui aide à réduire les stéréotypes, car elle pousse à considérer les caractéristiques propres de la personne."
     }
+  ],
+  "sourcePdfs": [
+    {
+      "title": "Markdown du quiz",
+      "path": "/data/leadership/assets/quiz_stereotypes.md",
+      "kind": "markdown"
+    }
   ]
 }
