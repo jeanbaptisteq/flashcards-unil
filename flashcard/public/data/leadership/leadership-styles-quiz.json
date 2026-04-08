@@ -1,0 +1,437 @@
+{
+  "id": "leadership-styles-quiz",
+  "course": "leadership",
+  "lesson": "Leadership — Styles de leadership",
+  "cards": [
+    {
+      "id": "c1",
+      "type": "mcq_single",
+      "question": "A quel comportement de leadership fait référence l'assertion suivante:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Influence idéalisée"
+        },
+        {
+          "id": "B",
+          "text": "Motivation inspirante"
+        },
+        {
+          "id": "C",
+          "text": "Stimulation intellectuelle"
+        },
+        {
+          "id": "D",
+          "text": "Considération individualisée"
+        },
+        {
+          "id": "E",
+          "text": "Récompenses contingentes"
+        },
+        {
+          "id": "F",
+          "text": "Management par exception actif"
+        },
+        {
+          "id": "G",
+          "text": "Management par exception passif"
+        },
+        {
+          "id": "H",
+          "text": "Laisser-faire"
+        }
+      ],
+      "correct": [
+        "G"
+      ],
+      "explanation": "Réponse correcte : Management par exception passif."
+    },
+    {
+      "id": "c2",
+      "type": "mcq_single",
+      "question": "A quel comportement de leadership fait référence l'assertion suivante:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Influence idéalisée"
+        },
+        {
+          "id": "B",
+          "text": "Motivation inspirante"
+        },
+        {
+          "id": "C",
+          "text": "Stimulation intellectuelle"
+        },
+        {
+          "id": "D",
+          "text": "Considération individualisée"
+        },
+        {
+          "id": "E",
+          "text": "Récompenses contingentes"
+        },
+        {
+          "id": "F",
+          "text": "Management par exception actif"
+        },
+        {
+          "id": "G",
+          "text": "Management par exception passif"
+        },
+        {
+          "id": "H",
+          "text": "Laisser-faire"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": "Réponse correcte : Influence idéalisée."
+    },
+    {
+      "id": "c3",
+      "type": "mcq_single",
+      "question": "A quel comportement de leadership fait référence l'assertion suivante:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Influence idéalisée"
+        },
+        {
+          "id": "B",
+          "text": "Motivation inspirante"
+        },
+        {
+          "id": "C",
+          "text": "Stimulation intellectuelle"
+        },
+        {
+          "id": "D",
+          "text": "Considération individualisée"
+        },
+        {
+          "id": "E",
+          "text": "Récompenses contingentes"
+        },
+        {
+          "id": "F",
+          "text": "Management par exception actif"
+        },
+        {
+          "id": "G",
+          "text": "Management par exception passif"
+        },
+        {
+          "id": "H",
+          "text": "Laisser-faire"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": "Réponse correcte : Considération individualisée."
+    },
+    {
+      "id": "c4",
+      "type": "mcq_single",
+      "question": "A quel comportement de leadership fait référence l'assertion suivante:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Influence idéalisée"
+        },
+        {
+          "id": "B",
+          "text": "Motivation inspirante"
+        },
+        {
+          "id": "C",
+          "text": "Stimulation intellectuelle"
+        },
+        {
+          "id": "D",
+          "text": "Considération individualisée"
+        },
+        {
+          "id": "E",
+          "text": "Récompenses contingentes"
+        },
+        {
+          "id": "F",
+          "text": "Management par exception actif"
+        },
+        {
+          "id": "G",
+          "text": "Management par exception passif"
+        },
+        {
+          "id": "H",
+          "text": "Laisser-faire"
+        }
+      ],
+      "correct": [
+        "F"
+      ],
+      "explanation": "Réponse correcte : Management par exception actif."
+    },
+    {
+      "id": "c5",
+      "type": "mcq_single",
+      "question": "A quel comportement de leadership fait référence l'assertion suivante:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Influence idéalisée"
+        },
+        {
+          "id": "B",
+          "text": "Motivation inspirante"
+        },
+        {
+          "id": "C",
+          "text": "Stimulation intellectuelle"
+        },
+        {
+          "id": "D",
+          "text": "Considération individualisée"
+        },
+        {
+          "id": "E",
+          "text": "Récompenses contingentes"
+        },
+        {
+          "id": "F",
+          "text": "Management par exception actif"
+        },
+        {
+          "id": "G",
+          "text": "Management par exception passif"
+        },
+        {
+          "id": "H",
+          "text": "Laisser-faire"
+        }
+      ],
+      "correct": [
+        "E"
+      ],
+      "explanation": "Réponse correcte : Récompenses contingentes."
+    },
+    {
+      "id": "c6",
+      "type": "mcq_single",
+      "question": "A quel comportement de leadership fait référence l'assertion suivante:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Influence idéalisée"
+        },
+        {
+          "id": "B",
+          "text": "Motivation inspirante"
+        },
+        {
+          "id": "C",
+          "text": "Stimulation intellectuelle"
+        },
+        {
+          "id": "D",
+          "text": "Considération individualisée"
+        },
+        {
+          "id": "E",
+          "text": "Récompenses contingentes"
+        },
+        {
+          "id": "F",
+          "text": "Management par exception actif"
+        },
+        {
+          "id": "G",
+          "text": "Management par exception passif"
+        },
+        {
+          "id": "H",
+          "text": "Laisser-faire"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": "Réponse correcte : Influence idéalisée."
+    },
+    {
+      "id": "c7",
+      "type": "mcq_single",
+      "question": "A quel comportement de leadership fait référence l'assertion suivante:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Influence idéalisée"
+        },
+        {
+          "id": "B",
+          "text": "Motivation inspirante"
+        },
+        {
+          "id": "C",
+          "text": "Stimulation intellectuelle"
+        },
+        {
+          "id": "D",
+          "text": "Considération individualisée"
+        },
+        {
+          "id": "E",
+          "text": "Récompenses contingentes"
+        },
+        {
+          "id": "F",
+          "text": "Management par exception actif"
+        },
+        {
+          "id": "G",
+          "text": "Management par exception passif"
+        },
+        {
+          "id": "H",
+          "text": "Laisser-faire"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": "Réponse correcte : Stimulation intellectuelle."
+    },
+    {
+      "id": "c8",
+      "type": "mcq_single",
+      "question": "A quel comportement de leadership fait référence l'assertion suivante:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Influence idéalisée"
+        },
+        {
+          "id": "B",
+          "text": "Motivation inspirante"
+        },
+        {
+          "id": "C",
+          "text": "Stimulation intellectuelle"
+        },
+        {
+          "id": "D",
+          "text": "Considération individualisée"
+        },
+        {
+          "id": "E",
+          "text": "Récompenses contingentes"
+        },
+        {
+          "id": "F",
+          "text": "Management par exception actif"
+        },
+        {
+          "id": "G",
+          "text": "Management par exception passif"
+        },
+        {
+          "id": "H",
+          "text": "Laisser-faire"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": "Réponse correcte : Considération individualisée."
+    },
+    {
+      "id": "c9",
+      "type": "mcq_single",
+      "question": "A quel comportement de leadership fait référence l'assertion suivante:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Influence idéalisée"
+        },
+        {
+          "id": "B",
+          "text": "Motivation inspirante"
+        },
+        {
+          "id": "C",
+          "text": "Stimulation intellectuelle"
+        },
+        {
+          "id": "D",
+          "text": "Considération individualisée"
+        },
+        {
+          "id": "E",
+          "text": "Récompenses contingentes"
+        },
+        {
+          "id": "F",
+          "text": "Management par exception actif"
+        },
+        {
+          "id": "G",
+          "text": "Management par exception passif"
+        },
+        {
+          "id": "H",
+          "text": "Laisser-faire"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": "Réponse correcte : Motivation inspirante."
+    },
+    {
+      "id": "c10",
+      "type": "mcq_single",
+      "question": "A quel comportement de leadership fait référence l'assertion suivante:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Influence idéalisée"
+        },
+        {
+          "id": "B",
+          "text": "Motivation inspirante"
+        },
+        {
+          "id": "C",
+          "text": "Stimulation intellectuelle"
+        },
+        {
+          "id": "D",
+          "text": "Considération individualisée"
+        },
+        {
+          "id": "E",
+          "text": "Récompenses contingentes"
+        },
+        {
+          "id": "F",
+          "text": "Management par exception actif"
+        },
+        {
+          "id": "G",
+          "text": "Management par exception passif"
+        },
+        {
+          "id": "H",
+          "text": "Laissez-faire"
+        }
+      ],
+      "correct": [
+        "H"
+      ],
+      "explanation": "Réponse correcte : Laissez-faire."
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "id": "perception-social-quiz",
+  "course": "leadership",
+  "lesson": "Leadership — Social perceptions",
+  "cards": [
+    {
+      "id": "c1",
+      "type": "mcq_single",
+      "question": "La perception sociale est le processus par lequel une personne utilise le comportement des autres pour se forger une opinion ou faire des déductions sur ces individus.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai / Faux"
+        }
+      ],
+      "correct": [
+        "V"
+      ],
+      "explanation": "**La perception sociale est le processus par lequel une personne utilise le comportement des autres pour se forger une opinion ou faire des déductions sur ces individus.**\n\n- Vrai / Faux\n\nLa perception sociale est effectivement le processus par lequel une personne utilise le comportement des autres pour se forger une opinion ou faire des déductions sur ces individus.\n\n---"
+    },
+    {
+      "id": "c2",
+      "type": "mcq_single",
+      "question": "Le Modèle de l'adaptabilité comportementale (Palese & Schmid Mast, 2020) met en avant l'importance de la capacité à adapter son comportement pour faire preuve d'exactitude interpersonnelle.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai / Faux"
+        }
+      ],
+      "correct": [
+        "F"
+      ],
+      "explanation": "**Le Modèle de l'adaptabilité comportementale (Palese & Schmid Mast, 2020) met en avant l'importance de la capacité à adapter son comportement pour faire preuve d'exactitude interpersonnelle.**\n\n- Vrai / Faux\n\nC'est l'inverse. Ce modèle décrit en quoi le fait de correctement lire autrui permet de choisir des stratégies comportementales adaptées selon les interactions sociales, permettant d'atteindre des résultats d'interactions sociales plus positifs.\n\n---"
+    },
+    {
+      "id": "c3",
+      "type": "mcq_single",
+      "question": "Le volume de la voix est un exemple de comportement non verbal.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai / Faux"
+        }
+      ],
+      "correct": [
+        "V"
+      ],
+      "explanation": "**Le volume de la voix est un exemple de comportement non verbal.**\n\n- Vrai / Faux\n\nLe volume de la voix est un comportement non verbal lié à la parole. Contrairement au sourire qui est un comportement non verbal non lié à la parole.\n\n---"
+    },
+    {
+      "id": "c4",
+      "type": "mcq_single",
+      "question": "Le décodage veut dire correctement percevoir une autre personne.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai / Faux"
+        }
+      ],
+      "correct": [
+        "F"
+      ],
+      "explanation": "**Le décodage veut dire correctement percevoir une autre personne.**\n\n- Vrai / Faux\n\nLe décodage est simplement la perception d'autrui, on ne sait rien sur le fait si la personne est perçue de manière correcte ou pas. Le décodage est donc la partie perception et interprétation d'un comportement (verbal et non verbal) et des signes d'apparence d'une personne.\n\n---"
+    },
+    {
+      "id": "c5",
+      "type": "mcq_single",
+      "question": "Un ami vous croise en soirée et vous déclare sincèrement \"Tu as l'air super heureux en ce moment\". Vous vivez pourtant actuellement une période de vie plutôt difficile qui vous amène à ressentir des émotions plutôt négatives. Votre ami fait typiquement preuve de bonne exactitude interpersonnelle.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai / Faux"
+        }
+      ],
+      "correct": [
+        "F"
+      ],
+      "explanation": "**Un ami vous croise en soirée et vous déclare sincèrement \"Tu as l'air super heureux en ce moment\". Vous vivez pourtant actuellement une période de vie plutôt difficile qui vous amène à ressentir des émotions plutôt négatives. Votre ami fait typiquement preuve de bonne exactitude interpersonnelle.**\n\n- Vrai / Faux\n\nUne personne faisant preuve d'une bonne exactitude interpersonnelle est capable d'inférer les émotions ressenties par autrui sur la base des comportements montrés ces derniers et pourrait donc identifier si l'un de ses amis traverse une période difficile.\n\n---"
+    },
+    {
+      "id": "c6",
+      "type": "mcq_single",
+      "question": "Vous participez à un processus de recrutement avec un collègue pour recruter le prochain membre de votre équipe. Après avoir réalisé un entretien avec un candidat, votre collègue vous dit avoir trouvé le candidat en question fort sympathique et qu'il était également impressionné par ses qualités de leadership. De votre côté, bien que vous ayez trouvé le candidat très avenant, vous n'avez pas trouvé les compétences en leadership de ce dernier très convaincantes. Le comportement de votre collègue a pu être biaisé par l'effet halo.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai / Faux"
+        }
+      ],
+      "correct": [
+        "V"
+      ],
+      "explanation": "**Vous participez à un processus de recrutement avec un collègue pour recruter le prochain membre de votre équipe. Après avoir réalisé un entretien avec un candidat, votre collègue vous dit avoir trouvé le candidat en question fort sympathique et qu'il était également impressionné par ses qualités de leadership. De votre côté, bien que vous ayez trouvé le candidat très avenant, vous n'avez pas trouvé les compétences en leadership de ce dernier très convaincantes. Le comportement de votre collègue a pu être biaisé par l'effet halo.**\n\n- Vrai / Faux\n\nL'effet halo illustre le phénomène selon lequel nous avons tendance à évaluer plus positivement sur diverses caractéristiques une personne que nous apprécions déjà pour une autre caractéristique de sa personne. Par exemple, nous avons tendance à trouver plus sympathique une personne que nous trouvons attractive.\n\n---"
+    },
+    {
+      "id": "c7",
+      "type": "mcq_single",
+      "question": "Le sourire est un indice à utiliser pour se former une impression correcte du statut d'une personne.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai / Faux"
+        }
+      ],
+      "correct": [
+        "F"
+      ],
+      "explanation": "**Le sourire est un indice à utiliser pour se former une impression correcte du statut d'une personne.**\n\n- Vrai / Faux\n\nLe sourire est un indice que les gens utilisent pour juger le statut d'une personne (corrélation négative entre sourire et statut : une personne qui sourit est plutôt perçue comme statut bas et une personne qui ne sourit pas comme un leader). Mais les vrais leaders ne sourient pas plus ou moins que les non-leaders. Donc le sourire n'est pas un indice fiable du statut d'une personne. Si on l'utilise pour juger le statut d'une personne, on fera des fautes de jugement, donc la justesse du jugement ou la sensibilité interpersonnelle sera basse.\n\n---"
+    },
+    {
+      "id": "c8",
+      "type": "mcq_single",
+      "question": "Se former une impression correcte sur autrui est favorable pour un manager.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai / Faux"
+        }
+      ],
+      "correct": [
+        "V"
+      ],
+      "explanation": "**Se former une impression correcte sur autrui est favorable pour un manager.**\n\n- Vrai / Faux\n\nSe former une impression correcte veut dire qu'on a une sensibilité interpersonnelle élevée et cette dernière est liée à des conséquences de leadership favorables (p.ex. style de leadership transformationnel, plus de satisfaction des collaborateurs).\n\n---"
+    },
+    {
+      "id": "c9",
+      "type": "mcq_single",
+      "question": "Le powerless speech est toujours associé à une perception plus négative en tant que leader.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai / Faux"
+        }
+      ],
+      "correct": [
+        "F"
+      ],
+      "explanation": "**Le powerless speech est toujours associé à une perception plus négative en tant que leader.**\n\n- Vrai / Faux\n\nLe powerless speech peut s'avérer bénéfique pour les dirigeants dans des situations spécifiques. C'est par exemple le cas lorsqu'une tâche nécessite qu'un groupe de personnes doive travailler ensemble pour résoudre une tâche.\n\n---"
+    },
+    {
+      "id": "c10",
+      "type": "mcq_single",
+      "question": "Plus de leadership est généralement attribué aux personnes avec un visage plus rond (p.ex. baby face).",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai / Faux"
+        }
+      ],
+      "correct": [
+        "F"
+      ],
+      "explanation": "**Plus de leadership est généralement attribué aux personnes avec un visage plus rond (p.ex. baby face).**\n\n- Vrai / Faux\n\nC'est une tendance. Moins de leadership est généralement attribué aux personnes avec un visage plus rond (p.ex. baby face).w"
+    }
+  ]
+}

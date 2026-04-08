@@ -1,0 +1,157 @@
+{
+  "id": "women-and-leadership-quiz",
+  "course": "leadership",
+  "lesson": "Leadership — Women and leadership",
+  "cards": [
+    {
+      "id": "c1",
+      "type": "mcq_single",
+      "question": "Si une femme leader est évaluée de manière plus négative quand elle montre un style de leadership masculin, cela peut s'expliquer par l'effet ricochet (\"backlash effect\").",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai / Faux"
+        }
+      ],
+      "correct": [
+        "V"
+      ],
+      "explanation": "**Si une femme leader est évaluée de manière plus négative quand elle montre un style de leadership masculin, cela peut s'expliquer par l'effet ricochet (\"backlash effect\").**\n\n- Vrai / Faux\n\nL'effet ricochet apparaît lorsqu'une personne cible de stéréotypes se comporte d'une manière inattendue par rapport aux stéréotypes qui lui sont attribués, l'amenant ainsi à être évalué négativement\n\n---"
+    },
+    {
+      "id": "c2",
+      "type": "mcq_single",
+      "question": "Le fait qu'il y ait une sous-représentation des femmes dans les postes de management peut s'expliquer par le fait qu'il n'y a pas autant de femmes bien formées pour des postes de leadership que d'hommes.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai / Faux"
+        }
+      ],
+      "correct": [
+        "F"
+      ],
+      "explanation": "**Le fait qu'il y ait une sous-représentation des femmes dans les postes de management peut s'expliquer par le fait qu'il n'y a pas autant de femmes bien formées pour des postes de leadership que d'hommes.**\n\n- Vrai / Faux\n\nEn moyenne, on a 50% de diplômées d'université qui sont des femmes, donc assez de femmes bien formées pour exercer une fonction de manager à l'avenir.\n\n---"
+    },
+    {
+      "id": "c3",
+      "type": "mcq_single",
+      "question": "La théorie du rôle social postule que si on change les stéréotypes concernant les femmes et les hommes, automatiquement les domaines d'activités des femmes et des hommes changent.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai / Faux"
+        }
+      ],
+      "correct": [
+        "F"
+      ],
+      "explanation": "**La théorie du rôle social postule que si on change les stéréotypes concernant les femmes et les hommes, automatiquement les domaines d'activités des femmes et des hommes changent.**\n\n- Vrai / Faux\n\nC'est dans l'autre sens, si on change les domaines d'activités des femmes et des hommes, les stéréotypes devraient changer aussi selon la théorie du rôle social.\n\n---"
+    },
+    {
+      "id": "c4",
+      "type": "mcq_single",
+      "question": "Selon le modèle du manque d'adéquation, les femmes aurait plus de difficulté à atteindre des fonctions managériales car elles correspondraient moins que les hommes aux attentes et stéréotypes liés aux postes managériaux.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai / Faux"
+        }
+      ],
+      "correct": [
+        "V"
+      ],
+      "explanation": "**Selon le modèle du manque d'adéquation, les femmes aurait plus de difficulté à atteindre des fonctions managériales car elles correspondraient moins que les hommes aux attentes et stéréotypes liés aux postes managériaux.**\n\n- Vrai / Faux\n\nLe modèle du manque d'adéquation postule que les perceptions des attributs d'un individu (attentes, stéréotypes) sont comparées aux perceptions (attentes, stéréotypes) liées aux exigences du poste. La cohérence ou l'incohérence qui résulte de cette comparaison détermine les attentes de réussite ou d'échec de la part de l'individu (comportement d'autolimitation) et de la part des autres (discrimination).\n\n---"
+    },
+    {
+      "id": "c5",
+      "type": "mcq_single",
+      "question": "Le fait que les femmes prennent plus de congés liés à la parentalité peut expliquer une partie de la part inexpliquée de l'écart salarial entre femmes et hommes.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai / Faux"
+        }
+      ],
+      "correct": [
+        "F"
+      ],
+      "explanation": "**Le fait que les femmes prennent plus de congés liés à la parentalité peut expliquer une partie de la part inexpliquée de l'écart salarial entre femmes et hommes.**\n\n- Vrai / Faux\n\nCela explique une partie de l'écart salarial mais pas la partie inexpliquée\n\n---"
+    },
+    {
+      "id": "c6",
+      "type": "mcq_single",
+      "question": "La différence salariale entre hommes et femmes et de plus de 30%.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai / Faux"
+        }
+      ],
+      "correct": [
+        "F"
+      ],
+      "explanation": "**La différence salariale entre hommes et femmes et de plus de 30%.**\n\n- Vrai / Faux\n\nEn moyenne, une différence salariale de 19,5% environ est observée entre les hommes et les femmes.\n\n---"
+    },
+    {
+      "id": "c7",
+      "type": "mcq_single",
+      "question": "Les femmes ont en moyenne une estime de soi général moins élevée que les hommes et ceci peut expliquer pourquoi une femme à qualification égale avec un homme arrive moins bien à se vendre pour un poste à responsabilité pour un poste à responsabilité.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai / Faux"
+        }
+      ],
+      "correct": [
+        "V"
+      ],
+      "explanation": "**Les femmes ont en moyenne une estime de soi général moins élevée que les hommes et ceci peut expliquer pourquoi une femme à qualification égale avec un homme arrive moins bien à se vendre pour un poste à responsabilité pour un poste à responsabilité.**\n\n- Vrai / Faux\n\nIl s'avère que les femmes en moyenne, et selon le domaine, ont tendance à avoir une estime de soi moins élevée qu'un homme. Ce qui peut avoir des répercussions sur ses compétences en négociation. Une femme pourrait moins bien se valoriser et négocier son salaire au cours d'un entretien d'embauche, ce qui expliquerait cet écart salarial. Cependant, l'on a aussi vu que cette différence de genre diminue fortement si : la femme possède de l'expérience dans la négociation, connait la fourchette de négociation et si elle négocie pour les autres.\n\n---"
+    },
+    {
+      "id": "c8",
+      "type": "mcq_single",
+      "question": "La recherche n'a démontré aucune différence d'efficacité entre les hommes et les femmes en terme de leadership.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai / Faux"
+        }
+      ],
+      "correct": [
+        "V"
+      ],
+      "explanation": "**La recherche n'a démontré aucune différence d'efficacité entre les hommes et les femmes en terme de leadership.**\n\n- Vrai / Faux\n\nVRAI\n\n---"
+    },
+    {
+      "id": "c9",
+      "type": "mcq_single",
+      "question": "Les hommes ont tendance à utiliser davantage le leadership transformationnel que les femmes et les femmes utilisent davantage les récompenses contingentes, une composante du leadership transactionnel.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai / Faux"
+        }
+      ],
+      "correct": [
+        "F"
+      ],
+      "explanation": "**Les hommes ont tendance à utiliser davantage le leadership transformationnel que les femmes et les femmes utilisent davantage les récompenses contingentes, une composante du leadership transactionnel.**\n\n- Vrai / Faux\n\nC'est l'inverse. Les femmes ont tendance à utiliser davantage le leadership transformationnel que les hommes et les hommes utilisent davantage les récompenses contingentes, une composante du leadership transactionnel.\n\n---"
+    },
+    {
+      "id": "c10",
+      "type": "mcq_single",
+      "question": "Etant donné que les femmes occupent dorénavant de plus en plus de postes associés à des stéréotypes masculins, elles sont de plus en plus perçues comme faisant preuve d'agentivité avec le temps.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai / Faux"
+        }
+      ],
+      "correct": [
+        "F"
+      ],
+      "explanation": "**Etant donné que les femmes occupent dorénavant de plus en plus de postes associés à des stéréotypes masculins, elles sont de plus en plus perçues comme faisant preuve d'agentivité avec le temps.**\n\n- Vrai / Faux\n\nLes chiffres ne montrent pas que les femmes sont perçues comme démontrant plus d'agentivité qu'auparavant."
+    }
+  ]
+}

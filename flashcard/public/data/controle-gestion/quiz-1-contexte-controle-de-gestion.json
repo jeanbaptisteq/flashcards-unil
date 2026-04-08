@@ -1,0 +1,485 @@
+{
+  "id": "quiz-1-contexte-controle-gestion",
+  "course": "controle-gestion",
+  "lesson": "Quiz 1 — Contexte du contrôle de gestion",
+  "cards": [
+    {
+      "id": "c1",
+      "type": "mcq_single",
+      "question": "Le contrôle de gestion est une discipline qui aide les organisations à mettre en œuvre une stratégie définie, voire à en faire émerger une nouvelle.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": "Définition exacte du cours (slide 4)."
+    },
+    {
+      "id": "c2",
+      "type": "mcq_single",
+      "question": "Dans le processus PDCA, la phase \"Check\" précède la phase \"Plan\".",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": "Le PDCA commence par Plan → Do → Check → Act. Check est la 3e étape."
+    },
+    {
+      "id": "c3",
+      "type": "mcq_single",
+      "question": "Selon Simons (1999), les systèmes de contrôle diagnostics correspondent à la stratégie en tant que \"Position\".",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": "Les systèmes diagnostics = stratégie en tant que \"Plan\" (obtenir la réalisation du travail). \"Position\" correspond aux systèmes limitatifs."
+    },
+    {
+      "id": "c4",
+      "type": "mcq_single",
+      "question": "Les systèmes de contrôle de gestion sont des mécanismes internes de gouvernance.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": "Les SCG sont des mécanismes internes (à distinguer des mécanismes de marché, externes)."
+    },
+    {
+      "id": "c5",
+      "type": "mcq_single",
+      "question": "Le marché des prises de contrôle (OPA inamicales) est un mécanisme externe de gouvernance.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": "Le marché des prises de contrôle (reprises, OPA inamicales) est un mécanisme externe de gouvernance."
+    },
+    {
+      "id": "c6",
+      "type": "mcq_single",
+      "question": "Selon Kaplan & Norton, seulement 5 % du personnel comprend la stratégie de leur entreprise.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": "Obstacle de vision : seulement 5 % du personnel comprend la stratégie."
+    },
+    {
+      "id": "c7",
+      "type": "mcq_single",
+      "question": "La performance d'une entreprise est déterminée uniquement par son positionnement stratégique, indépendamment du secteur d'activité.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": "La performance dépend de deux déterminants : (1) attractivité du secteur et (2) positionnement stratégique."
+    },
+    {
+      "id": "c8",
+      "type": "mcq_single",
+      "question": "Les systèmes de calcul des coûts produisent de l'information utilisée à la fois pour la comptabilité financière et la comptabilité de gestion.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": "L'output des systèmes de calcul des coûts alimente les deux types de comptabilité."
+    },
+    {
+      "id": "c9",
+      "type": "mcq_single",
+      "question": "Le ROA (Return on Assets) est un indicateur de performance non-financier.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": "Le ROA est un indicateur financier. Les indicateurs non-financiers incluent le taux de retour, le délai d'attente, le taux d'absentéisme, etc."
+    },
+    {
+      "id": "c10",
+      "type": "mcq_single",
+      "question": "Selon Kaplan & Norton, 60 % des entreprises ne lient pas leurs budgets à leur stratégie.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": "Obstacle de ressources : 60 % des entreprises ne lient pas les budgets à la stratégie (Kaplan & Norton)."
+    },
+    {
+      "id": "c11",
+      "type": "mcq_single",
+      "question": "Laquelle des affirmations suivantes décrit correctement la phase \"Act\" du processus PDCA ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mesurer les résultats de la route choisie et les comparer aux résultats prévus"
+        },
+        {
+          "id": "B",
+          "text": "Identifier les objectifs et définir une feuille de route pour les atteindre"
+        },
+        {
+          "id": "C",
+          "text": "Maintenir la stratégie si les résultats sont acceptables ; sinon, la revoir et suivre une feuille de route alternative"
+        },
+        {
+          "id": "D",
+          "text": "Mettre en œuvre la feuille de route définie"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": "- A décrit Check (contrôler). - B décrit Plan (planifier). - D décrit Do (faire). - C est bien Act : on agit en maintenant ou en corrigeant la stratégie selon les résultats observés. ---"
+    },
+    {
+      "id": "c12",
+      "type": "mcq_single",
+      "question": "Selon Simons (1999), quel type de système de contrôle de gestion est associé à la stratégie en tant que \"Schémas en action\" (tester et apprendre) ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Systèmes de valeurs"
+        },
+        {
+          "id": "B",
+          "text": "Systèmes limitatifs"
+        },
+        {
+          "id": "C",
+          "text": "Systèmes de contrôle diagnostics"
+        },
+        {
+          "id": "D",
+          "text": "Systèmes interactifs de contrôle"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": "Correspondances (Simons 1999) : | Levier | Stratégie en tant que… | |---|---| | Systèmes de valeurs | Perspective | | Systèmes limitatifs | Position | | Systèmes diagnostics | Plan | | Systèmes interactifs | Schémas en action | ---"
+    },
+    {
+      "id": "c13",
+      "type": "mcq_single",
+      "question": "Selon Kaplan & Norton, quel obstacle à la mise en œuvre de la stratégie est illustré par le fait que 85 % des dirigeants passent moins d'une heure par mois à discuter de stratégie ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Obstacle de vision"
+        },
+        {
+          "id": "B",
+          "text": "Obstacle d'incitation"
+        },
+        {
+          "id": "C",
+          "text": "Obstacle de ressources"
+        },
+        {
+          "id": "D",
+          "text": "Obstacle de management"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": "Les 4 obstacles (Kaplan & Norton) : | Obstacle | Statistique | |---|---| | Vision | Seulement 5 % du personnel comprend la stratégie | | Incitation | Seulement 25 % des dirigeants ont des incitations liées à la stratégie | | Ressources | 60 % des entreprises ne lient pas les budgets à la stratégie | | Management | 85 % des dirigeants passent < 1h/mois à discuter de stratégie | ---"
+    },
+    {
+      "id": "c14",
+      "type": "mcq_single",
+      "question": "Laquelle des affirmations suivantes sur les systèmes de comptabilité de gestion (responsibility accounting systems) est correcte ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ils produisent des états financiers selon des normes comptables (IFRS, US-GAAP)"
+        },
+        {
+          "id": "B",
+          "text": "Ils génèrent des plans financiers / budgets et des rapports de suivi par centres de responsabilité"
+        },
+        {
+          "id": "C",
+          "text": "Leurs destinataires principaux sont les parties-prenantes externes à l'organisation"
+        },
+        {
+          "id": "D",
+          "text": "Ils ne contiennent exclusivement que des informations financières"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": "- A décrit les systèmes de comptabilité financière. - C est faux : les destinataires des systèmes de responsabilité sont internes (management, responsables d'unités). - D est faux : ils génèrent aussi de l'information non-financière. - B est correct : budgets, rapports de suivi, centres de responsabilité. ---"
+    },
+    {
+      "id": "c15",
+      "type": "mcq_single",
+      "question": "Parmi les éléments suivants, lequel est un mécanisme INTERNE de gouvernance ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le marché des capitaux"
+        },
+        {
+          "id": "B",
+          "text": "Le marché des produits et services"
+        },
+        {
+          "id": "C",
+          "text": "Le conseil d'administration"
+        },
+        {
+          "id": "D",
+          "text": "Le marché du travail"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": "Les mécanismes internes sont la chaîne hiérarchique : Propriétaires → Conseil d'administration → Direction générale → Responsables d'unités et collaborateurs. Les marchés (capitaux, travail, produits, prises de contrôle) sont des mécanismes externes. ---"
+    },
+    {
+      "id": "c16",
+      "type": "mcq_multi",
+      "question": "Lesquelles des affirmations suivantes sur les indicateurs de performance sont correctes ? (plusieurs réponses possibles)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le bénéfice résiduel (EVA) est un indicateur financier"
+        },
+        {
+          "id": "B",
+          "text": "Le taux d'absentéisme est un indicateur financier"
+        },
+        {
+          "id": "C",
+          "text": "L'émission de CO₂ peut être un indicateur de performance non-financier"
+        },
+        {
+          "id": "D",
+          "text": "Le ROE (Return on Equity) mesure le rendement des fonds propres"
+        }
+      ],
+      "correct": [
+        "A",
+        "C",
+        "D"
+      ],
+      "explanation": "- A : Vrai — EVA est un indicateur financier (bénéfice résiduel). - B : Faux — Le taux d'absentéisme est un indicateur non-financier. - C : Vrai — L'émission de CO₂ est un exemple d'indicateur non-financier (slide 38). - D : Vrai — ROE = rendement des fonds propres, indicateur financier. ---"
+    },
+    {
+      "id": "c17",
+      "type": "mcq_multi",
+      "question": "Le processus de contrôle de gestion repose sur une information qui doit être (plusieurs réponses possibles) :",
+      "options": [
+        {
+          "id": "A",
+          "text": "Complète"
+        },
+        {
+          "id": "B",
+          "text": "Uniquement financière"
+        },
+        {
+          "id": "C",
+          "text": "Objective"
+        },
+        {
+          "id": "D",
+          "text": "Disponible à temps"
+        }
+      ],
+      "correct": [
+        "A",
+        "C",
+        "D"
+      ],
+      "explanation": "Selon le cours (slide 30), le processus de CG repose sur une information complète, détaillée, objective et disponible à temps. Elle n'est pas uniquement financière — les systèmes de comptabilité de gestion génèrent aussi de l'information non-financière. ---"
+    },
+    {
+      "id": "c18",
+      "type": "mcq_single",
+      "question": "Les obstacles à la performance d'une organisation incluent des obstacles stratégiques, financiers, organisationnels et liés à l'économie.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": "Les 4 obstacles : (1) économie/domaines d'activité, (2) stratégiques, (3) financiers, (4) organisationnels et managériaux."
+    },
+    {
+      "id": "c19",
+      "type": "mcq_single",
+      "question": "La stratégie ne crée de la valeur que si elle est mise en œuvre.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": "Affirmation centrale du cours : \"La stratégie ne crée de la valeur que si elle est mise en œuvre.\""
+    },
+    {
+      "id": "c20",
+      "type": "mcq_single",
+      "question": "Les systèmes interactifs de contrôle servent à gérer les incertitudes stratégiques en testant et apprenant.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": "Les systèmes interactifs gèrent les incertitudes stratégiques (stratégie comme schémas en action : tester et apprendre)."
+    },
+    {
+      "id": "c21",
+      "type": "mcq_single",
+      "question": "Le processus de contrôle de gestion est statique : une fois planifié, il ne nécessite pas d'adaptation.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": "Le processus CG est continu et circulaire (PDCA) avec adaptation permanente."
+    },
+    {
+      "id": "c22",
+      "type": "mcq_single",
+      "question": "Lors de la phase de démarrage d'une entreprise (cycle de vie), la structure organisationnelle est généralement informelle.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": "Au démarrage, la structure est informelle ; elle se formalise au fil de la croissance (spécialisation fonctionnelle, centres de profit, structure par produit/région/client)."
+    }
+  ]
+}

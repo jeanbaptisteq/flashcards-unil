@@ -1,0 +1,179 @@
+{
+  "id": "seance-5-quiz",
+  "course": "gestion-operations",
+  "lesson": "Séance 5 — Quiz 5",
+  "cards": [
+    {
+      "id": "c1",
+      "type": "mcq_multi",
+      "question": "Question 1 — Vrai / Faux",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une taille de lot plus grande augmente generalement le niveau moyen de stock."
+        },
+        {
+          "id": "B",
+          "text": "Dans un systeme contraint par la demande, augmenter la taille de lot au niveau du goulot permet d'augmenter le debit global."
+        },
+        {
+          "id": "C",
+          "text": "L'EOQ minimise le cout total en equilibrant les couts de commande et les couts de stockage."
+        },
+        {
+          "id": "D",
+          "text": "Reduire la taille de lot permet generalement d'augmenter le debit d'un processus."
+        }
+      ],
+      "correct": [
+        "A",
+        "C"
+      ],
+      "explanation": "Une taille de lot plus grande augmente le stock moyen, mais n'augmente pas le débit d'un système contraint par la demande. L'EOQ vise à équilibrer coûts de commande et coûts de stockage."
+    },
+    {
+      "id": "c2",
+      "type": "numeric_input",
+      "question": "Question 2",
+      "correct": "0,04615",
+      "explanation": "Coût annuel de détention = 20 % × 12 = 2,4 CHF/kg/an. Coût hebdomadaire = 2,4 / 52 = 0,04615 CHF/kg/semaine.",
+      "prompt": "Demande hebdomadaire = 500 kg. Prix d'achat = 12 CHF/kg. Coût fixe de commande = 50 CHF.\nCoût de détention annuel = 20 % du prix d'achat. Une année = 52 semaines.\nQuelle est la valeur du coût de détention hebdomadaire par kilogramme ?",
+      "accepted": [
+        "0.04615"
+      ]
+    },
+    {
+      "id": "c3",
+      "type": "numeric_input",
+      "question": "Question 3",
+      "correct": "1040,876",
+      "explanation": "Q* = sqrt((2 × R × K) / h) = sqrt((2 × 500 × 50) / 0,04615) = 1040,876 kg.",
+      "prompt": "Demande hebdomadaire = 500 kg. Prix d'achat = 12 CHF/kg. Coût fixe de commande = 50 CHF.\nCoût de détention hebdomadaire = 0,04615 CHF/kg/semaine.\nQuelle est l'EOQ (en kilogrammes) ?",
+      "accepted": [
+        "1040.876"
+      ]
+    },
+    {
+      "id": "c4",
+      "type": "numeric_input",
+      "question": "Question 4",
+      "correct": "5747,143",
+      "explanation": "Coût total = coût d'achat + coûts d'inventaire + coûts d'installation = 5 747,143 CHF.",
+      "prompt": "En reprenant les données précédentes, le fournisseur offre une remise de 5 % si Louis et Nadine commandent 1 200 kg par commande.\nCalculez les coûts totaux hebdomadaires associés à cette nouvelle quantité de commande.",
+      "accepted": [
+        "5747.143"
+      ]
+    },
+    {
+      "id": "c5",
+      "type": "numeric_input",
+      "question": "Question 5",
+      "correct": "6048,036",
+      "explanation": "Coût total hebdomadaire à l'EOQ = 6 048,036 CHF.",
+      "prompt": "Quel est le coût total hebdomadaire à l'EOQ calculée précédemment ?",
+      "accepted": [
+        "6048.036"
+      ]
+    },
+    {
+      "id": "c6",
+      "type": "mcq_single",
+      "question": "Question 6 — Quelle quantité devraient-ils choisir ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "L'EOQ précédente (sans remise)"
+        },
+        {
+          "id": "B",
+          "text": "La nouvelle (avec remise)"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": "5747,143 CHF < 6048,036 CHF, donc la nouvelle option est plus profitable."
+    },
+    {
+      "id": "c7",
+      "type": "numeric_input",
+      "question": "Question 7",
+      "correct": "0,096",
+      "explanation": "Le coût d'inventaire et de commande unitaire à l'EOQ est 0,096 CHF/u.",
+      "prompt": "Quel est le coût total (commande + détention) par kilogramme à l'EOQ ?",
+      "accepted": [
+        "0.096"
+      ]
+    },
+    {
+      "id": "c8",
+      "type": "mcq_single",
+      "question": "Question 8",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le coût de stockage par unité."
+        },
+        {
+          "id": "B",
+          "text": "Le coût de stockage par unité et par unité de temps."
+        },
+        {
+          "id": "C",
+          "text": "Le coût de stockage par unité de temps."
+        },
+        {
+          "id": "D",
+          "text": "Le coût de stockage annuel."
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": "h correspond au coût de stockage par unité et par unité de temps."
+    },
+    {
+      "id": "c9",
+      "type": "mcq_multi",
+      "question": "Question 9",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le coût d'installation est pris en compte dans le calcul de l'EOQ."
+        },
+        {
+          "id": "B",
+          "text": "Le coût de setup K est un coût fixe par commande."
+        },
+        {
+          "id": "C",
+          "text": "Le coût d'installation par semaine diminue lorsque la taille du lot augmente."
+        },
+        {
+          "id": "D",
+          "text": "Le coût d'installation par semaine est proportionnel a la frequence des commandes."
+        },
+        {
+          "id": "E",
+          "text": "Le coût d'installation par commande depend de la taille du lot."
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "explanation": "Le coût d'installation est un coût fixe par commande et sa charge hebdomadaire varie avec la fréquence des commandes, donc inversement avec la taille du lot."
+    },
+    {
+      "id": "c10",
+      "type": "image_recall",
+      "question": "Question 10",
+      "image": "/data/gestion-operations/assets/capture_q10.png",
+      "answer": "Q : axe horizontal ; Q* : intersection des deux courbes ; Setup cost : courbe décroissante ; C(Q) : courbe en U ; Inventory costs : courbe croissante.",
+      "explanation": "Positionner Q sur l'axe horizontal, Q* à l'intersection des courbes de commande et de stockage, la courbe de setup décroissante, C(Q) en U et les coûts de stockage croissants.",
+      "prompt": "Placez les éléments suivants au bon endroit sur le graphique."
+    }
+  ]
+}

@@ -1,0 +1,460 @@
+{
+  "id": "quiz-2-couts-pour-decider",
+  "course": "controle-gestion",
+  "lesson": "Quiz 2 — Coûts pour décider",
+  "cards": [
+    {
+      "id": "c1",
+      "type": "mcq_single",
+      "question": "Un coût variable au total augmente proportionnellement en fonction du volume de production.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": "Définition : les coûts variables varient au total directement et proportionnellement aux changements de volume. Le coût variable unitaire, lui, reste constant."
+    },
+    {
+      "id": "c2",
+      "type": "mcq_single",
+      "question": "Un coût fixe unitaire reste constant quel que soit le volume de production.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": "Le coût fixe unitaire diminue quand le volume augmente (répartition des coûts fixes sur davantage d'unités → économies d'échelle)."
+    },
+    {
+      "id": "c3",
+      "type": "mcq_single",
+      "question": "Un coût semi-variable comprend à la fois une composante fixe et une composante variable.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": "Ex. : véhicule d'entreprise = part fixe (immatriculation, assurance) + part variable (carburant)."
+    },
+    {
+      "id": "c4",
+      "type": "mcq_single",
+      "question": "La distinction entre coûts variables et coûts fixes est indépendante de l'horizon temporel considéré.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": "L'horizon temporel influence la catégorisation : à long terme, beaucoup de coûts \"fixes\" deviennent variables."
+    },
+    {
+      "id": "c5",
+      "type": "mcq_single",
+      "question": "Les coûts variables peuvent être \"collants\" : ils n'augmentent pas toujours proportionnellement au volume.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": "Les coûts variables \"collants\" (*sticky costs*) : les coûts variables par unité tendent à augmenter lorsque le volume baisse et à baisser lorsque le volume augmente."
+    },
+    {
+      "id": "c6",
+      "type": "mcq_single",
+      "question": "Les coûts totaux sont la somme des coûts variables, des coûts fixes et des coûts semi-variables.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": "$CT = CF + (Q \\times CV_u) + \\text{partie fixe semi-variable} + (Q \\times \\text{partie variable semi-variable})$ — soit la somme des trois types."
+    },
+    {
+      "id": "c7",
+      "type": "mcq_single",
+      "question": "La relation linéaire entre coûts et volume est valable pour tous les niveaux de production imaginables.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": "La linéarité n'est valable que dans un intervalle de pertinence (*relevant range*). Hors de cet intervalle, les coûts peuvent être curvilignes ou en escalier."
+    },
+    {
+      "id": "c8",
+      "type": "mcq_single",
+      "question": "Les coûts fixes avec accroissement par palier sont une raison pour laquelle la distinction variable/fixe est souvent difficile.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": "Les coûts fixes avec paliers (ex. : licences logiciel par tranche d'utilisateurs) sont un cas typique de coûts semi-fixes."
+    },
+    {
+      "id": "c9",
+      "type": "mcq_single",
+      "question": "Un coût non-récupérable (*sunk cost*) doit être pris en compte dans un modèle de décision entre alternatives.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": "Les sunk costs sont des coûts passés, non modifiables par des décisions présentes ou futures → non pertinents. Les inclure dans une décision est une erreur cognitive classique."
+    },
+    {
+      "id": "c10",
+      "type": "mcq_single",
+      "question": "La pertinence d'un coût dépend du contexte de la décision, non de sa nature intrinsèque (fixe ou variable).",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": "Un coût fixe peut être pertinent s'il diffère entre alternatives (ex. : loyer évitable si on ferme un site)."
+    },
+    {
+      "id": "c11",
+      "type": "mcq_single",
+      "question": "Le coût d'opportunité est la valeur économique de la meilleure alternative à laquelle on renonce.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": "Définition exacte : coût d'opportunité = cash-flow de la deuxième meilleure alternative."
+    },
+    {
+      "id": "c12",
+      "type": "mcq_single",
+      "question": "La marge de contribution unitaire est égale au prix de vente moins le coût fixe unitaire.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": "$\\text{MC}_u = \\text{Prix de vente} - \\text{Coût variable unitaire}$. Les coûts fixes ne figurent pas dans la MCu."
+    },
+    {
+      "id": "c13",
+      "type": "mcq_single",
+      "question": "Du point de vue financier, la meilleure alternative est souvent celle qui génère la plus grande marge de contribution totale.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": "La marge de contribution totale mesure la contribution monétaire au résultat financier (après couverture des CF)."
+    },
+    {
+      "id": "c14",
+      "type": "mcq_single",
+      "question": "Les coûts/revenus identiques entre toutes les alternatives sont pertinents et doivent être pris en compte.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": "Les coûts/revenus identiques entre alternatives sont non pertinents : ils n'influencent pas le choix. Seul ce qui diffère importe."
+    },
+    {
+      "id": "c15",
+      "type": "mcq_single",
+      "question": "Dans une décision Make-or-Buy, les coûts fixes qui resteraient inchangés dans les deux cas ne sont pas pertinents.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vrai"
+        },
+        {
+          "id": "B",
+          "text": "Faux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": "Les coûts fixes non évitables restent les mêmes quelle que soit l'alternative → non pertinents pour la décision."
+    },
+    {
+      "id": "c16",
+      "type": "mcq_single",
+      "question": "Lequel des éléments suivants est un coût pertinent dans une décision entre deux alternatives ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le loyer d'une usine qui est le même quel que soit le volume produit ou acheté"
+        },
+        {
+          "id": "B",
+          "text": "Le salaire d'un directeur général dont le contrat est identique dans les deux alternatives"
+        },
+        {
+          "id": "C",
+          "text": "Le coût des matières premières qui diffère selon que l'on fabrique ou sous-traite"
+        },
+        {
+          "id": "D",
+          "text": "Un montant déjà payé à un consultant avant la prise de décision"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": "- A : loyer identique dans les deux cas → non pertinent. - B : salaire identique → non pertinent. - C : coût des matières qui diffère entre alternatives → pertinent. - D : paiement passé = sunk cost → non pertinent. ---"
+    },
+    {
+      "id": "c17",
+      "type": "mcq_single",
+      "question": "Laquelle des propositions suivantes définit correctement les économies d'échelle ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Les coûts unitaires moyens augmentent quand le volume de production augmente"
+        },
+        {
+          "id": "B",
+          "text": "Les coûts unitaires moyens baissent quand le volume de production augmente, en raison de l'indivisibilité des coûts fixes et de gains de productivité"
+        },
+        {
+          "id": "C",
+          "text": "Les coûts totaux restent constants quelle que soit la quantité produite"
+        },
+        {
+          "id": "D",
+          "text": "Les coûts variables unitaires augmentent en proportion du volume"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": "- A décrit les déséconomies d'échelle. - C décrit les coûts fixes au total. - D est une contradiction (les coûts variables unitaires sont constants par définition). - B est la définition exacte : les économies d'échelle résultent de la répartition des coûts fixes sur plus d'unités et des gains de productivité par spécialisation. ---"
+    },
+    {
+      "id": "c18",
+      "type": "mcq_single",
+      "question": "Dans le modèle coût-volume-bénéfice (CVB), le point-mort (*break-even point*) est défini comme :",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le volume auquel le bénéfice est maximal"
+        },
+        {
+          "id": "B",
+          "text": "Le volume auquel les revenus totaux égalent les coûts variables totaux"
+        },
+        {
+          "id": "C",
+          "text": "Le volume auquel les revenus totaux égalent les coûts totaux (bénéfice = 0)"
+        },
+        {
+          "id": "D",
+          "text": "Le volume optimal au sens des coûts marginaux"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": "Le point-mort est le volume $Q^*$ tel que : $$\\text{Revenus} = \\text{Coûts totaux}$$ $$P \\times Q^* = CF + CV_u \\times Q^*$$ $$Q^* = \\frac{CF}{P - CV_u} = \\frac{CF}{\\text{MC}_u}$$ En dessous : perte. Au-dessus : bénéfice. ---"
+    },
+    {
+      "id": "c19",
+      "type": "mcq_single",
+      "question": "Malea peut soit fabriquer 50 vestes polaires (revenus 5 000 €, coûts matières 1 000 €), soit travailler comme monitrice de ski (revenus 1 200 €). Si elle choisit de fabriquer les vestes, quel est son coût d'opportunité ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "5 000 €"
+        },
+        {
+          "id": "B",
+          "text": "4 000 €"
+        },
+        {
+          "id": "C",
+          "text": "1 200 €"
+        },
+        {
+          "id": "D",
+          "text": "1 000 €"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": "Le coût d'opportunité = cash-flow de la deuxième meilleure alternative (monitrice de ski) = 1 200 €. Analyse complète : | Fabrication vestes | Monitrice ski | |---|---| | Revenus : 5 000 € | Revenus : 1 200 € | | Coûts matières : −1 000 € | | | Profit : 4 000 € | Cash-flow : 1 200 € | Coût d'opportunité de l'alternative \"vestes\" = 1 200 € L'alternative vestes est meilleure de : $4 000 - 1 200 = \\boxed{2 800 €}$ ---"
+    },
+    {
+      "id": "c20",
+      "type": "numeric_input",
+      "question": "Question 5 — Point-mort",
+      "correct": "5000",
+      "explanation": "MCu = 0,15 CHF/unité. Point-mort = 750 / 0,15 = 5 000 unités. Coûts totaux pour 5 000 unités = 1 500 CHF.",
+      "prompt": "Une entreprise a les caractéristiques suivantes: - Coûts fixes totaux : CHF 750 - dont coût fixe pur : CHF 500 - dont part fixe du coût semi-variable : CHF 250 - Coût variable unitaire total : CHF 0.15/unité - dont coût variable pur : CHF 0.10 - dont part variable du coût semi-variable : CHF 0.05 - Prix de vente unitaire : CHF 0.30/unité Calculez le point-mort en unités.",
+      "accepted": [
+        "5 000"
+      ]
+    },
+    {
+      "id": "c21",
+      "type": "mcq_single",
+      "question": "Question 6 — Décision Make-or-Buy (cas Nordic)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Fabriquer (Make)"
+        },
+        {
+          "id": "B",
+          "text": "Acheter (Buy)"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": "Les coûts indirects fixes et le paiement du consultant sont non pertinents. Coût pertinent Make = 2,25 CHF/unité ; coût pertinent Buy = 2,00 CHF/unité ; avantage Buy = 2 500 CHF."
+    },
+    {
+      "id": "c22",
+      "type": "mcq_single",
+      "question": "Question 7 — Décision de fixation de prix (cas Altis)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Option 1 : prix CHF 6.50"
+        },
+        {
+          "id": "B",
+          "text": "Option 2 : prix CHF 5.00"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": "MCu option 1 = 3,00 CHF et résultat = 3 000 CHF. MCu option 2 = 1,50 CHF et résultat = 9 000 CHF. L'option 2 est préférable, avec un bénéfice supérieur de 6 000 CHF."
+    },
+    {
+      "id": "c23",
+      "type": "numeric_input",
+      "question": "Question 8 — Coûts totaux et modèle CVB",
+      "correct": "7500",
+      "explanation": "CT(Q) = 750 + 0,15Q. MCu = 0,10 CHF/unité. Point-mort = 7 500 unités. À 8 000 unités : bénéfice 50 CHF.",
+      "prompt": "- Coût fixe pur : CHF 500 - Part fixe du coût semi-variable : CHF 250 - Coût variable pur : CHF 0.10/unité - Part variable du coût semi-variable : CHF 0.05/unité - Prix de vente : CHF 0.25/unité Calculez le point-mort et le bénéfice à 8 000 unités.",
+      "accepted": [
+        "7 500"
+      ]
+    }
+  ]
+}

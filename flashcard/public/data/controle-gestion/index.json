@@ -13,6 +13,16 @@
       "id": "seance-2",
       "title": "Séance 2 — Coûts pour décider",
       "file": "seance-2.json"
+    },
+    {
+      "id": "quiz-1-contexte-controle-gestion",
+      "title": "Quiz 1 — Contexte du contrôle de gestion",
+      "file": "quiz-1-contexte-controle-de-gestion.json"
+    },
+    {
+      "id": "quiz-2-couts-pour-decider",
+      "title": "Quiz 2 — Coûts pour décider",
+      "file": "quiz-2-couts-pour-decider.json"
     }
   ]
 }
