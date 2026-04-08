@@ -386,9 +386,9 @@
   ],
   "sourcePdfs": [
     {
-      "title": "Markdown du quiz",
-      "path": "/data/leadership/assets/leadership_quiz.md",
-      "kind": "markdown"
+      "title": "PDF du quiz",
+      "path": "/data/leadership/assets/leadership_quiz_md.pdf",
+      "kind": "pdf"
     }
   ]
 }

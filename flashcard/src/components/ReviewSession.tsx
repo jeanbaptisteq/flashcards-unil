@@ -23,6 +23,7 @@ import CardDropdown from './CardDropdown'
 import CardNumericInput from './CardNumericInput'
 import NoteEditor from './NoteEditor'
 import CoursePdfPanel from './CoursePdfPanel'
+import { buildCourseSources, mergeCourseSources } from '../utils/courseSources'
 
 type Phase = 'question' | 'answer'
 
@@ -74,7 +75,8 @@ export default function ReviewSession({ courseId, deckId, onBack }: Props) {
   const [error, setError] = useState(false)
   const [examDate, setExamDate] = useState('')
   const [isArchived, setIsArchived] = useState(false)
-  const [sourcePdfs, setSourcePdfs] = useState<CoursePdfRef[]>([])
+  const [courseSourcePdfs, setCourseSourcePdfs] = useState<CoursePdfRef[]>([])
+  const [deckSourcePdfs, setDeckSourcePdfs] = useState<CoursePdfRef[]>([])
 
   useEffect(() => {
     const exam = getCourseExamSettings(courseId)
@@ -87,16 +89,10 @@ export default function ReviewSession({ courseId, deckId, onBack }: Props) {
         return r.json() as Promise<{ sourcePdf?: string | null; sourcePdfs?: CoursePdfRef[] }>
       })
       .then((index) => {
-        setSourcePdfs(
-          index.sourcePdfs?.length
-            ? index.sourcePdfs
-            : index.sourcePdf
-              ? [{ title: 'Source PDF du cours', path: index.sourcePdf }]
-              : [],
-        )
+        setCourseSourcePdfs(buildCourseSources(index))
       })
       .catch(() => {
-        setSourcePdfs([])
+        setCourseSourcePdfs([])
       })
 
     fetch(dataUrl(`/data/${courseId}/${deckId}.json`))
@@ -106,6 +102,7 @@ export default function ReviewSession({ courseId, deckId, onBack }: Props) {
       })
       .then((data) => {
         setDeck(data)
+        setDeckSourcePdfs(buildCourseSources(data))
         const today = todayLocal()
         const cards = [...data.cards]
 
@@ -162,6 +159,7 @@ export default function ReviewSession({ courseId, deckId, onBack }: Props) {
       .catch(() => {
         setError(true)
         setLoading(false)
+        setDeckSourcePdfs([])
       })
   }, [courseId, deckId])
 
@@ -332,11 +330,11 @@ export default function ReviewSession({ courseId, deckId, onBack }: Props) {
               <div className="progress-bar" style={{ width: `${progress}%` }} />
             </div>
           </div>
-          {sourcePdfs.length > 0 && (
+          {mergeCourseSources(deckSourcePdfs, courseSourcePdfs).length > 0 && (
             <div className="session-pdf-access">
               <CoursePdfPanel
                 title="PDF du cours"
-                pdfs={sourcePdfs}
+                pdfs={mergeCourseSources(deckSourcePdfs, courseSourcePdfs)}
                 sourceHint={deck?.lesson ?? deckId}
                 defaultExpanded={false}
                 compact={true}
