@@ -26,42 +26,42 @@
     },
     {
       "id": "leadership-quiz",
-      "title": "Leadership — Quiz",
+      "title": "1. Leadership — Quiz",
       "file": "leadership-quiz.json"
     },
     {
       "id": "leadership-styles-quiz",
-      "title": "Leadership — Styles de leadership",
+      "title": "2. Leadership Styles — Quiz",
       "file": "leadership-styles-quiz.json"
     },
     {
       "id": "perception-social-quiz",
-      "title": "Leadership — Social perceptions",
+      "title": "3. Social perceptions — Quiz",
       "file": "perception-social-quiz.json"
     },
     {
       "id": "self-leadership-quiz",
-      "title": "Leadership — Self leadership",
+      "title": "4. Self Leadership — Quiz",
       "file": "self-leadership-quiz.json"
     },
     {
       "id": "women-and-leadership-quiz",
-      "title": "Leadership — Women and leadership",
+      "title": "5. Women and Leadership — Quiz",
       "file": "women-and-leadership-quiz.json"
     },
     {
       "id": "quiz-stereotypes",
-      "title": "Leadership — Stereotypes",
+      "title": "7. Stereotypes — Quiz",
       "file": "quiz-stereotypes.json"
     },
     {
       "id": "charisme-quiz",
-      "title": "Leadership — Charisme",
+      "title": "8. Charisma — Quiz",
       "file": "charisme-quiz.json"
     },
     {
       "id": "persuasion-quiz",
-      "title": "Leadership — Persuasion",
+      "title": "9. Persuasion — Quiz",
       "file": "persuasion-quiz.json"
     }
   ]
