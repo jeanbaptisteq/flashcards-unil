@@ -9,6 +9,7 @@ import {
 import { getCardKey, isMastered, isScheduledDue, wasDifficultOnDate } from '../scheduler'
 import { dataUrl } from '../utils/paths'
 import { daysBetween, todayLocal } from '../utils/date'
+import { filterDuplicateDecks } from '../utils/decks'
 import CoursePdfPanel from './CoursePdfPanel'
 
 interface DeckStats {
@@ -66,6 +67,7 @@ export default function DeckListView({ courseId, onBack, onNavigateDeck }: Props
         return r.json() as Promise<CourseIndex>
       })
       .then(async (index) => {
+        const visibleDecks = filterDuplicateDecks(index.decks)
         setSourcePdfs(
           index.sourcePdfs?.length
             ? index.sourcePdfs
@@ -73,7 +75,7 @@ export default function DeckListView({ courseId, onBack, onNavigateDeck }: Props
               ? [{ title: 'Source PDF du cours', path: index.sourcePdf }]
               : [],
         )
-        setDecks(index.decks)
+        setDecks(visibleDecks)
 
         const statsMap: Record<string, DeckStats> = {}
         const nextAnalytics: CourseAnalytics = {
@@ -85,7 +87,7 @@ export default function DeckListView({ courseId, onBack, onNavigateDeck }: Props
         }
 
         await Promise.all(
-          index.decks.map(async (deck) => {
+          visibleDecks.map(async (deck) => {
             try {
               const dr = await fetch(dataUrl(`/data/${courseId}/${deck.file}`))
               if (!dr.ok) return

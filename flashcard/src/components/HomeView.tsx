@@ -4,6 +4,7 @@ import { getAllCourseExamSettings, getAllStates } from '../store'
 import { getCardKey, isScheduledDue, wasDifficultOnDate } from '../scheduler'
 import { dataUrl } from '../utils/paths'
 import { daysBetween, todayLocal } from '../utils/date'
+import { filterDuplicateDecks } from '../utils/decks'
 
 const COURSES = [
   { id: 'controle-gestion', name: 'Contrôle de gestion', color: '#2563eb' },
@@ -47,12 +48,13 @@ export default function HomeView({ onNavigateCourse }: Props) {
             }
           }
           const index: CourseIndex = await res.json()
+          const visibleDecks = filterDuplicateDecks(index.decks)
 
           let totalCards = 0
           let dueCards = 0
 
           await Promise.all(
-            index.decks.map(async (deck) => {
+            visibleDecks.map(async (deck) => {
               try {
                 const dr = await fetch(dataUrl(`/data/${course.id}/${deck.file}`))
                 if (!dr.ok) return
@@ -73,7 +75,7 @@ export default function HomeView({ onNavigateCourse }: Props) {
 
           return {
             id: course.id,
-            stats: { totalDecks: index.decks.length, totalCards, dueCards, archived, examDate },
+            stats: { totalDecks: visibleDecks.length, totalCards, dueCards, archived, examDate },
           }
         } catch {
           return {
