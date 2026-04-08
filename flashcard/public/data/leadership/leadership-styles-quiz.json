@@ -6,7 +6,7 @@
     {
       "id": "c1",
       "type": "mcq_single",
-      "question": "A quel comportement de leadership fait référence l'assertion suivante:",
+      "question": "A quel comportement de leadership fait référence l'assertion suivante: \"Le·la leader n'agit que lorsque les choses se dégradent.\"",
       "options": [
         {
           "id": "A",
@@ -49,7 +49,7 @@
     {
       "id": "c2",
       "type": "mcq_single",
-      "question": "A quel comportement de leadership fait référence l'assertion suivante:",
+      "question": "A quel comportement de leadership fait référence l'assertion suivante: \"Le·la leader insuffle de la fierté d'être associé à elle/lui chez les membres de l'équipe\"",
       "options": [
         {
           "id": "A",
@@ -92,7 +92,7 @@
     {
       "id": "c3",
       "type": "mcq_single",
-      "question": "A quel comportement de leadership fait référence l'assertion suivante:",
+      "question": "A quel comportement de leadership fait référence l'assertion suivante: \"Le·la leader aide les autres à développer leurs points forts.\"",
       "options": [
         {
           "id": "A",
@@ -135,7 +135,7 @@
     {
       "id": "c4",
       "type": "mcq_single",
-      "question": "A quel comportement de leadership fait référence l'assertion suivante:",
+      "question": "A quel comportement de leadership fait référence l'assertion suivante: \"Le·la leader contrôle activement le travail des membres de son équipe pour identifier des erreurs.\"",
       "options": [
         {
           "id": "A",
@@ -178,7 +178,7 @@
     {
       "id": "c5",
       "type": "mcq_single",
-      "question": "A quel comportement de leadership fait référence l'assertion suivante:",
+      "question": "A quel comportement de leadership fait référence l'assertion suivante: \"Le·la leader exprime sa satisfaction quand je réponds à ses attentes.\"",
       "options": [
         {
           "id": "A",
@@ -221,7 +221,7 @@
     {
       "id": "c6",
       "type": "mcq_single",
-      "question": "A quel comportement de leadership fait référence l'assertion suivante:",
+      "question": "A quel comportement de leadership fait référence l'assertion suivante: \"Le·la leader tient compte des implications éthiques et morales des décisions prises.\"",
       "options": [
         {
           "id": "A",
@@ -264,7 +264,7 @@
     {
       "id": "c7",
       "type": "mcq_single",
-      "question": "A quel comportement de leadership fait référence l'assertion suivante:",
+      "question": "A quel comportement de leadership fait référence l'assertion suivante: \"La personne en position de leadership propose de nouvelles perspectives quant à la manière d'accomplir les tâches.\"",
       "options": [
         {
           "id": "A",
@@ -307,7 +307,7 @@
     {
       "id": "c8",
       "type": "mcq_single",
-      "question": "A quel comportement de leadership fait référence l'assertion suivante:",
+      "question": "A quel comportement de leadership fait référence l'assertion suivante: \"Le·la leader considère que les membres de l'équipe ont chacun des besoins, des aptitudes et des aspirations différentes.\"",
       "options": [
         {
           "id": "A",
@@ -350,7 +350,7 @@
     {
       "id": "c9",
       "type": "mcq_single",
-      "question": "A quel comportement de leadership fait référence l'assertion suivante:",
+      "question": "A quel comportement de leadership fait référence l'assertion suivante: \"Le·la leader parle avec enthousiasme de ce qui doit être accompli.\"",
       "options": [
         {
           "id": "A",
@@ -393,7 +393,7 @@
     {
       "id": "c10",
       "type": "mcq_single",
-      "question": "A quel comportement de leadership fait référence l'assertion suivante:",
+      "question": "A quel comportement de leadership fait référence l'assertion suivante: \"Le·la leader évite de prendre des décisions.\"",
       "options": [
         {
           "id": "A",
