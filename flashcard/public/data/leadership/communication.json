@@ -510,9 +510,9 @@
   ],
   "sourcePdfs": [
     {
-      "title": "Markdown du cours",
-      "path": "/data/leadership/assets/leadership.md",
-      "kind": "markdown"
+      "title": "PDF du cours",
+      "path": "/data/leadership/assets/leadership.pdf",
+      "kind": "pdf"
     }
   ]
 }

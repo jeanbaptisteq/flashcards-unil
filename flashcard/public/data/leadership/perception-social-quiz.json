@@ -156,9 +156,9 @@
   ],
   "sourcePdfs": [
     {
-      "title": "Markdown du quiz",
-      "path": "/data/leadership/assets/perception_social_quiz.md",
-      "kind": "markdown"
+      "title": "PDF du cours",
+      "path": "/data/leadership/assets/perception_sociale.pdf",
+      "kind": "pdf"
     }
   ]
 }

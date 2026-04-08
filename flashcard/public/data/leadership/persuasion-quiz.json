@@ -394,9 +394,9 @@
   ],
   "sourcePdfs": [
     {
-      "title": "Markdown du quiz",
-      "path": "/data/leadership/assets/persuasion_quiz.md",
-      "kind": "markdown"
+      "title": "PDF du cours",
+      "path": "/data/leadership/assets/persuasion.pdf",
+      "kind": "pdf"
     }
   ]
 }

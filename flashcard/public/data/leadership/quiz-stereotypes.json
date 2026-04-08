@@ -519,9 +519,9 @@
   ],
   "sourcePdfs": [
     {
-      "title": "Markdown du quiz",
-      "path": "/data/leadership/assets/quiz_stereotypes.md",
-      "kind": "markdown"
+      "title": "PDF du cours",
+      "path": "/data/leadership/assets/cours_stereotypes.pdf",
+      "kind": "pdf"
     }
   ]
 }
